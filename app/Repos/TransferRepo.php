@@ -39,7 +39,8 @@ class TransferRepo {
             //'deduct_amount' => $request->amount,
             'account_id' => $account_id,
             'percentage' => $request->percentage,
-            'duration' => $request->duration
+            'duration' => $request->duration,
+            'withdraw_date' =>  $request->withdraw_date
 
         ]);
     }
@@ -83,7 +84,9 @@ class TransferRepo {
 
             'deduct_amount' => $request->amount,
             'percentage'         => $request->percentage,
-            'duration'           => $request->duration
+            'duration'           => $request->duration,
+            'withdraw_date' =>  $request->withdraw_date
+
 
         ]);
     }

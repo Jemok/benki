@@ -26,7 +26,9 @@ class TransferCurrentToSavingsRequest extends Request
         return [
             //'amount' => 'required|numeric',
             'percentage'  => 'required|numeric',
-            'duration'    => 'required|numeric'
+            'duration'    => 'required|numeric',
+            'withdraw_date' => 'required|date'
+
         ];
     }
 }

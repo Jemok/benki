@@ -13,8 +13,14 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
+
         Commands\Inspire::class,
-        Commands\DeductSaving::class
+        Commands\DeductSaving::class,
+        Commands\DeductSavingWeekly::class,
+        Commands\DeductSavingMonthly::class,
+        Commands\ManageFixed::class
+
+
     ];
 
     /**
@@ -28,6 +34,12 @@ class Kernel extends ConsoleKernel
         $schedule->command('inspire')
                  ->hourly();
 
-        $schedule->command('deduct:saving')->dailyAt('14:29');
+        $schedule->command('deduct:saving')->daily();
+
+        $schedule->command('deduct:savingWeekly')->weekly();
+
+        $schedule->command('deduct:savingMonthly')->monthly();
+
+        $schedule->command('ManageFixed')->everyMinute();
     }
 }

@@ -9,6 +9,7 @@
 namespace App\Repos;
 use App\Account;
 use App\Account_amount;
+use App\AccountContribution;
 use App\User;
 
 
@@ -48,11 +49,29 @@ class AccountAmountRepo {
 
         $account_amount = $this->model->where('account_id', $account->id)->first();
 
+        $user_current_account = \Auth::user()->current_account()->first()->account_amount;
+
         $account_amount->update([
 
             'amount' => ($account_amount->amount) + $amount
 
         ]);
+
+        \Auth::user()->current_account()->update([
+
+            'account_amount' => ($user_current_account - $amount)
+
+        ]);
+
+        AccountContribution::create([
+
+            'account_id' => $account->id,
+            'user_id'    => \Auth::user()->id,
+            'amount'     => $amount
+
+        ]);
+
+
     }
 
     /**

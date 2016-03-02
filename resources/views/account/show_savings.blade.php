@@ -36,6 +36,12 @@
 
                        @endif
 
+                       until {{$saving->withdraw_date}}
+
+                    </h4>
+
+                    <h4>
+                        Savings Account has Kshs: {{$saving->transaction_amount}}
                     </h4>
 
                         @include('account.partials.savings_account_update_form')

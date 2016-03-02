@@ -44,6 +44,12 @@ class UserRepo{
 
     }
 
+    public function allExceptAdmin(){
+
+        return $this->model->where('userCategory', '=', 0)->where('id', '!=', \Auth::user()->id)->get();
+
+    }
+
 
 
 } 

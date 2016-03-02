@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\AccountRequest;
 use App\Http\Requests;
 use App\Repos\AccountRepo;
 use App\Repos\AccountUserRepo;
+use App\Repos\UserRepo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Repos\AccountTypeRepo;
 use App\Account;
+use App\AccountRate;
 
 class HomeController extends Controller
 {
@@ -17,16 +20,36 @@ class HomeController extends Controller
      * @param AccountUserRepo $accountUserRepo
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(AccountTypeRepo $accountTypeRepo, AccountUserRepo $accountUserRepo)
+    public function index(AccountTypeRepo $accountTypeRepo, AccountUserRepo $accountUserRepo, AccountRepo $accountRepo, UserRepo $userRepo)
     {
         if(Auth::check()){
-            $accounts_type = $accountTypeRepo->all();
 
-            $user_accounts = $accountUserRepo->showForUser(Auth::user());
 
-            $account_class = new Account();
+            if(Auth::user()->isAdmin()){
 
-            return view('dashboard.index', compact('accounts_type', 'user_accounts', 'account_class'));
+                $rates = AccountRate::where('id', '=', 1)->first();
+
+                return view('user.admin', compact('rates'));
+
+            }else{
+
+                $accounts_type = $accountTypeRepo->all();
+
+                $user_accounts = $accountUserRepo->showForUser(Auth::user());
+
+                $all_accounts = $accountRepo->all();
+
+                $account_class = new Account();
+
+                $request_class = new AccountRequest();
+
+                $users = $userRepo->allExceptAdmin();
+
+                return view('dashboard.index', compact('users','accounts_type', 'user_accounts', 'account_class','all_accounts', 'request_class'));
+
+            }
+
+
         }
         return view('auth.login');
     }

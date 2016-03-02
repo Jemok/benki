@@ -7,12 +7,12 @@
 
         <select class="form-control" name="email">
 
-            @if($users->count())
+            @if($users != null)
             @foreach($users as $user)
             <option value="{{$user->email}}">{{ $user->name }} {{ $user->email }}</option>
             @endforeach
             @else
-            <option>No user around</option>
+            <option>No requests around</option>
             @endif
 
         </select>
@@ -22,7 +22,7 @@
                     </span>
         @endif
     </div>
-    @if(!$users->count() == 0)
+    @if(!$users == null)
     <button type="submit" class="btn btn-default">Add</button>
     @endif
 </form>

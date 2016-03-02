@@ -7,10 +7,12 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 
+        @if($class_model->checkIfMember(\Auth::user()->id) == true)
+
             @if($account->user_id == \Auth::user()->id)
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">Admin Panel</div>
+                    <div class="panel-heading">Admin Panel <a href="{{ route('deleteAccount', [$account_id])}}" class="btn btn-warning col-md-offset-8">Delete Account</a></div>
 
                     <div class="panel-body">
 
@@ -93,30 +95,97 @@
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation"  class="active"><a href="#deposit" aria-controls="deposit" role="tab" data-toggle="tab">Deposit</a></li>
                             <li role="presentation"><a href="#withdraw" aria-controls="withdraw" role="tab" data-toggle="tab">Withdraw</a></li>
-                            <li role="presentation"><a href="#withdrawRequests" aria-controls="withdrawRequests" role="tab" data-toggle="tab">Withdraw Requests</a></li>
+                            <li role="presentation"><a href="#withdrawRequests" aria-controls="withdrawRequests" role="tab" data-toggle="tab">Withdraw Requests <span>{{$info}}</span> </a></li>
                         </ul>
 
                         <div role="tabpanel" class="tab-pane active" id="deposit">
 
+                            @if(\Auth::user()->current_account()->first()->account_amount <= 0)
 
-                            @include('account.partials.deposit_form')
+                                <div style="margin-top: 5%;" class="alert alert-info">You cannot deposit in this chama account since your current account is very low</div>
 
+                            @else
+
+                                @include('account.partials.deposit_form')
+
+                            @endif
                         </div>
 
                         <div role="tabpanel" class="tab-pane" id="withdraw">
 
+                            @if(\Auth::user()->current_account()->first()->account_amount <= 0)
 
-                            @include('account.partials.withdraw_form')
+                             <div style="margin-top: 5%;" class="alert alert-info">You cannot withdraw from this chama account since your current account is very low</div>
+
+                            @else
+
+                             @include('account.partials.withdraw_form')
+
+                            @endif
 
                         </div>
 
                         <div role="tabpanel" class="tab-pane" id="withdrawRequests">
 
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <td>Requester</td>
+                                    <td>Request Amount</td>
+                                </tr>
+                                </thead>
+
+                                @if($withdraw_requests->count())
+
+                                   @foreach($withdraw_requests as $withdraw_request)
+                                        <tr>
+                                            <td><a href="{{ route('getConfirmation', [$withdraw_request->id]) }}"> {{$withdraw_request->user()->first()->name}}</a></td>
+                                            <td>{{$withdraw_request->request_amount}}</td>
+
+                                            <td>
+
+                                                @if($answer_class->check($account_id, \Auth::user()->id) == null)
+                                                    <form method="post" action="{{route('setConfirm', [$account_id, $withdraw_request->id])}}">
+
+                                                        {{ csrf_field() }}
+
+                                                        <button type="submit" class="btn btn-info">Confirm</button>
+                                                    </form>
+                                                @else
+                                                    <button class="btn btn-success disabled">Confirmed</button>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+                                @else
+
+                                    No withdraw requests here
+
+                                @endif
+                            </table>
+
                         </div>
-
-
                     </div>
         </div>
     </div>
+    @else
+            <div class="panel panel-default">
+                <div class="panel-heading">Actions</div>
+
+                <div class="panel-body">
+
+                    @if($confirmation_status == 0)
+
+                     <div class="alert alert-info">Your request is being processed, we will let you know when its confirmed</div>
+
+                    @elseif($confirmation_status == 2)
+
+                    @include('account.partials.send_request_form')
+
+                    @endif
+                </div>
+            </div>
+    @endif
 </div>
 @endsection

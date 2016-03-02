@@ -18,6 +18,7 @@ class CreateAccountsTableMigration extends Migration
             $table->text('account_description');
             $table->integer('account_type_id')->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->integer('account_status')->unsigned();
             $table->timestamps();
 
             $table->foreign('account_type_id')

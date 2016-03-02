@@ -2,17 +2,23 @@
 
 namespace App\Http\Controllers\Account;
 
+use App\Account;
 use App\Account_amount;
+use App\Account_user;
 use App\Current_account;
 use App\Repos\AccountAmountRepo;
+use App\Repos\AccountRequestRepo;
 use App\Repos\AccountTypeRepo;
 use App\Repos\CurrentAccountRepo;
+use App\Repos\RequestAnswerRepo;
 use App\Repos\TransferRepo;
 use App\Repos\UserRepo;
 use App\Repos\WithdrawRequestRepo;
 use App\User;
+use App\WithdrawRequestAnswer;
 use Faker\Provider\zh_TW\DateTime;
 use Illuminate\Http\Request;
+use App\Http\Requests\RatesRequest;
 use Validator;
 
 use App\Http\Requests;
@@ -20,6 +26,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateAccountRequest;
 use App\Http\Requests\TransferCurrentToFixedRequest;
 use App\Http\Requests\TransferCurrentToSavingsRequest;
+use App\Http\Requests\DepositAccountRequest;
+use App\Http\Requests\WithdrawAccountRequest;
+use App\Http\Requests\SearchAccountRequest;
 
 use App\Repos\AccountRepo;
 use Illuminate\Support\Facades\Auth;
@@ -59,16 +68,40 @@ class AccountController extends Controller
      * @param $account_id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show(AccountUserRepo $accountUserRepo, AccountRepo $accountRepo, $account_id){
-
-
+    public function show(AccountUserRepo $accountUserRepo, AccountRepo $accountRepo, $account_id, AccountRequestRepo $accountRequestRepo, WithdrawRequestRepo $withdrawRequestRepo, RequestAnswerRepo $requestAnswerRepo){
         $account = $accountRepo->show($account_id);
 
         $users_in= $accountUserRepo->getMembersInAccount($account_id);
 
-        $users = $accountUserRepo->getMembersNotInAccount($account_id);
+        $users = $accountRequestRepo->getRequestsForAccount($account_id);
 
-        return view('account.show', compact('account', 'users', 'users_in', 'account_id'));
+        $confirmation_status = $accountRequestRepo->getConfirmationStatus(Auth::user()->id, $account_id);
+
+        $withdraw_requests = $withdrawRequestRepo->getRequests($account_id);
+
+        $class_model = new Account_user();
+
+        $answer_class = new WithdrawRequestAnswer();
+
+        $users_in_account_count = $accountUserRepo->getMembersInAccount($account_id)->count();
+
+        $id = $withdrawRequestRepo->getLatestForUser($account_id, \Auth::user()->id);
+
+        $request_answers_count = $requestAnswerRepo->countAnswers($id);
+
+        if($users_in_account_count < $request_answers_count){
+
+            $info = "Some users have not yet confirmed your request";
+
+        }elseif($users_in_account_count > $request_answers_count){
+
+            $info = "";
+        }else{
+
+            $info = "";
+        }
+
+        return view('account.show', compact('answer_class','account', 'users', 'users_in', 'account_id', 'class_model', 'confirmation_status', 'withdraw_requests', 'info'));
 
     }
 
@@ -119,10 +152,10 @@ class AccountController extends Controller
         return redirect('accounts/'.$account_id.'/users');
     }
 
-    public function deposit(AccountRepo $accountRepo, Request $request, AccountAmountRepo $accountAmountRepo, $account_id){
+    public function deposit(AccountRepo $accountRepo, DepositAccountRequest $depositAccountRequest , AccountAmountRepo $accountAmountRepo, $account_id){
 
 
-        $validator = Validator::make($request->all(), [
+        $validator = Validator::make($depositAccountRequest->all(), [
             'amount' => 'required|numeric',
         ]);
 
@@ -136,7 +169,8 @@ class AccountController extends Controller
 
         $account = $accountRepo->show($account_id);
 
-        $accountAmountRepo->deposit($account, $request->amount);
+        $accountAmountRepo->deposit($account, $depositAccountRequest->amount);
+
 
         Session::flash('flash_message', 'Your deposit was successful');
 
@@ -162,15 +196,19 @@ class AccountController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param WithdrawAccountRequest $withdrawAccountRequest
      * @param $account_id
      * @param WithdrawRequestRepo $withdrawRequestRepo
+     * @param AccountAmountRepo $accountAmountRepo
      * @return $this|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function withdrawRequest(Request $request, $account_id, WithdrawRequestRepo $withdrawRequestRepo){
+    public function withdrawRequest(WithdrawAccountRequest $withdrawAccountRequest, $account_id, WithdrawRequestRepo $withdrawRequestRepo, AccountAmountRepo $accountAmountRepo){
 
-        $validator = Validator::make($request->all(), [
-            'request_amount' => 'required|numeric',
+
+        $account_amount = $accountAmountRepo->getAmount($account_id);
+
+        $validator = Validator::make($withdrawAccountRequest->all(), [
+            'request_amount' => 'required|numeric|max:'.$account_amount,
         ]);
 
         if ($validator->fails()) {
@@ -179,7 +217,7 @@ class AccountController extends Controller
                 ->withInput();
         }
 
-        $withdrawRequestRepo->store($account_id, \Auth::user()->id, $request->request_amount);
+        $withdrawRequestRepo->store($account_id, \Auth::user()->id, $withdrawAccountRequest->request_amount);
 
         Session::flash('flash_message', 'Your request was sent successfully, withdrawal will occur automatically if approved by all members ');
 
@@ -262,4 +300,74 @@ class AccountController extends Controller
 
         return redirect()->back();
     }
+
+    public function updateRates(AccountRepo $accountRepo, RatesRequest $ratesRequest){
+
+        $accountRepo->updateRates($ratesRequest);
+
+        Session::flash('flash_message', 'Rates were updated successfully');
+
+        return redirect()->back();
+
+    }
+
+    public function getConfirmation(AccountRepo $accountRepo, $request_id){
+
+        $confirmations = $accountRepo->getConfirmation($request_id);
+
+        $userClass = new User();
+
+        return view('account.confirm', compact('confirmations', 'userClass'));
+    }
+
+    public function deleteAccount($account_id, AccountRepo $accountRepo){
+
+        $accountRepo->deleteAccount($account_id);
+
+        Session::flash('flash_message', 'The account was deleted successfully and every one refunded');
+
+        return redirect('/home');
+    }
+
+    public function searchAccount(SearchAccountRequest $searchAccountRequest, AccountUserRepo $accountUserRepo, AccountRepo $accountRepo, AccountRequestRepo $accountRequestRepo, WithdrawRequestRepo $withdrawRequestRepo, RequestAnswerRepo $requestAnswerRepo){
+
+        $account_id = $searchAccountRequest->search_account;
+
+        $account = $accountRepo->show($account_id);
+
+        $users_in= $accountUserRepo->getMembersInAccount($account_id);
+
+        $users = $accountRequestRepo->getRequestsForAccount($account_id);
+
+        $confirmation_status = $accountRequestRepo->getConfirmationStatus(Auth::user()->id, $account_id);
+
+        $withdraw_requests = $withdrawRequestRepo->getRequests($account_id);
+
+        $class_model = new Account_user();
+
+        $answer_class = new WithdrawRequestAnswer();
+
+        $users_in_account_count = $accountUserRepo->getMembersInAccount($account_id)->count();
+
+        $id = $withdrawRequestRepo->getLatestForUser($account_id, \Auth::user()->id);
+
+        $request_answers_count = $requestAnswerRepo->countAnswers($id);
+
+        if($users_in_account_count < $request_answers_count){
+
+            $info = "Some users have not yet confirmed your request";
+
+        }elseif($users_in_account_count > $request_answers_count){
+
+            $info = "";
+        }else{
+
+            $info = "";
+        }
+
+        return view('account.show', compact('answer_class','account', 'users', 'users_in', 'account_id', 'class_model', 'confirmation_status', 'withdraw_requests', 'info'));
+
+
+    }
+
 }

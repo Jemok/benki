@@ -53,6 +53,22 @@ Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf']
        Route::post('/fixed/save', ['as' => 'depositFixed', 'uses' => 'Account\AccountController@depositFixed']);
        Route::post('/savings/save', ['as' => 'saveSavings', 'uses' => 'Account\AccountController@depositSavings']);
        Route::post('/{transaction_id}/savings/update', ['as' => 'updateSavings', 'uses' => 'Account\AccountController@updateSaving']);
+
+       Route::post('{account_id}/send/request', ['as' => 'sendRequest', 'uses' => 'Account\SendAccountRequestController@sendRequest']);
+
+       Route::post('{account_id}/{withdraw_request_id}/set', ['as' => 'setConfirm', 'uses' => 'Account\RequestAnswerController@store']);
+
+       Route::post('rates', ['as' => 'updateRates', 'uses' => 'Account\AccountController@updateRates']);
+
+       Route::get('/{request_id}/confirm', ['as' => 'getConfirmation', 'uses' => 'Account\AccountController@getConfirmation']);
+
+       Route::get('/{account_id}/delete', ['as' => 'deleteAccount', 'uses' => 'Account\AccountController@deleteAccount']);
+
+       Route::post('/search/account', ['as' => 'searchAccount', 'uses' => 'Account\AccountController@searchAccount']);
+
+       Route::post('/transfer/user', ['as' => 'transferToUser', 'uses' => 'Transfer\TransferController@store']);
+
+
     });
 
 });

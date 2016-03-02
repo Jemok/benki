@@ -55,12 +55,29 @@
 
         </div>
 
+        <div class="form-group {{ $errors->has('withdraw_date') ? ' has-error' : '' }}">
+
+            <label class="control-label col-md-4">Until</label>
+
+            <div class="col-md-6">
+
+                <input type="datetime-local" class="form-control" name="withdraw_date" value="{{$saving->withdraw_date}}" required="">
+
+                @if($errors->has('withdraw_date'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('withdraw_date') }}</strong>
+                    </span>
+                @endif
+
+            </div>
+        </div>
+
 
         <div class="form-group">
             <div class="form-group">
-                <div class="col-md-6 col-md-offset-5">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fa fa-btn fa-sign-in"></i>Update Your Savings Status
+                <div class="col-md-6 col-md-offset-4">
+                    <button type="submit" class="btn btn-primary" disabled>
+                        <i class="fa fa-btn fa-sign-in"></i>Yo have Kshs {{$saving->transaction_amount }} in your savings account
                     </button>
                 </div>
             </div>

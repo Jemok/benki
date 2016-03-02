@@ -42,19 +42,47 @@ class DeductSaving extends Command
 
         foreach($transactions as $transaction){
 
-            $current_account = $transaction->current_account()
-                                            ->first();
-            $current_account->update([
+            $current_account = $transaction->current_account()->where('id', '=', $transaction->account_id)->first();
 
-                'account_amount' => ($current_account->account_mount - (($transaction->percentage)/100)*$current_account->account_amount)
+            $account_amount =  $current_account->account_amount;
 
-            ]);
+            $amount = ($transaction->percentage/100)*$current_account->account_amount;
 
-            $transaction->update([
+            $transaction_amount = $transaction->transaction_amount;
 
-                'transaction_amount' =>  ($transaction->transaction_amount + (($transaction->percentage)/100)*$current_account->account_amount)
+            $withdraw_date = $transaction->withdraw_date;
 
-            ]);
+            $today = (new \Carbon\Carbon())->addHours(3);
+
+            if($withdraw_date == $today){
+
+                $current_account->update([
+
+                    'account_amount' => $account_amount + $transaction_amount
+                ]);
+
+                $transaction->update([
+
+                    'transaction_amount' => 0
+
+                ]);
+
+            }else{
+
+
+                $current_account->update([
+
+                    'account_amount' => $account_amount - $amount
+                ]);
+
+                $transaction->update([
+
+                    'transaction_amount' => $transaction_amount + $amount
+
+                ]);
+
+            }
+
         }
     }
 }

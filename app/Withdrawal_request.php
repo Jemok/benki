@@ -22,4 +22,26 @@ class Withdrawal_request extends Model
         'account_id'
 
     ];
+
+    /**
+     * User withdraw request relationship
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(){
+
+        return $this->belongsTo(User::class);
+
+    }
+
+    /**
+     * Withdraw request answer withdraw request relationship
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function answer(){
+
+        return $this->hasMany(WithdrawRequestAnswer::class, 'withdraw_request_id');
+
+    }
+
+
 }

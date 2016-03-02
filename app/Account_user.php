@@ -19,7 +19,8 @@ class Account_user extends Model
     protected $fillable = [
 
         'user_id',
-        'account_id'
+        'account_id',
+        'status'
 
     ];
 
@@ -39,6 +40,16 @@ class Account_user extends Model
 
         $this->belongsTo(Account::class, 'account_id');
 
+    }
+
+    public function checkIfMember($user_id){
+
+        if($this->where('user_id', $user_id)->first() == null){
+
+            return false;
+        }
+
+        return true;
     }
 
 }

@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'userCategory',
     ];
 
     /**
@@ -41,5 +41,23 @@ class User extends Authenticatable
 
         return $this->hasOne(Current_account::class);
 
+    }
+
+    public function isAdmin(){
+
+        if($this->userCategory == 1){
+
+            return true;
+        }
+    }
+
+    /**
+     * Return $this name from an id
+     * @param $user_id
+     * @return mixed
+     */
+    public function userName($user_id)
+    {
+        return $this->where('id', '=', $user_id)->first()->name;
     }
 }

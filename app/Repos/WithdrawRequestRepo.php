@@ -35,11 +35,42 @@ class WithdrawRequestRepo {
      */
     public function store($account_id, $user_id, $request_amount){
 
-        $this->model->create([
+        $request = $this->model->create([
             'account_id' =>  $account_id,
             'user_id'    => $user_id,
             'request_amount' => $request_amount
         ]);
+
+        $request->answer()->create([
+
+            'user_id' => $user_id,
+            'account_id' => $account_id
+
+        ]);
+    }
+
+    /**
+     * Get all withdrawal requests for an account
+     * @param $account_id
+     */
+    public function getRequests($account_id){
+
+        return $this->model
+             ->where('account_id', '=', $account_id)
+             ->get();
+    }
+
+    public function getLatestForUser($account_id){
+
+        if($this->model->where('account_id', $account_id)
+                           ->where('user_id', \Auth::user()->id)->first()
+                            != null){
+
+           return $this->model->where('account_id', $account_id)
+                ->where('user_id', \Auth::user()->id)
+                ->orderBy('created_at','desc')->first()->id;
+        }
+
     }
 
 } 

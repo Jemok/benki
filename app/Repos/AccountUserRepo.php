@@ -10,6 +10,7 @@ namespace App\Repos;
 use App\Account;
 use App\Account_user;
 use Illuminate\Foundation\Auth\User;
+use App\AccountRequest;
 
 
 class AccountUserRepo {
@@ -45,8 +46,38 @@ class AccountUserRepo {
 
         $this->model->create([
             'account_id' => $account->id,
-            'user_id'    => $user->id
+            'user_id'    => $user->id,
+            'status'     => 1
         ]);
+
+
+
+       $this->updateRequest($account, $user);
+    }
+
+    /**
+     * Set a request as having been confirmed
+     * @param $account
+     * @param $user
+     */
+    public function updateRequest($account, $user){
+
+       if(AccountRequest::where('account_id', '=', $account->id)
+                                  ->where('user_id', '=', $user->id)
+                                  ->first() != null){
+
+          $request = AccountRequest::where('account_id', '=', $account->id)
+               ->where('user_id', '=', $user->id)
+               ->first();
+
+           $request->update([
+
+               'confirmation_status' => 1
+
+           ]);
+
+       }
+
 
     }
 
@@ -59,6 +90,7 @@ class AccountUserRepo {
 
         return $user_accounts =$this->model
                ->where('user_id', $user->id)
+               ->where('status', '=', 1)
                ->get();
     }
 

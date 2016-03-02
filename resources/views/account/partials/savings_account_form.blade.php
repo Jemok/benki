@@ -56,6 +56,23 @@
             </div>
         </div>
 
+        <div class="form-group {{ $errors->has('withdraw_date') ? ' has-error' : '' }}">
+
+            <label class="control-label col-md-4">Until</label>
+
+            <div class="col-md-6">
+
+                <input type="date" class="form-control" name="withdraw_date" value="{{ old('withdraw_date')}}" required="">
+
+                @if($errors->has('withdraw_date'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('withdraw_date') }}</strong>
+                    </span>
+                @endif
+
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-6">

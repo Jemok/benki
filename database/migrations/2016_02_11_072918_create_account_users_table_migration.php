@@ -16,6 +16,7 @@ class CreateAccountUsersTableMigration extends Migration
             $table->increments('id');
             $table->integer('account_id')->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->integer('status');
             $table->timestamps();
 
             $table->foreign('account_id')

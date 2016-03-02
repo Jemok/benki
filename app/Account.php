@@ -13,7 +13,8 @@ class Account extends Model
     protected $fillable = [
         'account_name',
         'account_description',
-        'user_id'
+        'user_id',
+        'account_status'
     ];
 
     /**
@@ -38,4 +39,15 @@ class Account extends Model
         return $this->hasOne(Account_amount::class);
 
     }
+
+    /**
+     * Account Account_request relationship
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function request(){
+
+        return $this->hasMany(AccountRequest::class);
+    }
+
+
 }

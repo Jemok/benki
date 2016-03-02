@@ -23,30 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DeductSaving.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Console/Commands/DeductSaving.php">
+      <file leaf-file-name="DeductSavingWeekly.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Console/Commands/DeductSavingWeekly.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="14" selection-start="1361" selection-end="1361" vertical-scroll-proportion="1.100304" vertical-offset="646" max-vertical-offset="1188">
-              <folding>
-                <element signature="e#40#60#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TransferCurrentToSavingsRequest.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Requests/TransferCurrentToSavingsRequest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="615" selection-end="615" vertical-scroll-proportion="-9.851851" vertical-offset="310" max-vertical-offset="684">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="33" selection-start="3341" selection-end="3341" vertical-scroll-proportion="-0.33333334" vertical-offset="1431" max-vertical-offset="1836">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="19.62963" vertical-offset="530" max-vertical-offset="1656">
               <folding />
             </state>
           </provider>
@@ -55,65 +35,25 @@
       <file leaf-file-name="Kernel.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="24" selection-start="466" selection-end="466" vertical-scroll-proportion="-4.6666665" vertical-offset="270" max-vertical-offset="702">
-              <folding>
-                <element signature="e#31#74#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Inspire.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Console/Commands/Inspire.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="3.4814816" vertical-offset="94" max-vertical-offset="684">
+            <state line="3" column="0" selection-start="30" selection-end="30" vertical-scroll-proportion="-2.0" vertical-offset="0" max-vertical-offset="900">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="savings_account_form.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/account/partials/savings_account_form.blade.php">
+      <file leaf-file-name="DeductSavingMonthly.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Console/Commands/DeductSavingMonthly.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="6" selection-start="2447" selection-end="2447" vertical-scroll-proportion="-18.74074" vertical-offset="718" max-vertical-offset="1332">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show_savings.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/account/show_savings.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1008">
+            <state line="66" column="38" selection-start="1541" selection-end="1541" vertical-scroll-proportion="-8.0" vertical-offset="954" max-vertical-offset="1674">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="savings_account_update_form.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/account/partials/savings_account_update_form.blade.php">
+      <file leaf-file-name="UserRepo.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Repos/UserRepo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="11" selection-start="745" selection-end="745" vertical-scroll-proportion="3.3333333" vertical-offset="432" max-vertical-offset="1350">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TransferRepo.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Repos/TransferRepo.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="0" selection-start="719" selection-end="719" vertical-scroll-proportion="-5.6666665" vertical-offset="405" max-vertical-offset="1620">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Transaction.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Transaction.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="28" selection-start="246" selection-end="246" vertical-scroll-proportion="-0.0" vertical-offset="270" max-vertical-offset="792">
+            <state line="51" column="0" selection-start="855" selection-end="855" vertical-scroll-proportion="7.8644066" vertical-offset="364" max-vertical-offset="990">
               <folding />
             </state>
           </provider>
@@ -129,57 +69,57 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/Services/Validate.php" />
-        <option value="$PROJECT_DIR$/resources/views/account/auth.blade.php" />
-        <option value="$PROJECT_DIR$/app/Repos/UserRepo.php" />
-        <option value="$PROJECT_DIR$/resources/views/errors/503.blade.php" />
+        <option value="$PROJECT_DIR$/app/AccountRequest.php" />
+        <option value="$PROJECT_DIR$/app/Repos/AccountRequestRepo.php" />
         <option value="$PROJECT_DIR$/resources/views/account/partials/create_member_form.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/AddMemberRequest.php" />
-        <option value="$PROJECT_DIR$/app/Repos/AccountUserRepo.php" />
-        <option value="$PROJECT_DIR$/resources/views/account/users.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2016_02_12_113135_crate_account_amounts_migration_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/DepositAmountRequest.php" />
-        <option value="$PROJECT_DIR$/app/Account.php" />
-        <option value="$PROJECT_DIR$/app/Account_amount.php" />
-        <option value="$PROJECT_DIR$/app/Withdrawal_request.php" />
-        <option value="$PROJECT_DIR$/app/Repos/WithdrawRequestRepo.php" />
-        <option value="$PROJECT_DIR$/resources/views/flash/flash_message_with_error_request.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/account/amount.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/flash/flash_message_with_error.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/account/partials/withdraw_form.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2016_02_12_125923_create_withdraw_requests_migration_table.php" />
-        <option value="$PROJECT_DIR$/resources/views/account/show.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2016_02_17_065513_create_current_accounts_migration_table.php" />
-        <option value="$PROJECT_DIR$/app/User.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
-        <option value="$PROJECT_DIR$/resources/views/account/partials/create_account_form.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/CreateAccountRequest.php" />
-        <option value="$PROJECT_DIR$/resources/views/account/partials/deposit_current_form.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Repos/AccountRepo.php" />
-        <option value="$PROJECT_DIR$/resources/views/account/show_fixed.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/account/partials/deposit_form.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/TransferCurrentToFixedRequest.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2016_02_17_065852_create_curren_account_transactions_table_migration.php" />
-        <option value="$PROJECT_DIR$/app/Current_account_transactions.php" />
-        <option value="$PROJECT_DIR$/app/Account_transactions.php" />
-        <option value="$PROJECT_DIR$/resources/views/account/partials/fixed_account_form.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/app/Repos/CurrentAccountRepo.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Account/AccountController.php" />
-        <option value="$PROJECT_DIR$/app/Repos/AccountAmountRepo.php" />
-        <option value="$PROJECT_DIR$/app/Current_account.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2016_02_17_065852_create_account_transactions_table_migration.php" />
-        <option value="$PROJECT_DIR$/app/Transaction.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2016_02_25_123951_create_withdraw_request_answers_migration_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
+        <option value="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/app_two.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2016_02_25_131136_create_account_rates_migration_table.php" />
+        <option value="$PROJECT_DIR$/app/AccountRate.php" />
+        <option value="$PROJECT_DIR$/database/seeds/AccountRatesTableSeeder.php" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/resources/views/user/admin.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/user/partials/rates_form.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Account/RequestAnswerController.php" />
         <option value="$PROJECT_DIR$/resources/views/account/partials/savings_account_update_form.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/TransferCurrentToSavingsRequest.php" />
-        <option value="$PROJECT_DIR$/storage/logs/laravel.log" />
-        <option value="$PROJECT_DIR$/app/Repos/TransferRepo.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/WithdrawAccountRequest.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/TransferCurrentToFixedRequest.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/RatesRequest.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/DepositAmountRequest.php" />
+        <option value="$PROJECT_DIR$/app/Withdrawal_request.php" />
+        <option value="$PROJECT_DIR$/app/WithdrawRequestAnswer.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/DepositAccountRequest.php" />
+        <option value="$PROJECT_DIR$/app/User.php" />
+        <option value="$PROJECT_DIR$/resources/views/account/confirm.blade.php" />
+        <option value="$PROJECT_DIR$/app/Repos/WithdrawRequestRepo.php" />
+        <option value="$PROJECT_DIR$/app/Repos/RequestAnswerRepo.php" />
+        <option value="$PROJECT_DIR$/resources/views/account/show.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2016_03_01_125345_create_account_contributions_migration_table.php" />
+        <option value="$PROJECT_DIR$/app/AccountContribution.php" />
+        <option value="$PROJECT_DIR$/app/Repos/AccountAmountRepo.php" />
+        <option value="$PROJECT_DIR$/app/Account.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2016_02_10_172604_create_accounts_table_migration.php" />
+        <option value="$PROJECT_DIR$/app/Account_user.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2016_02_11_072918_create_account_users_table_migration.php" />
+        <option value="$PROJECT_DIR$/app/Repos/AccountUserRepo.php" />
+        <option value="$PROJECT_DIR$/app/Repos/AccountRepo.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2016_03_02_084057_create_transfers_table_migration.php" />
+        <option value="$PROJECT_DIR$/app/Transfer.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/TransferUserRequest.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/SearchAccountRequest.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Account/AccountController.php" />
+        <option value="$PROJECT_DIR$/resources/views/account/partials/transfer.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Transfer/TransferController.php" />
+        <option value="$PROJECT_DIR$/app/Repos/TransferUsersRepo.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/app/Console/Kernel.php" />
-        <option value="$PROJECT_DIR$/app/Console/Commands/DeductSaving.php" />
-        <option value="$PROJECT_DIR$/resources/views/account/show_savings.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/account/partials/savings_account_form.blade.php" />
+        <option value="$PROJECT_DIR$/app/Console/Commands/DeductSavingMonthly.php" />
+        <option value="$PROJECT_DIR$/app/Repos/UserRepo.php" />
       </list>
     </option>
   </component>
@@ -244,92 +184,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="storage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="logs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="account" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -348,117 +202,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Requests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Account" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Console" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="benki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Console" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Commands" />
+              <option name="myItemId" value="Repos" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -469,11 +213,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../bongo_three" />
-    <property name="SearchEverywhereHistory" value="route&#10;ro&#10;routes&#10;rou&#10;sho&#10;Acc&#10;Requ&#10;routes.php" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../contracts/cloud_ims" />
+    <property name="SearchEverywhereHistory" value="rout&#10;routes&#10;ro&#10;route&#10;rou&#10;sho&#10;Acc&#10;Requ&#10;routes.php" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/user/partials" />
+      <recent name="$PROJECT_DIR$/resources/views/layouts" />
       <recent name="$PROJECT_DIR$/resources/views/account/partials" />
       <recent name="$PROJECT_DIR$/resources/views/flash" />
     </key>
@@ -532,14 +278,14 @@
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31771246" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24861" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32618684" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.8269525" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -588,331 +334,348 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Account_user.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/account/partials/savings_account_update_form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="40" selection-start="542" selection-end="542" vertical-scroll-proportion="0.5156538" vertical-offset="350" max-vertical-offset="900" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/account/users.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="23" selection-start="467" selection-end="467" vertical-scroll-proportion="0.5163148" vertical-offset="55" max-vertical-offset="918" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_02_12_113135_crate_account_amounts_migration_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="54" selection-start="421" selection-end="421" vertical-scroll-proportion="0.20729366" vertical-offset="162" max-vertical-offset="738" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/account/partials/auth_email_form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="12" selection-start="0" selection-end="861" vertical-scroll-proportion="0.2320442" vertical-offset="0" max-vertical-offset="543" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Account.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="777" selection-end="777" vertical-scroll-proportion="0.7504798" vertical-offset="293" max-vertical-offset="846">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Account_amount.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="6" selection-start="218" selection-end="218" vertical-scroll-proportion="0.48368523" vertical-offset="0" max-vertical-offset="576">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/flash/flash_message_error.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="23" selection-start="344" selection-end="344" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="342" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Withdrawal_request.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="184" selection-end="184" vertical-scroll-proportion="0.6625767" vertical-offset="0" max-vertical-offset="558" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/account/amount.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="23" selection-start="69" selection-end="69" vertical-scroll-proportion="-2.6666667" vertical-offset="0" max-vertical-offset="468" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/flash/flash_message_with_error.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="6" selection-start="227" selection-end="227" vertical-scroll-proportion="-8.0" vertical-offset="0" max-vertical-offset="324" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/account/partials/withdraw_form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="23" selection-start="505" selection-end="505" vertical-scroll-proportion="0.53731346" vertical-offset="0" max-vertical-offset="576" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_02_12_125923_create_withdraw_requests_migration_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="697" selection-end="697" vertical-scroll-proportion="0.5521472" vertical-offset="234" max-vertical-offset="828" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_02_17_065513_create_current_accounts_migration_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="51" selection-start="480" selection-end="480" vertical-scroll-proportion="-10.666667" vertical-offset="0" max-vertical-offset="738" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="30" selection-start="1764" selection-end="1764" vertical-scroll-proportion="0.39899832" vertical-offset="859" max-vertical-offset="1458" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/account/partials/create_account_form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="18" selection-start="2421" selection-end="2421" vertical-scroll-proportion="-46.0" vertical-offset="0" max-vertical-offset="1386" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/CreateAccountRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="47" selection-start="489" selection-end="489" vertical-scroll-proportion="-13.703704" vertical-offset="98" max-vertical-offset="702">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="414" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/DepositAmountRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="442" selection-end="442" vertical-scroll-proportion="-17.333334" vertical-offset="0" max-vertical-offset="666">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/account/partials/deposit_current_form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="76" selection-start="107" selection-end="107" vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="576" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repos/AccountTypeRepo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="617" selection-end="617" vertical-scroll-proportion="-8.037037" vertical-offset="305" max-vertical-offset="882">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repos/UserRepo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="704" selection-end="704" vertical-scroll-proportion="-16.222221" vertical-offset="300" max-vertical-offset="882">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/Validate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="14" selection-start="716" selection-end="716" vertical-scroll-proportion="-16.666666" vertical-offset="198" max-vertical-offset="882">
-          <folding />
-        </state>
+        <state line="77" column="52" selection-start="2923" selection-end="2923" vertical-scroll-proportion="0.7244898" vertical-offset="960" max-vertical-offset="1656" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/account/partials/deposit_form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="75" selection-start="106" selection-end="106" vertical-scroll-proportion="0.030612245" vertical-offset="0" max-vertical-offset="588" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="606" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repos/WithdrawRequestRepo.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/WithdrawAccountRequest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="11" selection-start="861" selection-end="861" vertical-scroll-proportion="0.8086522" vertical-offset="162" max-vertical-offset="810">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="1" selection-start="885" selection-end="885" vertical-scroll-proportion="1.4670329" vertical-offset="258" max-vertical-offset="918">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/account/show_fixed.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="21" selection-start="128" selection-end="128" vertical-scroll-proportion="0.34615386" vertical-offset="0" max-vertical-offset="504" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/account/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="0" selection-start="4442" selection-end="4442" vertical-scroll-proportion="3.2866895" vertical-offset="0" max-vertical-offset="2304" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="19" selection-start="89" selection-end="89" vertical-scroll-proportion="8.296296" vertical-offset="314" max-vertical-offset="900" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/TransferCurrentToFixedRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="5" selection-start="560" selection-end="560" vertical-scroll-proportion="0.0" vertical-offset="142" max-vertical-offset="702">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Account_transactions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="20" selection-start="389" selection-end="389" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="7" selection-start="3014" selection-end="3014" vertical-scroll-proportion="-16.703703" vertical-offset="377" max-vertical-offset="990">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repos/AccountRepo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="38" selection-start="1138" selection-end="1138" vertical-scroll-proportion="-18.666666" vertical-offset="324" max-vertical-offset="990">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repos/AccountUserRepo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="5" selection-start="1853" selection-end="1853" vertical-scroll-proportion="-7.3703704" vertical-offset="1277" max-vertical-offset="1854">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/account/partials/fixed_account_form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="18" selection-start="1983" selection-end="1983" vertical-scroll-proportion="1.6587031" vertical-offset="0" max-vertical-offset="1314">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repos/CurrentAccountRepo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="590" selection-end="590" vertical-scroll-proportion="0.6093489" vertical-offset="139" max-vertical-offset="738">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Account/AccountController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="184" column="0" selection-start="6171" selection-end="6171" vertical-scroll-proportion="15.111111" vertical-offset="3252" max-vertical-offset="4410">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repos/AccountAmountRepo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="22" selection-start="1030" selection-end="1030" vertical-scroll-proportion="1.5626043" vertical-offset="0" max-vertical-offset="1440">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Current_account.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="5" selection-start="626" selection-end="626" vertical-scroll-proportion="-8.962963" vertical-offset="370" max-vertical-offset="918">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_02_17_065852_create_account_transactions_table_migration.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="50" selection-start="477" selection-end="477" vertical-scroll-proportion="-7.4814816" vertical-offset="86" max-vertical-offset="828">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Transaction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="28" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="792">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="33" selection-start="3341" selection-end="3341" vertical-scroll-proportion="-0.33333334" vertical-offset="1431" max-vertical-offset="1836">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26461" column="123" selection-start="3998427" selection-end="3998427" vertical-scroll-proportion="-0.0" vertical-offset="476298" max-vertical-offset="476658">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/Inspire.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="3.4814816" vertical-offset="94" max-vertical-offset="684">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repos/TransferRepo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="719" selection-end="719" vertical-scroll-proportion="-5.6666665" vertical-offset="405" max-vertical-offset="1620">
+        <state line="26" column="55" selection-start="499" selection-end="499" vertical-scroll-proportion="-15.592592" vertical-offset="47" max-vertical-offset="648">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/TransferCurrentToSavingsRequest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="615" selection-end="615" vertical-scroll-proportion="-9.851851" vertical-offset="310" max-vertical-offset="684">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/artisan">
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/TransferCurrentToFixedRequest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="846">
+        <state line="27" column="47" selection-start="499" selection-end="499" vertical-scroll-proportion="-18.0" vertical-offset="0" max-vertical-offset="702">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/Request.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="24" selection-start="466" selection-end="466" vertical-scroll-proportion="-4.6666665" vertical-offset="270" max-vertical-offset="702">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="606" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/RatesRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="48" selection-start="531" selection-end="531" vertical-scroll-proportion="-15.777778" vertical-offset="60" max-vertical-offset="666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/DepositAmountRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="48" selection-start="491" selection-end="491" vertical-scroll-proportion="-18.0" vertical-offset="0" max-vertical-offset="666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/CreateAccountRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="702">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/AddMemberRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="648">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/AccountValidateUserRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="7" selection-start="338" selection-end="338" vertical-scroll-proportion="0.5391015" vertical-offset="0" max-vertical-offset="648">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/account/show_fixed.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="606" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/WithdrawRequestAnswer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="9" selection-start="613" selection-end="613" vertical-scroll-proportion="0.6638935" vertical-offset="141" max-vertical-offset="936">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/DepositAccountRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="20" selection-start="384" selection-end="384" vertical-scroll-proportion="0.60884356" vertical-offset="38" max-vertical-offset="684">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Withdrawal_request.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="80" selection-start="820" selection-end="820" vertical-scroll-proportion="-14.444445" vertical-offset="348" max-vertical-offset="954" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="0" selection-start="1013" selection-end="1013" vertical-scroll-proportion="-14.111111" vertical-offset="555" max-vertical-offset="1242">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/account/confirm.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="10" selection-start="302" selection-end="302" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="540" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repos/WithdrawRequestRepo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="21" selection-start="1248" selection-end="1248" vertical-scroll-proportion="-20.777779" vertical-offset="411" max-vertical-offset="1368">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/account/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="49" selection-start="668" selection-end="668" vertical-scroll-proportion="-6.6666665" vertical-offset="162" max-vertical-offset="3546" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_03_01_125345_create_account_contributions_migration_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="11" selection-start="583" selection-end="583" vertical-scroll-proportion="-12.666667" vertical-offset="0" max-vertical-offset="684" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AccountContribution.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="7" selection-start="285" selection-end="285" vertical-scroll-proportion="-12.0" vertical-offset="0" max-vertical-offset="576" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_02_10_172604_create_accounts_table_migration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="17" selection-start="577" selection-end="577" vertical-scroll-proportion="-0.4814815" vertical-offset="329" max-vertical-offset="864" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repos/AccountAmountRepo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="5" selection-start="1696" selection-end="1696" vertical-scroll-proportion="-39.333332" vertical-offset="378" max-vertical-offset="1764">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repos/AccountRepo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="5" selection-start="561" selection-end="561" vertical-scroll-proportion="0.5625" vertical-offset="216" max-vertical-offset="2394">
           <folding>
-            <element signature="e#31#74#0" expanded="true" />
+            <element signature="e#108#124#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/account/partials/savings_account_update_form.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Account_user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="11" selection-start="745" selection-end="745" vertical-scroll-proportion="3.3333333" vertical-offset="432" max-vertical-offset="1350">
+        <state line="10" column="7" selection-start="138" selection-end="138" vertical-scroll-proportion="0.32315978" vertical-offset="0" max-vertical-offset="1098">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/account/show_savings.blade.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_02_11_072918_create_account_users_table_migration.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1008">
+        <state line="20" column="0" selection-start="544" selection-end="544" vertical-scroll-proportion="0.59067357" vertical-offset="0" max-vertical-offset="828" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repos/CurrentAccountRepo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="738">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/account/partials/savings_account_form.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Repos/AccountUserRepo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="6" selection-start="2447" selection-end="2447" vertical-scroll-proportion="-18.74074" vertical-offset="718" max-vertical-offset="1332">
+        <state line="96" column="0" selection-start="1926" selection-end="1926" vertical-scroll-proportion="2.0965059" vertical-offset="324" max-vertical-offset="2412">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Account.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="23" selection-start="285" selection-end="285" vertical-scroll-proportion="0.47920132" vertical-offset="0" max-vertical-offset="1062">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repos/RequestAnswerRepo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="5" selection-start="586" selection-end="586" vertical-scroll-proportion="0.58069885" vertical-offset="173" max-vertical-offset="774">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/tutorials/search/Acme/Observers/ArticleElasticSearchObserver.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.08985025" vertical-offset="54" max-vertical-offset="1224">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="412" selection-end="412" vertical-scroll-proportion="0.51085144" vertical-offset="0" max-vertical-offset="599">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/account/partials/withdraw_form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="23" selection-start="675" selection-end="675" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="576">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_03_02_084057_create_transfers_table_migration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="7" selection-start="529" selection-end="529" vertical-scroll-proportion="-14.0" vertical-offset="0" max-vertical-offset="666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Transfer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="43" selection-start="261" selection-end="261" vertical-scroll-proportion="-10.666667" vertical-offset="0" max-vertical-offset="558">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/TransferUserRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="42" selection-start="524" selection-end="524" vertical-scroll-proportion="-13.888889" vertical-offset="111" max-vertical-offset="666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repos/TransferRepo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="18" selection-start="2199" selection-end="2199" vertical-scroll-proportion="-18.666666" vertical-offset="972" max-vertical-offset="1674">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/SearchAccountRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="16" selection-start="441" selection-end="441" vertical-scroll-proportion="-16.666666" vertical-offset="0" max-vertical-offset="666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="35" selection-start="1807" selection-end="1807" vertical-scroll-proportion="-4.6666665" vertical-offset="918" max-vertical-offset="2214">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/account/partials/transfer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="26" selection-start="145" selection-end="145" vertical-scroll-proportion="-1.3333334" vertical-offset="0" max-vertical-offset="1206">
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Console/Commands/DeductSaving.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="14" selection-start="1361" selection-end="1361" vertical-scroll-proportion="1.100304" vertical-offset="646" max-vertical-offset="1188">
+        <state line="64" column="52" selection-start="3570" selection-end="3570" vertical-scroll-proportion="-10.222222" vertical-offset="714" max-vertical-offset="1278">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repos/TransferUsersRepo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="0" selection-start="942" selection-end="942" vertical-scroll-proportion="1.2921536" vertical-offset="0" max-vertical-offset="1188">
           <folding>
-            <element signature="e#40#60#0" expanded="true" />
+            <element signature="e#108#132#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="37" selection-start="4055" selection-end="4055" vertical-scroll-proportion="0.6006826" vertical-offset="1430" max-vertical-offset="2016">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="11" selection-start="1905" selection-end="1905" vertical-scroll-proportion="-11.518518" vertical-offset="859" max-vertical-offset="1458">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Transfer/TransferController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="106" selection-start="518" selection-end="518" vertical-scroll-proportion="-11.333333" vertical-offset="0" max-vertical-offset="576">
+          <folding>
+            <element signature="e#49#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Account/AccountController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="328" column="33" selection-start="11174" selection-end="11174" vertical-scroll-proportion="-95.703705" vertical-offset="3320" max-vertical-offset="6822">
+          <folding>
+            <element signature="e#48#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="0" selection-start="1248" selection-end="1248" vertical-scroll-proportion="0.58361775" vertical-offset="324" max-vertical-offset="954">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/DeductSavingWeekly.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="19.62963" vertical-offset="530" max-vertical-offset="1656">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="30" selection-end="30" vertical-scroll-proportion="-2.0" vertical-offset="0" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/DeductSavingMonthly.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="38" selection-start="1541" selection-end="1541" vertical-scroll-proportion="-8.0" vertical-offset="954" max-vertical-offset="1674">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repos/UserRepo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="0" selection-start="855" selection-end="855" vertical-scroll-proportion="7.8644066" vertical-offset="364" max-vertical-offset="990">
+          <folding />
         </state>
       </provider>
     </entry>

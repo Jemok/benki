@@ -25,7 +25,7 @@ class DepositAmountRequest extends Request
     {
         return [
 
-            'amount' =>  'required|numeric'
+            'amount' =>  'required|numeric|min:1'
         ];
     }
 }
