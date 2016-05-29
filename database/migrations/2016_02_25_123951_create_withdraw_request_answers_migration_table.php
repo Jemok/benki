@@ -17,6 +17,7 @@ class CreateWithdrawRequestAnswersMigrationTable extends Migration
             $table->integer('account_id');
             $table->integer('user_id');
             $table->integer('withdraw_request_id');
+            $table->integer('status');
             $table->timestamps();
         });
     }

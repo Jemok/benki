@@ -77,8 +77,10 @@ class AccountRepo {
 
       $rate->update([
 
-          'fixed' =>  $request->fixed,
-          'savings' =>  $request->savings
+          'category_one' =>  $request->category_one,
+          'category_two' =>  $request->category_two,
+          'category_three' =>  $request->category_three,
+          'category_four'  =>  $request->category_four
 
       ]);
 

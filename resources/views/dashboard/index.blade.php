@@ -19,6 +19,46 @@
                 <h5>You have no accounts</h5>
             @endif
 
+            <span class="col-md-offset-2">Filter Requests</span>
+
+            @if($account_requests->count())
+            <form class="form-horizontal" method="post" action="{{ route('searchRequest') }}">
+
+                {{ csrf_field() }}
+
+                <div class="form-group {{ $errors->has('search_request') ? ' has-error' : '' }}">
+
+                    <select class="form-control tag_list" name="search_request" multiple>
+
+                        @if($account_requests->count())
+                        @foreach($account_requests as $request)
+                        <option value="{{$request->account_id}}">{{$request->account()->first()->account_name}}</option>
+                        @endforeach
+                        @endif
+
+                    </select>
+
+                    @if ($errors->has('search_request'))
+                         <span class="help-block">
+                             <strong>{{ $errors->first('search_request') }}</strong>
+                         </span>
+                    @endif
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-6 col-md-offset-1">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-btn fa-sign-in"></i>View Status
+                        </button>
+                    </div>
+                </div>
+
+
+            </form>
+            @else
+            <h5>You have no requests</h5>
+            @endif
+
             <span class="col-md-offset-2">Search an account</span>
 
             <!--
@@ -80,7 +120,7 @@
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-1">
                             <button type="submit" class="btn btn-primary">
-                                <i class="fa fa-btn fa-sign-in"></i>Search
+                                <i class="fa fa-btn fa-sign-in"></i>Search Account
                             </button>
                         </div>
                     </div>

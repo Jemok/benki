@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Transaction;
+use App\AccountRate;
 
 class DeductSavingWeekly extends Command
 {
@@ -48,6 +49,47 @@ class DeductSavingWeekly extends Command
 
             $amount = ($transaction->percentage/100)*$current_account->account_amount;
 
+            $amount_add = ($transaction->percentage/100)*$current_account->account_amount;
+
+
+            if($account_amount > 50000){
+
+                $rate = AccountRate::where('id', '=', 1)->first()->category_one;
+
+                $rate = ($rate/100);
+
+                $amount_add = $amount_add*$rate*0.25;
+
+
+            }elseif($account_amount >= 20000 && $account_amount <= 50000 ){
+
+                $rate = AccountRate::where('id', '=', 1)->first()->category_two;
+
+                $rate = ($rate/100);
+
+                $amount_add = $amount_add*$rate*0.25;
+
+
+            }elseif($account_amount >= 10000 && $account_amount < 20000  ){
+
+                $rate = AccountRate::where('id', '=', 1)->first()->category_three;
+
+                $rate = ($rate/100);
+
+                $amount_add = $amount_add*$rate*0.25;
+
+
+            }elseif($account_amount >0 && $account_amount < 10000){
+
+                $rate = AccountRate::where('id', '=', 1)->first()->category_four;
+
+                $rate = ($rate/100);
+
+                $amount_add = $amount_add*$rate*0.25;
+
+            }
+
+
             $transaction_amount = $transaction->transaction_amount;
 
             $withdraw_date = $transaction->withdraw_date;
@@ -69,18 +111,14 @@ class DeductSavingWeekly extends Command
 
             }else{
 
-
                 $current_account->update([
 
                     'account_amount' => $account_amount - $amount
                 ]);
 
                 $transaction->update([
-
-                    'transaction_amount' => $transaction_amount + $amount
-
+                    'transaction_amount' => $transaction_amount + $amount_add
                 ]);
-
             }
         }
     }

@@ -24,8 +24,10 @@ class RatesRequest extends Request
     public function rules()
     {
         return [
-            'fixed' => 'required|numeric|min:1',
-            'savings' => 'required|numeric|min:1'
+            'category_one' => 'required|numeric|min:1',
+            'category_two' => 'required|numeric|min:1',
+            'category_three' => 'required|numeric|min:1',
+            'category_four' => 'required|numeric|min:1'
         ];
     }
 }

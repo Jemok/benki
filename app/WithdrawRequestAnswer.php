@@ -15,15 +15,16 @@ class WithdrawRequestAnswer extends Model
 
         'user_id',
         'withdraw_request_id',
-        'account_id'
+        'account_id',
+        'status'
     ];
 
 
     public function check($account_id, $user_id){
 
-        if($this->where('account_id', '=', $account_id)->where('user_id', '=', $user_id)->first() != null){
+        if($this->where('account_id', '=', $account_id)->where('user_id', '=', $user_id)->where('status', 0)->first() != null){
 
-            return $this->where('account_id', '=', $account_id)->where('user_id', '=', $user_id)->first();
+            return $this->where('account_id', '=', $account_id)->where('user_id', '=', $user_id)->orderBy('created_at','desc')->first();
 
         }else{
 

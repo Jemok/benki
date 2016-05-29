@@ -15,8 +15,10 @@ class AccountRatesTableSeeder extends Seeder
         AccountRate::truncate();
 
         DB::table('account_rates')->insert([
-            'fixed' =>  '10',
-            'savings' => '10'
+            'category_one' =>  '2',
+            'category_two' => '3',
+            'category_three' => '4',
+            'category_four'  => '5'
 
         ]);
     }

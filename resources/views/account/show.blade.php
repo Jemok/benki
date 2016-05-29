@@ -152,7 +152,19 @@
                                                         <button type="submit" class="btn btn-info">Confirm</button>
                                                     </form>
                                                 @else
+                                                    @if($users_in_account_count == $request_answers_count)
+
+                                                    <form method="post" action="{{ route('withdrawFromAccount', [$account_id]) }}">
+
+                                                        {{ csrf_field() }}
+
+                                                        <button class="btn btn-info" type="submit">Withdraw</button>
+
+                                                    </form>
+
+                                                    @else
                                                     <button class="btn btn-success disabled">Confirmed</button>
+                                                    @endif
                                                 @endif
                                             </td>
                                         </tr>
@@ -181,7 +193,7 @@
 
                     @elseif($confirmation_status == 2)
 
-                    @include('account.partials.send_request_form')
+                    @include('account.partials.send_request_form', [$account_id])
 
                     @endif
                 </div>

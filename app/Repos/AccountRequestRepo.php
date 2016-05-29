@@ -9,6 +9,9 @@
 namespace App\Repos;
 use App\AccountRequest;
 use App\User;
+use App\Account_amount;
+use App\Withdrawal_request;
+use App\WithdrawRequestAnswer;
 
 
 
@@ -85,5 +88,65 @@ class AccountRequestRepo {
         }else{
             return null;
         }
+    }
+
+    public function getForUser($user_id){
+
+        return $this->model
+                    ->where('user_id', $user_id)
+                    ->where('confirmation_status', 0)
+                    ->get();
+    }
+
+    public function withdraw($account_id, $user_id){
+
+        $account = Account_amount::where('id', $account_id)->first();
+
+        $account_request = Withdrawal_request::where('account_id', $account_id)
+                                               ->where('user_id', $user_id)
+                                               ->orderBy('created_at','desc')->first();
+
+        $request_answer = WithdrawRequestAnswer::where('user_id', $user_id)
+                                                 ->where('account_id', $account_id)
+                                                 ->orderBy('created_at','desc')->first();
+
+
+        $account_amount = $account->amount;
+
+
+        WithdrawRequestAnswer::where('account_id', $account_id)
+                               ->update([
+
+                'status' => 1
+
+            ]);
+
+
+
+        $request_amount = $account_request->request_amount;
+
+        $request_answer->create([
+
+            'user_id' => \Auth::user()->id,
+            'account_id' => 3,
+            'withdraw_request_id' => 1
+
+        ]);
+
+        $account->update([
+
+            'amount' =>  ($account_amount - $request_amount)
+
+        ]);
+
+        $current_amount = \Auth::user()->current_account()->first()->account_amount;
+
+        \Auth::user()->current_account()->update([
+
+
+            'account_amount' => $current_amount + $request_amount
+
+        ]);
+
     }
 }

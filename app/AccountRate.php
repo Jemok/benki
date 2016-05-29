@@ -11,7 +11,9 @@ class AccountRate extends Model
 
     protected $fillable = [
 
-        'fixed',
-        'savings'
+        'category_one',
+        'category_two',
+        'category_three',
+        'category_four'
     ];
 }

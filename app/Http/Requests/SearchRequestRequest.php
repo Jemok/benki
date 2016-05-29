@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class SearchAccountRequest extends Request
+class SearchRequestRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,15 +21,11 @@ class SearchAccountRequest extends Request
      *
      * @return array
      */
-
-
-
     public function rules()
     {
-
         return [
 
-            'search_account' =>  'required'
+            'search_request' =>  'required'
         ];
     }
 }

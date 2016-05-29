@@ -66,7 +66,13 @@ Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf']
 
        Route::post('/search/account', ['as' => 'searchAccount', 'uses' => 'Account\AccountController@searchAccount']);
 
-       Route::post('/transfer/user', ['as' => 'transferToUser', 'uses' => 'Transfer\TransferController@store']);
+       Route::post('/search/request', ['as' => 'searchRequest', 'uses' => 'Account\SendAccountRequestController@searchAccount']);
+
+       Route::post('{account_id}/account/withdraw', ['as' => 'withdrawFromAccount', 'uses' => 'Account\SendAccountRequestController@withdraw']);
+
+
+
+        Route::post('/transfer/user', ['as' => 'transferToUser', 'uses' => 'Transfer\TransferController@store']);
 
 
     });

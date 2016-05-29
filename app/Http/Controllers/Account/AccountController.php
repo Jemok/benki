@@ -89,19 +89,20 @@ class AccountController extends Controller
 
         $request_answers_count = $requestAnswerRepo->countAnswers($id);
 
-        if($users_in_account_count < $request_answers_count){
+        if($users_in_account_count == $request_answers_count){
 
-            $info = "Some users have not yet confirmed your request";
+            $info = "-- ---- --- --Your Withdrawal was approved, you can withdraw-- ---- -- --";
 
-        }elseif($users_in_account_count > $request_answers_count){
+        }elseif($users_in_account_count < $request_answers_count){
 
             $info = "";
         }else{
 
             $info = "";
+
         }
 
-        return view('account.show', compact('answer_class','account', 'users', 'users_in', 'account_id', 'class_model', 'confirmation_status', 'withdraw_requests', 'info'));
+        return view('account.show', compact('users_in_account_count','request_answers_count','answer_class','account', 'users', 'users_in', 'account_id', 'class_model', 'confirmation_status', 'withdraw_requests', 'info'));
 
     }
 
@@ -237,7 +238,11 @@ class AccountController extends Controller
             $saving = null;
         }
 
-        return view('account.show_savings', compact('saving'));
+        $today = (new \Carbon\Carbon())->addHours(24);
+
+        $today = $today->toDateString();
+
+        return view('account.show_savings', compact('saving', 'today'));
     }
 
 
@@ -249,7 +254,9 @@ class AccountController extends Controller
 
         $fixed = $transferRepo->getFixed();
 
-        $today = (new \Carbon\Carbon())->addHours(3);
+        $today = (new \Carbon\Carbon())->addHours(24);
+
+        $today = $today->toDateString();
 
         return view('account.show_fixed', compact('fixed', 'today'));
     }

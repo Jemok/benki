@@ -36,7 +36,8 @@ class RequestAnswerRepo {
 
     public function countAnswers($request_id){
 
-        return $this->model->where('withdraw_request_id', $request_id)->count();
+        return $this->model->where('withdraw_request_id', $request_id)
+                            ->count();
 
     }
 
