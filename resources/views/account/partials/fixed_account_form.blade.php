@@ -39,9 +39,9 @@
         @if($fixed != null)
             @if($fixed->withdraw_date > $today)
 
-            <div class="col-md-6 col-md-offset-1">
-                <button type="submit" class="btn btn-primary" disabled>
-                    <i class="fa fa-btn fa-sign-in"></i>You cannot deposit until date {{$fixed->withdraw_date}}, you have Kshs {{$fixed->transaction_amount}} in your fixed account
+            <div class="col-md-10 col-md-offset-1">
+                <button type="submit" class="btn btn-primary col-md-10 col-md-offset-2" disabled>
+                    <i class="fa fa-btn fa-sign-in"></i>You cannot deposit until date {{$fixed->withdraw_date}}
                 </button>
             </div>
             @else

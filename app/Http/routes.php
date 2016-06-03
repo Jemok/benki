@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -52,7 +53,12 @@ Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf']
        Route::get('/fixed/account', ['as' => 'getFixedAccount', 'uses' => 'Account\AccountController@getFixed']);
        Route::post('/fixed/save', ['as' => 'depositFixed', 'uses' => 'Account\AccountController@depositFixed']);
        Route::post('/savings/save', ['as' => 'saveSavings', 'uses' => 'Account\AccountController@depositSavings']);
-       Route::post('/{transaction_id}/savings/update', ['as' => 'updateSavings', 'uses' => 'Account\AccountController@updateSaving']);
+       Route::get('/get/all', ['as' => 'allAccounts', 'uses' => 'Account\AccountController@getAll']);
+       Route::get('/allAccounts/get', ['as' => 'searchAccounts', 'uses' => 'Account\AccountController@search']);
+       Route::get('/request/send/{account_id}', ['as' => 'showSendRequest', 'uses' => 'Account\AccountController@showSendRequest']);
+
+
+        Route::post('/{transaction_id}/savings/update', ['as' => 'updateSavings', 'uses' => 'Account\AccountController@updateSaving']);
 
        Route::post('{account_id}/send/request', ['as' => 'sendRequest', 'uses' => 'Account\SendAccountRequestController@sendRequest']);
 

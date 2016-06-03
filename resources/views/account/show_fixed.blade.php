@@ -11,8 +11,10 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">Account Details</div>
-
                 <div class="panel-body">
+                    <h4>You have Kshs {{$fixed->transaction_amount}} in your fixed account, withdraw
+                    date is on {{$fixed->withdraw_date}}</h4>
+
                     @include('account.partials.fixed_account_form')
                 </div>
 

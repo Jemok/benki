@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Account;
 use App\Account;
 use App\Account_amount;
 use App\Account_user;
+use App\AccountRequest;
 use App\Current_account;
 use App\Repos\AccountAmountRepo;
 use App\Repos\AccountRequestRepo;
@@ -41,6 +42,31 @@ use App\Http\Requests\DepositAmountRequest;
 
 class AccountController extends Controller
 {
+    public function getAll(){
+
+        $query = "";
+
+        $accounts = Account::all();
+
+        return view('account.all', compact('accounts', 'query'));
+    }
+
+
+    public function search(Request $request){
+
+        $query = $request->get('q');
+
+        if($query){
+
+            $accounts = Account::where('account_name', 'LIKE', "%$query%")->get();
+        }else{
+
+            $accounts = Account::all();
+        }
+
+        return view('account.all', compact('accounts', 'query'));
+    }
+
     /**
      * @param AccountRepo $accountRepo
      * @param AccountAmountRepo $accountAmountRepo
@@ -69,6 +95,11 @@ class AccountController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show(AccountUserRepo $accountUserRepo, AccountRepo $accountRepo, $account_id, AccountRequestRepo $accountRequestRepo, WithdrawRequestRepo $withdrawRequestRepo, RequestAnswerRepo $requestAnswerRepo){
+
+
+        if(Account_user::where('id', $account_id)->where('user_id', \Auth::user()->id)->exists()){
+
+
         $account = $accountRepo->show($account_id);
 
         $users_in= $accountUserRepo->getMembersInAccount($account_id);
@@ -104,7 +135,73 @@ class AccountController extends Controller
 
         return view('account.show', compact('users_in_account_count','request_answers_count','answer_class','account', 'users', 'users_in', 'account_id', 'class_model', 'confirmation_status', 'withdraw_requests', 'info'));
 
+        }else{
+
+            if(AccountRequest::where('account_id', $account_id)->where('user_id', Auth::user()->id)->exists()){
+
+                $confirmation_status = AccountRequest::where('account_id', $account_id)->where('user_id', Auth::user()->id)->first()->confirmation_status;
+
+                if($confirmation_status == 1){
+
+                    $account = $accountRepo->show($account_id);
+
+                    $users_in= $accountUserRepo->getMembersInAccount($account_id);
+
+                    $users = $accountRequestRepo->getRequestsForAccount($account_id);
+
+                    $confirmation_status = $accountRequestRepo->getConfirmationStatus(Auth::user()->id, $account_id);
+
+                    $withdraw_requests = $withdrawRequestRepo->getRequests($account_id);
+
+                    $class_model = new Account_user();
+
+                    $answer_class = new WithdrawRequestAnswer();
+
+                    $users_in_account_count = $accountUserRepo->getMembersInAccount($account_id)->count();
+
+                    $id = $withdrawRequestRepo->getLatestForUser($account_id, \Auth::user()->id);
+
+                    $request_answers_count = $requestAnswerRepo->countAnswers($id);
+
+                    if($users_in_account_count == $request_answers_count){
+
+                        $info = "-- ---- --- --Your Withdrawal was approved, you can withdraw-- ---- -- --";
+
+                    }elseif($users_in_account_count < $request_answers_count){
+
+                        $info = "";
+                    }else{
+
+                        $info = "";
+
+                    }
+
+                    return view('account.show', compact('users_in_account_count','request_answers_count','answer_class','account', 'users', 'users_in', 'account_id', 'class_model', 'confirmation_status', 'withdraw_requests', 'info'));
+
+                }elseif($confirmation_status == 0){
+
+                    $request = 1;
+                }
+
+            }elseif(!AccountRequest::where('account_id', $account_id)->where('user_id', Auth::user()->id)->exists())
+            {
+                $request = "";
+
+            }
+
+
+            return view('account.send_request', compact('account_id', 'request'));
+        }
+
     }
+
+
+    public function showSendRequest(){
+
+        return view('account.send_request');
+    }
+
+
 
     public function validateUser(AccountValidateUserRequest $accountValidateUserRequest, Validate $validate, AccountUserRepo $accountUserRepo, AccountRepo $accountRepo, $account_id, UserRepo $userRepo){
 
