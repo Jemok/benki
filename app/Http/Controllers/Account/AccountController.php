@@ -328,16 +328,16 @@ class AccountController extends Controller
      */
     public function getSavings(TransferRepo $transferRepo){
 
-//        $saving = $transferRepo->getSaving();
-//
-//        if($saving == false){
-//
-//            $saving = null;
-//        }
-//
-//        $today = (new \Carbon\Carbon())->addHours(24);
-//
-//        $today = $today->toDateString();
+        $saving = $transferRepo->getSaving();
+
+        if($saving == false){
+
+            $saving = null;
+        }
+
+        $today = (new \Carbon\Carbon())->addHours(24);
+
+        $today = $today->toDateString();
 
         return view('account.show_savings', compact('saving', 'today'));
     }
@@ -349,11 +349,11 @@ class AccountController extends Controller
      */
     public function getFixed(TransferRepo $transferRepo){
 
-        $fixed = $transferRepo->getFixed();
-
-        $today = (new \Carbon\Carbon())->addHours(24);
-
-        $today = $today->toDateString();
+//        $fixed = $transferRepo->getFixed();
+//
+//        $today = (new \Carbon\Carbon())->addHours(24);
+//
+//        $today = $today->toDateString();
 
 
 
