@@ -31,7 +31,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
-    Route::get('/fixed/account', ['as' => 'getFixedAccount', 'uses' => 'Account\AccountController@getFixed']);
+    Route::get('/accounts/fixed/account', ['as' => 'getFixedAccount', 'uses' => 'Account\AccountController@getFixed']);
 
 });
 
