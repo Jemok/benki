@@ -50,7 +50,7 @@ Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf']
        Route::post('/deposit-current', ['as' => 'depositCurrent', 'uses' => 'Account\AccountController@depositCurrent']);
 
        Route::get('/savings/account', ['as' => 'getSavingsAccount', 'uses' => 'Account\AccountController@getSavings']);
-       Route::get('/fixed/get', ['as' => 'getFixedAccount', 'uses' => 'Account\AccountController@getFixed']);
+       Route::get('/fixed/account', ['as' => 'getFixedAccount', 'uses' => 'Account\AccountController@getFixed']);
        Route::post('/fixed/save', ['as' => 'depositFixed', 'uses' => 'Account\AccountController@depositFixed']);
        Route::post('/savings/save', ['as' => 'saveSavings', 'uses' => 'Account\AccountController@depositSavings']);
        Route::get('/get/all', ['as' => 'allAccounts', 'uses' => 'Account\AccountController@getAll']);
