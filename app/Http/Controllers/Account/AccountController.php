@@ -46,7 +46,7 @@ class AccountController extends Controller
 
         $query = "";
 
-        $accounts = Account::all();
+        $accounts = Account::paginate(10);
 
         return view('account.all', compact('accounts', 'query'));
     }
@@ -61,7 +61,7 @@ class AccountController extends Controller
             $accounts = Account::where('account_name', 'LIKE', "%$query%")->get();
         }else{
 
-            $accounts = Account::all();
+            $accounts = Account::paginate(10);
         }
 
         return view('account.all', compact('accounts', 'query'));

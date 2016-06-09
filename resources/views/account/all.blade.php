@@ -59,6 +59,7 @@
                         {{--pagination--}}
                         <div class="row">
                             <div class="col-md-offset-3 col">
+                            {!! $accounts->render() !!}
                             </div>
                         </div>
                         @else
