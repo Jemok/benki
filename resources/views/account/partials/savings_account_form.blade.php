@@ -82,8 +82,6 @@
                     @else
                         <i class="fa fa-btn fa-sign-in"></i>No money in your current account, cant deposit
                     @endif
-
-
                     </button>
                 </div>
             </div>

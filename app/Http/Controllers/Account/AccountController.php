@@ -97,7 +97,7 @@ class AccountController extends Controller
     public function show(AccountUserRepo $accountUserRepo, AccountRepo $accountRepo, $account_id, AccountRequestRepo $accountRequestRepo, WithdrawRequestRepo $withdrawRequestRepo, RequestAnswerRepo $requestAnswerRepo){
 
 
-        if(Account_user::where('id', $account_id)->where('user_id', \Auth::user()->id)->exists()){
+        if(Account_user::where('account_id', $account_id)->where('user_id', \Auth::user()->id)->exists()){
 
 
         $account = $accountRepo->show($account_id);
