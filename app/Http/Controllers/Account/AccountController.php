@@ -349,16 +349,15 @@ class AccountController extends Controller
      */
     public function getFixed(TransferRepo $transferRepo){
 
-          return "hi";
 
-//        $fixed = $transferRepo->getFixed();
-//
-//        $today = (new \Carbon\Carbon())->addHours(24);
-//
-//        $today = $today->toDateString();
-//
-//
-//        return view('account.show_fixed', compact('fixed', 'today'));
+        $fixed = $transferRepo->getFixed();
+
+        $today = (new \Carbon\Carbon())->addHours(24);
+
+        $today = $today->toDateString();
+
+
+        return view('account.show_fixed', compact('fixed', 'today'));
     }
 
     /**

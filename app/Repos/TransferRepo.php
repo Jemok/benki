@@ -50,8 +50,16 @@ class TransferRepo {
      */
     public function getFixed(){
 
-        return Transaction::where('account_id', '=', \Auth::user()->current_account()->first()->id)
-                            ->where('transaction_type', '=', 1)->orderBy('id', 'desc')->first();
+        if(Transaction::where('account_id', '=', \Auth::user()->current_account()->first()->id)
+            ->where('transaction_type', '=', 1)->orderBy('id', 'desc')->exists()){
+
+            return Transaction::where('account_id', '=', \Auth::user()->current_account()->first()->id)
+                ->where('transaction_type', '=', 1)->orderBy('id', 'desc')->first();
+        }else{
+
+            return null;
+        }
+
 
     }
 
