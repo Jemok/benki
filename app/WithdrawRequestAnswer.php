@@ -41,7 +41,4 @@ class WithdrawRequestAnswer extends Model
 
         return $this->belongsTo(Withdrawal_request::class);
     }
-
-
-
 }

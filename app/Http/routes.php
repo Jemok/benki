@@ -80,7 +80,6 @@ Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf']
 
         Route::post('/transfer/user', ['as' => 'transferToUser', 'uses' => 'Transfer\TransferController@store']);
 
-
     });
 
 });

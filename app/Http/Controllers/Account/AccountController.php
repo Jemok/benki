@@ -58,7 +58,7 @@ class AccountController extends Controller
 
         if($query){
 
-            $accounts = Account::where('account_name', 'LIKE', "%$query%")->get();
+            $accounts = Account::where('account_name', 'LIKE', "%$query%")->paginate(10);
         }else{
 
             $accounts = Account::paginate(10);
