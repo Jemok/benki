@@ -38,8 +38,8 @@
         </div>
 
         <div class="col-md-10">
-            <div class="panel panel-default">
-                <div class="panel-heading">Create Chama Account</div>
+            <div class="panel">
+                <div class="panel-heading panel-top">Create Chama Account</div>
 
                 <div class="panel-body">
                    @include('account.partials.create_account_form')
@@ -48,8 +48,8 @@
         </div>
 
         <div class="col-md-10 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Deposit In Your Current Account or Transfer to another user </div>
+            <div class="panel">
+                <div class="panel-heading panel-top">Deposit In Your Current Account or Transfer to another user </div>
 
                 <div class="panel-body">
                     @include('account.partials.deposit_current_form')

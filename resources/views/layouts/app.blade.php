@@ -14,6 +14,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
@@ -27,7 +28,7 @@
     </style>
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default nav-guest">
         <div class="container">
             <div class="navbar-header">
 
@@ -70,7 +71,7 @@
                         @endif
                             <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
-                        <p class="navbar-text">Current Balance Kshs: {{\Auth::user()->current_account()->first()->account_amount}}</p>
+                        <p class="navbar-text nav-amount">Current Balance Kshs: {{\Auth::user()->current_account()->first()->account_amount}}</p>
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
