@@ -38,13 +38,13 @@
             </div>
           </div>
             <div class="form-group">
-                <div class="col-md-6 col-md-offset-5">
+                <div class="col-md-12">
                     @if(\Auth::user()->current_account()->first()->account_amount <= 0)
                     <button type="submit" class="btn btn-primary" disabled>
                         <i class="fa fa-btn fa-sign-in"></i>Your account is low Kshs {{\Auth::user()->current_account()->first()->account_amount}} , you cant transfer
                     </button>
                     @else
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary col-md-offset-1 col-md-8">
                         <i class="fa fa-btn fa-sign-in"></i>Transfer
                     </button>
                     @endif

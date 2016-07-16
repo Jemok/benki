@@ -47,8 +47,10 @@ class HomeController extends Controller
                 $request_class = new AccountRequest();
 
                 $users = $userRepo->allExceptAdmin();
+                
+                $query = "";
 
-                return view('dashboard.index', compact('account_requests','users','accounts_type', 'user_accounts', 'account_class','all_accounts', 'request_class'));
+                return view('dashboard.index', compact('account_requests','users','accounts_type', 'user_accounts', 'account_class','all_accounts', 'request_class', 'query'));
 
             }
 

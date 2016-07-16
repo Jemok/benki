@@ -48,6 +48,7 @@
                 @endif
             </div>
 
+
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
 
                 @if(\Auth::check())
@@ -60,6 +61,8 @@
                     <li><a href="{{ route('getSavingsAccount')}}">Savings</a></li>
                     <li><a href="{{ route('getFixedAccount') }}">Fixed</a></li>
                 </ul>
+                @include('dashboard.partials.search_account_form')
+
                 @endif
 
                 <!-- Right Side Of Navbar -->

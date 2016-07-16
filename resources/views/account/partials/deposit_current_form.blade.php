@@ -22,4 +22,4 @@
     </div>
 </form>
 
-<h3 class="col-md-offset-4">OR</h3>
+{{--<h3 class="col-md-offset-4">OR</h3>--}}
