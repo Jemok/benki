@@ -2,7 +2,7 @@
     {!! csrf_field() !!}
     <div class="form-group  {{ $errors->has('q') ? ' has-error' : '' }}">
         <div class="col-md-7">
-            <input type="text" class="form-control" id="search" name="q" placeholder="Search for a chama " @if($query == "") value="" @else value="{{$query}}" @endif>
+            <input type="text" class="form-control" id="search" name="q" placeholder="Search for a chama " @if(isset($query))@if($query == "") value="" @else value="{{$query}}" @endif @endif>
             @if ($errors->has('q'))
                 <span class="help-block">
                                         <strong>{{ $errors->first('q') }}</strong>
