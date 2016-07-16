@@ -98,6 +98,7 @@
     <script>
         $('.tag_list').select2({
             tags: true,
+            placeholder: 'You can select multiple users to transfer money to here',
             maximumSelectionLength: 10
         });
     </script>

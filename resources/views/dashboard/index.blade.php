@@ -4,7 +4,7 @@
 
 <div class="container">
     @include('flash.flash_message')
-        <div class="col-md-10 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-1">
             <div class="panel">
                 <div class="panel-heading panel-top">Chama Accounts</div>
 
@@ -15,13 +15,12 @@
             </div>
         </div>
 
-        <div class="col-md-10 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-1">
             <div class="panel">
                 <div class="panel-heading panel-top">Deposit In Your Current Account or Transfer to another user </div>
 
                 <div class="panel-body">
                     @include('account.partials.deposit_current_form')
-
                     @include('account.partials.transfer')
                 </div>
             </div>

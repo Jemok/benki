@@ -1,17 +1,13 @@
-<div style="padding-top: 5%;">
-    <form class="form-horizontal" method="post" action="{{ route('transferToUser') }}">
+<div style="padding-top: 2%;">
+    <form class="form-horizontal col-md-12" method="post" action="{{ route('transferToUser') }}">
         {{ csrf_field() }}
 
         <div  class="form-group {{ $errors->has('transfer_to') ? ' has-error' : '' }}">
 
-            <label class="col-md-4 control-label">Transfer to:</label>
 
-
-            <div class="col-md-6">
+            <div class="col-md-6 col-md-offset-1">
 
                 <select class="form-control tag_list" name="transfer_to" multiple>
-
-                    <option disabled>Select User</option>
 
                     @if($users->count())
                         @foreach($users as $user)
@@ -28,22 +24,19 @@
                          </span>
                 @endif
             </div>
-          </div>
+            <div class="form-group {{ $errors->has('transfer_amount') ? 'has-error' : ''}}">
 
-          <div class="form-group {{ $errors->has('transfer_amount') ? 'has-error' : ''}}">
-                <label class="col-md-4 control-label">Amount*</label>
-
-                <div class="col-md-6">
-                    <input type="text" class="form-control" name="transfer_amount" value="{{ old('transfer_amount') }}"  required="">
+                <div class="col-md-2">
+                    <input type="text" class="form-control" placeholder="Amount" name="transfer_amount" value="{{ old('transfer_amount') }}"  required="">
 
                     @if($errors->has('transfer_amount'))
-                <span class="help-block">
+                        <span class="help-block">
                     <strong>{{ $errors->first('transfer_amount') }}</strong>
                 </span>
                     @endif
                 </div>
-           </div>
-
+            </div>
+          </div>
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-5">
                     @if(\Auth::user()->current_account()->first()->account_amount <= 0)
