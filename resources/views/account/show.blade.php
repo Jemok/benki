@@ -11,8 +11,8 @@
 
             @if($account->user_id == \Auth::user()->id)
 
-                <div class="panel panel-default">
-                    <div class="panel-heading">Admin Panel <a href="{{ route('deleteAccount', [$account_id])}}" class="btn btn-warning col-md-offset-8">Delete Account</a></div>
+                <div class="panel">
+                    <div class="panel-heading panel-top">Admin Panel <a href="{{ route('deleteAccount', [$account_id])}}" class="btn btn-warning col-md-offset-8">Delete Account</a></div>
 
                     <div class="panel-body">
 
@@ -83,8 +83,8 @@
 
         </div>
 
-        <div class="panel panel-default">
-                <div class="panel-heading">Actions <span class="col-md-offset-2">Account Balance: {{$account->amount->amount}}</span> <span class="col-md-offset-5"><a href="{{ route('accountUsers', [$account_id]) }}">Members</a> </span></div>
+        <div class="panel">
+                <div class="panel-heading panel-top">Actions <span class="col-md-offset-2">Account Balance: {{$account->amount->amount}}</span> <span class="col-md-offset-5"><a href="{{ route('accountUsers', [$account_id]) }}">Members</a> </span></div>
 
                 <div class="panel-body">
 
@@ -182,8 +182,8 @@
         </div>
     </div>
     @else
-            <div class="panel panel-default">
-                <div class="panel-heading">Actions</div>
+            <div class="panel">
+                <div class="panel-heading panel-top">Actions</div>
 
                 <div class="panel-body">
 
