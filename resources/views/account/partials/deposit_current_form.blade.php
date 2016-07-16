@@ -12,12 +12,13 @@
                 </span>
             @endif
         </div>
-        <div class="form-group">
-            <div class="col-md-4">
-                <button type="submit" class="btn btn-primary">
-                    <i class="fa fa-btn fa-sign-in"></i>Deposit
-                </button>
-            </div>
+
+    </div>
+    <div class="form-group">
+        <div class="col-md-4 col-md-offset-3">
+            <button type="submit" class="btn btn-primary">
+                <i class="fa fa-btn fa-sign-in"></i>Deposit
+            </button>
         </div>
     </div>
 </form>

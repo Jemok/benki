@@ -15,7 +15,7 @@
     </div>
 
     <div class="col-md-6">
-        <span class="col-md-offset-2">Chama Requests</span>
+        <span class="col-md-offset-3">Chama Requests</span>
         {{--<span class="col-md-offset-2">OR</span>--}}
         {{--<span class="col-md-offset-2"><a href="{{ url('accounts/get/all') }}">View all accounts</a></span>--}}
     @if($account_requests->count())
