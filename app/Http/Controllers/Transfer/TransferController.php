@@ -16,6 +16,8 @@ class TransferController extends Controller
     public function store(TransferUsersRepo $transferUsersRepo, TransferUserRequest $transferUserRequest ){
 
         $transferUsersRepo->store($transferUserRequest->transfer_amount, $transferUserRequest->transfer_to, \Auth::user()->id);
+        
+        
 
         Session::flash('flash_message', 'The transfer was successfull');
 

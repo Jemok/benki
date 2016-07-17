@@ -16,6 +16,7 @@ class CreateWithdrawRequestsMigrationTable extends Migration
             $table->increments('id');
             $table->integer('account_id')->unsigned();
             $table->integer('request_amount');
+            $table->integer('withdraw_status')->default(0);
             $table->integer('user_id')->unsigned();
             $table->timestamps();
 

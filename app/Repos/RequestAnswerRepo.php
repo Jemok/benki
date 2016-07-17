@@ -29,7 +29,8 @@ class RequestAnswerRepo {
 
             'account_id' =>  $account_id,
             'withdraw_request_id' => $withdraw_request_id,
-            'user_id' =>  $user_id
+            'user_id' =>  $user_id,
+            'status' => 1
 
         ]);
     }

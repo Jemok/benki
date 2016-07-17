@@ -113,6 +113,8 @@ class AccountRepo {
 
             ]);
 
+        }
+
 
         $account->update([
 
@@ -125,8 +127,6 @@ class AccountRepo {
             'status' =>  2
 
         ]);
-
-        }
 
 
 

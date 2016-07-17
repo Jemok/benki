@@ -7,7 +7,7 @@
 
             <div class="col-md-6 col-md-offset-1">
 
-                <select class="form-control tag_list" name="transfer_to" multiple>
+                <select class="form-control tag_list" name="transfer_to[]" multiple>
 
                     @if($users->count())
                         @foreach($users as $user)
@@ -40,7 +40,7 @@
             <div class="form-group">
                 <div class="col-md-12">
                     @if(\Auth::user()->current_account()->first()->account_amount <= 0)
-                    <button type="submit" class="btn btn-primary col-md-offset-2 col-md-4"" disabled>
+                    <button type="submit" class="btn btn-primary col-md-offset-2 col-md-4" disabled>
                         <i class="fa fa-btn fa-sign-in"></i>Your account is low Kshs {{\Auth::user()->current_account()->first()->account_amount}} , you cant transfer
                     </button>
                     @else

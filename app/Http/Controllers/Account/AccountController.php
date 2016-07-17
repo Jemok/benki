@@ -46,7 +46,7 @@ class AccountController extends Controller
 
         $query = "";
 
-        $accounts = Account::paginate(10);
+        //$accounts = Account::paginate(10);
 
         return view('account.all', compact('accounts', 'query'));
     }
@@ -116,15 +116,17 @@ class AccountController extends Controller
 
         $users_in_account_count = $accountUserRepo->getMembersInAccount($account_id)->count();
 
-        $id = $withdrawRequestRepo->getLatestForUser($account_id, \Auth::user()->id);
+        $id = $withdrawRequestRepo->getLatestForUser($account_id);
+            
+            $withdraw_status = $withdrawRequestRepo->getStatus($id);
+            
+            $request_answers_count = $requestAnswerRepo->countAnswers($id);
 
-        $request_answers_count = $requestAnswerRepo->countAnswers($id);
-
-        if($users_in_account_count == $request_answers_count){
+        if($users_in_account_count == $request_answers_count && $withdraw_status == 0){
 
             $info = "-- ---- --- --Your Withdrawal was approved, you can withdraw-- ---- -- --";
 
-        }elseif($users_in_account_count < $request_answers_count){
+        }elseif($users_in_account_count < $request_answers_count && $withdraw_status == 0){
 
             $info = "";
         }else{
@@ -159,15 +161,17 @@ class AccountController extends Controller
 
                     $users_in_account_count = $accountUserRepo->getMembersInAccount($account_id)->count();
 
-                    $id = $withdrawRequestRepo->getLatestForUser($account_id, \Auth::user()->id);
+                    $id = $withdrawRequestRepo->getLatestForUser($account_id);
+
+                    $withdraw_status = $withdrawRequestRepo->getStatus($id);
 
                     $request_answers_count = $requestAnswerRepo->countAnswers($id);
 
-                    if($users_in_account_count == $request_answers_count){
+                    if($users_in_account_count == $request_answers_count && $withdraw_status == 0){
 
                         $info = "-- ---- --- --Your Withdrawal was approved, you can withdraw-- ---- -- --";
 
-                    }elseif($users_in_account_count < $request_answers_count){
+                    }elseif($users_in_account_count < $request_answers_count && $withdraw_status == 0){
 
                         $info = "";
                     }else{
@@ -428,6 +432,7 @@ class AccountController extends Controller
 
     public function deleteAccount($account_id, AccountRepo $accountRepo){
 
+
         $accountRepo->deleteAccount($account_id);
 
         Session::flash('flash_message', 'The account was deleted successfully and every one refunded');
@@ -455,15 +460,17 @@ class AccountController extends Controller
 
         $users_in_account_count = $accountUserRepo->getMembersInAccount($account_id)->count();
 
-        $id = $withdrawRequestRepo->getLatestForUser($account_id, \Auth::user()->id);
+        $id = $withdrawRequestRepo->getLatestForUser($account_id);
+        
+        $withdraw_status = $withdrawRequestRepo->getStatus($id);
 
         $request_answers_count = $requestAnswerRepo->countAnswers($id);
 
-        if($users_in_account_count < $request_answers_count){
+        if($users_in_account_count < $request_answers_count && $withdraw_status == 0){
 
             $info = "Some users have not yet confirmed your request";
 
-        }elseif($users_in_account_count > $request_answers_count){
+        }elseif($users_in_account_count >= $request_answers_count && $withdraw_status == 1){
 
             $info = "";
         }else{

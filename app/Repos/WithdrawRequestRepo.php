@@ -35,6 +35,16 @@ class WithdrawRequestRepo {
      */
     public function store($account_id, $user_id, $request_amount){
 
+        if(Withdrawal_request::where('account_id', $account_id)->where('user_id', $user_id)->where('withdraw_status', 0)->exists()){
+
+            Withdrawal_request::where('account_id', $account_id)->where('user_id', $user_id)->where('withdraw_status', 0)
+                                ->update([
+
+                                    'withdraw_status' => 2
+
+                                ]);
+        }
+
         $request = $this->model->create([
             'account_id' =>  $account_id,
             'user_id'    => $user_id,
@@ -44,7 +54,8 @@ class WithdrawRequestRepo {
         $request->answer()->create([
 
             'user_id' => $user_id,
-            'account_id' => $account_id
+            'account_id' => $account_id,
+            'status' => 1
 
         ]);
     }
@@ -57,20 +68,38 @@ class WithdrawRequestRepo {
 
         return $this->model
              ->where('account_id', '=', $account_id)
+             ->where('withdraw_status', '=', 0)
              ->get();
     }
 
     public function getLatestForUser($account_id){
 
         if($this->model->where('account_id', $account_id)
-                           ->where('user_id', \Auth::user()->id)->first()
-                            != null){
+                           ->where('user_id', \Auth::user()->id)->exists()){
 
-           return $this->model->where('account_id', $account_id)
+            if($this->model->where('account_id', $account_id)
                 ->where('user_id', \Auth::user()->id)
-                ->orderBy('created_at','desc')->first()->id;
+                ->where('withdraw_status', '=', 0)->exists()) {
+                return $this->model->where('account_id', $account_id)
+                    ->where('user_id', \Auth::user()->id)
+                    ->where('withdraw_status', '=', 0)
+                    ->orderBy('created_at', 'desc')->first()->id;
+            }
+
+            return null;
         }
 
+        return null;
+
+    }
+    
+    public function getStatus($request_id){
+
+        if($this->model->where('id', $request_id)->exists()) {
+            return $this->model->where('id', $request_id)->first()->withdraw_status;
+        }
+
+        return null;
     }
 
 } 

@@ -48,15 +48,17 @@ class SendAccountRequestController extends Controller
 
         $users_in_account_count = $accountUserRepo->getMembersInAccount($account_id)->count();
 
-        $id = $withdrawRequestRepo->getLatestForUser($account_id, \Auth::user()->id);
+        $id = $withdrawRequestRepo->getLatestForUser($account);
+
+        $withdraw_status = $withdrawRequestRepo->getStatus($id);
 
         $request_answers_count = $requestAnswerRepo->countAnswers($id);
 
-        if($users_in_account_count < $request_answers_count){
+        if($users_in_account_count < $request_answers_count && $withdraw_status == 0){
 
             $info = "Some users have not yet confirmed your request";
 
-        }elseif($users_in_account_count > $request_answers_count){
+        }elseif($users_in_account_count > $request_answers_count && $withdraw_status == 0){
 
             $info = "";
         }else{

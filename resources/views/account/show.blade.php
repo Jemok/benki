@@ -144,7 +144,7 @@
 
                                             <td>
 
-                                                @if($answer_class->check($account_id, \Auth::user()->id) == null)
+                                                @if($answer_class->check($account_id, \Auth::user()->id, $withdraw_request->id) == null)
                                                     <form method="post" action="{{route('setConfirm', [$account_id, $withdraw_request->id])}}">
 
                                                         {{ csrf_field() }}
@@ -152,17 +152,17 @@
                                                         <button type="submit" class="btn btn-info">Confirm</button>
                                                     </form>
                                                 @else
-                                                    @if($users_in_account_count == $request_answers_count)
+                                                    @if($users_in_account_count == $request_answers_count && $withdraw_request->withdraw_status == 0)
 
                                                     <form method="post" action="{{ route('withdrawFromAccount', [$account_id]) }}">
 
                                                         {{ csrf_field() }}
 
-                                                        <button class="btn btn-info" type="submit">Withdraw</button>
+                                                        <button class="btn btn-success" type="submit">Withdraw</button>
 
                                                     </form>
 
-                                                    @else
+                                                    @elseif($answer_class->check($account_id, \Auth::user()->id, $withdraw_request->id) != null)
                                                     <button class="btn btn-success disabled">Confirmed</button>
                                                     @endif
                                                 @endif

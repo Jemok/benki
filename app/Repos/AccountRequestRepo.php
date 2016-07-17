@@ -106,38 +106,48 @@ class AccountRequestRepo {
                                                ->where('user_id', $user_id)
                                                ->orderBy('created_at','desc')->first();
 
-        $request_answer = WithdrawRequestAnswer::where('user_id', $user_id)
-                                                 ->where('account_id', $account_id)
-                                                 ->orderBy('created_at','desc')->first();
+//        $request_answer = WithdrawRequestAnswer::where('user_id', $user_id)
+//                                                 ->where('account_id', $account_id)
+//                                                 ->orderBy('created_at','desc')->first();
 
 
         $account_amount = $account->amount;
 
 
-        WithdrawRequestAnswer::where('account_id', $account_id)
-                               ->update([
-
-                'status' => 1
-
-            ]);
+//        WithdrawRequestAnswer::where('account_id', $account_id)
+//                               ->update([
+//
+//                'status' => 1
+//
+//            ]);
 
 
 
         $request_amount = $account_request->request_amount;
 
-        $request_answer->create([
-
-            'user_id' => \Auth::user()->id,
-            'account_id' => 3,
-            'withdraw_request_id' => 1
-
-        ]);
+//        $request_answer->create([
+//
+//            'user_id' => \Auth::user()->id,
+//            'account_id' => 3,
+//            'withdraw_request_id' => 1
+//
+//        ]);
 
         $account->update([
 
             'amount' =>  ($account_amount - $request_amount)
 
         ]);
+
+        Withdrawal_request::where('account_id', $account_id)
+                            ->where('user_id', '=', \Auth::user()->id)
+                            ->where('withdraw_status', '=', 0)
+                            ->orderBy('created_at','desc')
+                            ->update([
+
+                                'withdraw_status' => 1
+
+                            ]);
 
         $current_amount = \Auth::user()->current_account()->first()->account_amount;
 
