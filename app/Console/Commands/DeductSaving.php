@@ -58,34 +58,34 @@ class DeductSaving extends Command
 
                 $rate = ($rate/100);
 
-                $amount_add = $amount_add*$rate*0.25;
+                $amount_add = $amount_add*$rate;
 
 
-            }elseif($account_amount >= 20000 && $account_amount <= 50000 ){
+            }elseif($account_amount > 20000 && $account_amount <= 50000 ){
 
                 $rate = AccountRate::where('id', '=', 1)->first()->category_two;
 
                 $rate = ($rate/100);
 
-                $amount_add = $amount_add*$rate*0.25;
+                $amount_add = $amount_add*$rate;
 
 
-            }elseif($account_amount >= 10000 && $account_amount < 20000  ){
+            }elseif($account_amount > 10000 && $account_amount <= 20000  ){
 
                 $rate = AccountRate::where('id', '=', 1)->first()->category_three;
 
                 $rate = ($rate/100);
 
-                $amount_add = $amount_add*$rate*0.25;
+                $amount_add = $amount_add*$rate;
 
 
-            }elseif($account_amount >0 && $account_amount < 10000){
+            }elseif($account_amount >0 && $account_amount <= 10000){
 
                 $rate = AccountRate::where('id', '=', 1)->first()->category_four;
 
                 $rate = ($rate/100);
 
-                $amount_add = $amount_add*$rate*0.25;
+                $amount_add = $amount_add*$rate;
 
             }
 

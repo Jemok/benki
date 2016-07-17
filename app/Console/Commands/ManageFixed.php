@@ -54,8 +54,6 @@ class ManageFixed extends Command
 
                 'account_amount' => $account_amount + $transaction_amount
             ]);
-
-
         }
     }
 }
