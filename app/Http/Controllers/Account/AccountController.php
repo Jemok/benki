@@ -321,7 +321,7 @@ class AccountController extends Controller
 
         $withdrawRequestRepo->store($account_id, \Auth::user()->id, $withdrawAccountRequest->request_amount);
 
-        Session::flash('flash_message', 'Your request was sent successfully, withdrawal will occur automatically if approved by all members ');
+        Session::flash('flash_message', 'Your request was sent successfully, you will be notified when all chama members approve it');
 
         return redirect('accounts/'.$account_id.'/amount');
     }
