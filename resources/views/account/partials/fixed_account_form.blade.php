@@ -57,11 +57,11 @@
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
 
-                <button type="submit" class="btn btn-primary"  @if(\Auth::user()->current_account->account_amount == 0) disabled @endif>
+                <button type="submit" class="btn btn-warning"  @if(\Auth::user()->current_account->account_amount == 0) disabled @endif>
                     @if(\Auth::user()->current_account->account_amount != 0)
                     <i class="fa fa-btn fa-sign-in"></i>Deposit
                     @else
-                    <i class="fa fa-btn fa-sign-in"></i>No money in your current account, cant deposit
+                    <i class="fa fa-btn fa-sign-in"></i>No money in your current account
                     @endif
                 </button>
             </div>

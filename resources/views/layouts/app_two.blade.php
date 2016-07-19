@@ -52,7 +52,7 @@
                 @if(\Auth::check())
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">{{Request::path() == 'home' ? 'Benki App' : 'Home'}}</a></li>
+                    <li><a href="{{ url('/home') }}">{{Request::path() == 'home' ? 'HBnk' : 'Home'}}</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
