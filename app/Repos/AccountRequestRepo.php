@@ -154,7 +154,7 @@ class AccountRequestRepo {
         \Auth::user()->current_account()->update([
 
 
-            'account_amount' => $current_amount + $request_amount
+            'account_amount' => ($current_amount + $request_amount)
 
         ]);
 
