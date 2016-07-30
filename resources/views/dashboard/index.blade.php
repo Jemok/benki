@@ -17,7 +17,7 @@
 
         <div class="col-md-10 col-md-offset-1">
             <div class="panel">
-                <div class="panel-heading panel-top">Deposit In Your Current Account or Transfer to another user </div>
+                <div class="panel-heading panel-top">Transfer money other users </div>
 
                 <div class="panel-body">
                     {{--@include('account.partials.deposit_current_form')--}}
