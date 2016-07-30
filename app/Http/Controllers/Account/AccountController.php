@@ -550,6 +550,23 @@ class AccountController extends Controller
         }
 
         return view('fixed.user_fixed', compact('user_fixed', 'records_count'));
+    }
 
+    public function getDepositForUser($user_id){
+
+
+        return view('user.add_money', compact('user_id'));
+    }
+
+    public function depositCurrentForUser(AccountAmountRepo $accountAmountRepo, DepositAmountRequest $depositAmountRequest, $user_id){
+
+        $user = User::findOrFail($user_id);
+
+        $accountAmountRepo->depositCurrent($user, $depositAmountRequest);
+
+        Session::flash('flash_message', 'Your deposit was successful');
+
+
+        return redirect()->back();
     }
 }

@@ -4,6 +4,7 @@
 
 <div class="container">
     @include('flash.flash_message')
+    <a href="/{{ \Illuminate\Support\Facades\Request::path()}}">Refresh</a>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 

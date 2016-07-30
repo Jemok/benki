@@ -51,6 +51,9 @@
                                             <td>
                                                 Current Deposits
                                             </td>
+                                            <td>
+                                                Add Money
+                                            </td>
                                         </tr>
                                     </thead>
                                         @foreach($users as $user)
@@ -66,6 +69,7 @@
                                                 <td><a href="{{ route('chamaWithdrawals', [$user->id]) }}">Withdrawals</a> </td>
                                                 <td><a href="{{ route('chamaDeposits', [$user->id]) }}">Deposits</a> </td>
                                                 <td><a href="{{ route('currentDeposits', [$user->id]) }}">Deposits</a></td>
+                                                <td><a href="{{ route('getDepositForUser', [$user->id]) }}">Add Money</a> </td>
                                             </tr>
                                         @endforeach
                                 </table>
