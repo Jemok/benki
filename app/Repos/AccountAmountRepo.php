@@ -10,6 +10,7 @@ namespace App\Repos;
 use App\Account;
 use App\Account_amount;
 use App\AccountContribution;
+use App\CurrentRecord;
 use App\User;
 
 
@@ -83,6 +84,15 @@ class AccountAmountRepo {
         $user->current_account()->update([
 
             'account_amount' =>  ($user->current_account()->first()->account_amount)+$request->amount
+
+        ]);
+
+        $current = $user->current_account()->first();
+
+
+        $current->current_records()->create([
+
+            'amount' => $request->amount
 
         ]);
 

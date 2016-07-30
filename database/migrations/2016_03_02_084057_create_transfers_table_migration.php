@@ -15,6 +15,7 @@ class CreateTransfersTableMigration extends Migration
         Schema::create('transfers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->integer('receiver_id')->unsigned();
             $table->integer('transfer_amount')->unsigned();
             $table->timestamps();
         });

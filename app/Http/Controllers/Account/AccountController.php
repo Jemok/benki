@@ -67,6 +67,24 @@ class AccountController extends Controller
         return view('account.all', compact('accounts', 'query'));
     }
 
+    public function searchUsers(Request $request){
+        $query = $request->get('q');
+
+        if($query){
+
+            $users = User::where('name', 'LIKE', "%$query%")
+                                ->where('userCategory', 0)
+                                 ->orWhere('email', 'LIKE', "%$query%")
+                                 ->orWhere('phone_number', 'LIKE', "%$query%")
+                                ->paginate(10);
+        }else{
+
+            $users = User::where('userCategory', 0)->paginate(10);
+        }
+
+        return view('user.admin_two', compact('users', 'query'));
+    }
+
     /**
      * @param AccountRepo $accountRepo
      * @param AccountAmountRepo $accountAmountRepo
@@ -96,9 +114,7 @@ class AccountController extends Controller
      */
     public function show(AccountUserRepo $accountUserRepo, AccountRepo $accountRepo, $account_id, AccountRequestRepo $accountRequestRepo, WithdrawRequestRepo $withdrawRequestRepo, RequestAnswerRepo $requestAnswerRepo){
 
-
         if(Account_user::where('account_id', $account_id)->where('user_id', \Auth::user()->id)->exists()){
-
 
         $account = $accountRepo->show($account_id);
 
@@ -127,12 +143,9 @@ class AccountController extends Controller
             $info = "-- ---- --- --Your Withdrawal was approved, you can withdraw-- ---- -- --";
 
         }elseif($users_in_account_count < $request_answers_count && $withdraw_status == 0){
-
             $info = "";
         }else{
-
             $info = "";
-
         }
 
         return view('account.show', compact('users_in_account_count','request_answers_count','answer_class','account', 'users', 'users_in', 'account_id', 'class_model', 'confirmation_status', 'withdraw_requests', 'info'));
@@ -479,8 +492,64 @@ class AccountController extends Controller
         }
 
         return view('account.show', compact('answer_class','account', 'users', 'users_in', 'account_id', 'class_model', 'confirmation_status', 'withdraw_requests', 'info'));
-
-
     }
 
+    public function getAccounts($user_id, AccountRepo $accountRepo){
+
+        $accounts = $accountRepo->getAccounts($user_id);
+
+        if($accounts == null){
+
+            $count = 0;
+        }else{
+            $count = 1;
+        }
+
+        return view('account.user_accounts', compact('accounts', 'count'));
+    }
+
+    public function getUserSavings($user_id, AccountRepo $accountRepo){
+
+        $user_savings = $accountRepo->getUserSavings($user_id);
+
+        if($user_savings == null){
+
+            $savings_count = 0;
+        }else{
+            $savings_count = 1;
+        }
+
+        return view('savings.user_savings', compact('user_savings', 'savings_count'));
+    }
+
+    public function savingRecords($saving_id, AccountRepo $accountRepo){
+
+        $saving_records = $accountRepo->getSavingsRecords($saving_id);
+
+        if($saving_records == null){
+
+            $records_count = 0;
+        }else{
+
+            $records_count = 1;
+        }
+
+        return view('savings.records', compact('savings_records', 'records_count'));
+    }
+
+    public function fixedRecords($user_id, AccountRepo $accountRepo){
+
+        $user_fixed = $accountRepo->getFixedRecords($user_id);
+
+        if($user_fixed == null){
+
+            $records_count = 0;
+
+        }else{
+            $records_count = 1;
+        }
+
+        return view('fixed.user_fixed', compact('user_fixed', 'records_count'));
+
+    }
 }

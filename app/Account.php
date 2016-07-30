@@ -31,6 +31,18 @@ class Account extends Model
     }
 
     /**
+     * Return an account's name from an account_id
+     * @param $account_id
+     * @return mixed
+     */
+    public function accountNameFromId($account_id){
+        return $this
+            ->where('id', $account_id)
+            ->first()
+            ->account_name;
+    }
+
+    /**
      * Account Account_Amount relationship
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */

@@ -23,9 +23,7 @@ class UserRepo{
      * @param User $user
      */
     public function __construct(User $user){
-
         $this->model = $user;
-
     }
 
     /**
@@ -34,19 +32,13 @@ class UserRepo{
     public function findUserByEmail($email){
 
        if($this->model->where('email', '=', $email)->first() == null){
-
            return false;
-
        }else{
-
            return $this->model->where('email', $email)->first();
        }
-
     }
 
     public function allExceptAdmin(){
-
         return $this->model->where('userCategory', '=', 0)->where('id', '!=', \Auth::user()->id)->get();
-
     }
 } 

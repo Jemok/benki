@@ -16,11 +16,9 @@ class Withdrawal_request extends Model
      * @var array
      */
     protected $fillable = [
-
         'request_amount',
         'user_id',
         'account_id'
-
     ];
 
     /**
@@ -28,9 +26,7 @@ class Withdrawal_request extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user(){
-
         return $this->belongsTo(User::class);
-
     }
 
     /**
@@ -38,10 +34,6 @@ class Withdrawal_request extends Model
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function answer(){
-
         return $this->hasMany(WithdrawRequestAnswer::class, 'withdraw_request_id');
-
     }
-
-
 }

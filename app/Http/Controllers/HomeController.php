@@ -8,6 +8,7 @@ use App\Repos\AccountRepo;
 use App\Repos\AccountRequestRepo;
 use App\Repos\AccountUserRepo;
 use App\Repos\UserRepo;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Repos\AccountTypeRepo;
@@ -32,7 +33,13 @@ class HomeController extends Controller
 
                 return view('user.admin', compact('rates'));
 
-            }else{
+            }elseif(Auth::user()->isAdminTwo()){
+
+                $users = User::where('userCategory', 0)->latest()->paginate(10);
+
+                return view('user.admin_two', compact('users'));
+            }
+            else{
 
                 $accounts_type = $accountTypeRepo->all();
 

@@ -76,9 +76,29 @@ Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf']
 
        Route::post('{account_id}/account/withdraw', ['as' => 'withdrawFromAccount', 'uses' => 'Account\SendAccountRequestController@withdraw']);
 
-
-
         Route::post('/transfer/user', ['as' => 'transferToUser', 'uses' => 'Transfer\TransferController@store']);
+
+        Route::get('/users/{user_id}',  ['as' => 'userAccounts', 'uses' => 'Account\AccountController@getAccounts']);
+
+        Route::get('/users/savings/{user_id}', ['as' => 'userSavings', 'uses' => 'Account\AccountController@getUserSavings']);
+
+        Route::get('/savings/records/{saving_id}', ['as' => 'savingRecords', 'uses' => 'Account\AccountController@savingRecords']);
+
+        Route::get('/fixed/records/{user_id}', ['as' => 'fixedRecords', 'uses' => 'Account\AccountController@fixedRecords']);
+
+        Route::get('/received/transfers/{user_id}', ['as' => 'receivedTransfers', 'uses' => 'Transfer\TransferController@getReceived']);
+
+        Route::get('/sent/transfers/{user_id}', ['as' => 'sentTransfers', 'uses' => 'Transfer\TransferController@getSent']);
+
+        Route::get('/chama/withdrawals/{user_id}', ['as' => 'chamaWithdrawals', 'uses' => 'Transfer\TransferController@getWithdrawals']);
+
+        Route::get('/chama/deposits/{user_id}', ['as' => 'chamaDeposits', 'uses' => 'Transfer\TransferController@getDeposits']);
+
+        Route::get('/chama/deposits/{user_id}', ['as' => 'chamaDeposits', 'uses' => 'Transfer\TransferController@getDeposits']);
+
+        Route::get('/current/accounts/{user_id}', ['as' => 'currentDeposits', 'uses' => 'Transfer\TransferController@getCurrents']);
+
+        Route::get('/allUsers/get', ['as' => 'searchUsers', 'uses' => 'Account\AccountController@searchUsers']);
 
     });
 

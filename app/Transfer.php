@@ -20,6 +20,15 @@ class Transfer extends Model
     protected $fillable = [
 
         'user_id',
+        'receiver_id',
         'transfer_amount'
     ];
+
+    /**
+     * Transfer User relationship
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

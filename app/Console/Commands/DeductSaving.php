@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Transaction;
+use App\Transaction_records;
 use Illuminate\Console\Command;
 use App\AccountRate;
 
@@ -39,7 +40,10 @@ class DeductSaving extends Command
      */
     public function handle()
     {
-        $transactions = Transaction::where('duration', '=', 1)->get();
+        /**
+         * If transaction_status == 1 then the transaction is still active
+         */
+        $transactions = Transaction::where('duration', '=', 1)->where('transaction_status', '=', 1)->get();
 
         foreach($transactions as $transaction){
 
@@ -51,46 +55,91 @@ class DeductSaving extends Command
 
             $amount_add = ($transaction->percentage/100)*$current_account->account_amount;
 
+            $transaction_amount = $transaction->transaction_amount;
 
             if($account_amount > 50000){
 
-                $rate = AccountRate::where('id', '=', 1)->first()->category_one;
+                if($transaction->rate_pay_count == 0){
 
-                $rate = ($rate/100);
+                    $rate = AccountRate::where('id', '=', 1)->first()->category_one;
 
-                $amount_add = $amount_add*$rate;
+                    $rate = ($rate/100);
 
+                    $amount_add = $amount_add +  ($transaction_amount*$rate);
+
+                    $transaction->update([
+                        'rate_pay_count' => 90
+                    ]);
+                }
+
+                $amount_add = $amount_add + $transaction_amount;
+
+                $transaction->update([
+                    'rate_pay_count' => $transaction->rate_pay_count - 1
+                ]);
 
             }elseif($account_amount > 20000 && $account_amount <= 50000 ){
 
-                $rate = AccountRate::where('id', '=', 1)->first()->category_two;
+                if($transaction->rate_pay_count == 0){
 
-                $rate = ($rate/100);
+                    $rate = AccountRate::where('id', '=', 1)->first()->category_two;
 
-                $amount_add = $amount_add*$rate;
+                    $rate = ($rate/100);
 
+                    $amount_add = $amount_add +  ($transaction_amount*$rate);
+
+                    $transaction->update([
+                        'rate_pay_count' => 90
+                    ]);
+                }
+                $amount_add = $amount_add + $transaction_amount;
+
+                $transaction->update([
+                    'rate_pay_count' => $transaction->rate_pay_count - 1
+                ]);
 
             }elseif($account_amount > 10000 && $account_amount <= 20000  ){
 
-                $rate = AccountRate::where('id', '=', 1)->first()->category_three;
+                if($transaction->rate_pay_count == 0){
 
-                $rate = ($rate/100);
+                    $rate = AccountRate::where('id', '=', 1)->first()->category_three;
 
-                $amount_add = $amount_add*$rate;
+                    $rate = ($rate/100);
 
+                    $amount_add = $amount_add +  ($transaction_amount*$rate);
+
+                    $transaction->update([
+                        'rate_pay_count' => 90
+                    ]);
+                }
+
+                $amount_add = $amount_add + $transaction_amount;
+
+                $transaction->update([
+                    'rate_pay_count' => $transaction->rate_pay_count - 1
+                ]);
 
             }elseif($account_amount >0 && $account_amount <= 10000){
 
-                $rate = AccountRate::where('id', '=', 1)->first()->category_four;
+                if($transaction->rate_pay_count == 0){
 
-                $rate = ($rate/100);
+                    $rate = AccountRate::where('id', '=', 1)->first()->category_four;
 
-                $amount_add = $amount_add*$rate;
+                    $rate = ($rate/100);
 
+                    $amount_add = $amount_add +  ($transaction_amount*$rate);
+
+                    $transaction->update([
+                        'rate_pay_count' => 90
+                    ]);
+                }
+                $amount_add = $amount_add + $transaction_amount;
+
+                $transaction->update([
+
+                    'rate_pay_count' => $transaction->rate_pay_count - 1
+                ]);
             }
-
-
-            $transaction_amount = $transaction->transaction_amount;
 
             $withdraw_date = $transaction->withdraw_date;
 
@@ -100,31 +149,32 @@ class DeductSaving extends Command
 
                 $current_account->update([
 
-                    'account_amount' => $account_amount + $transaction_amount
+                    'account_amount' => $account_amount + $transaction_amount+$amount_add
                 ]);
 
                 $transaction->update([
+                    'transaction_amount' => $transaction_amount + $amount_add,
+                    'transaction_status' => 0
+                ]);
 
-                    'transaction_amount' => 0
-
+                $transaction->records()->create([
+                    'amount' => $amount_add
                 ]);
 
             }else{
-
-
                 $current_account->update([
-
                     'account_amount' => $account_amount - $amount
                 ]);
 
                 $transaction->update([
-
                     'transaction_amount' => $transaction_amount + $amount_add
-
                 ]);
 
-            }
+                $transaction->records()->create([
 
+                       'amount' => $amount_add
+                ]);
+            }
         }
     }
 }

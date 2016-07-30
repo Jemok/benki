@@ -21,6 +21,8 @@ class TransferUsersRepo {
 
     /**
      * This class constructor initializer
+     * TransferUsersRepo constructor.
+     * @param Transfer $transfer
      */
     public function __construct(Transfer $transfer){
 
@@ -31,6 +33,7 @@ class TransferUsersRepo {
     /**
      * Create a new transfer instance
      * @param $transfer_amount
+     * @param $receiver_id
      * @param $user_id
      */
     public function store($transfer_amount, $receiver_id ,$user_id){

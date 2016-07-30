@@ -74,7 +74,15 @@
                         @endif
                             <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
-                        <p class="navbar-text nav-amount">Current Balance Kshs: {{\Auth::user()->current_account()->first()->account_amount}}</p>
+                        <p class="navbar-text nav-amount">
+
+                            Current Balance Kshs:
+                            @if(\Auth::user()->current_account()->exists())
+                                {{\Auth::user()->current_account()->first()->account_amount}}
+                            @else
+                                0
+                            @endif
+                        </p>
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

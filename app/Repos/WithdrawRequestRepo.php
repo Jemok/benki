@@ -34,14 +34,10 @@ class WithdrawRequestRepo {
      * @param $request_amount
      */
     public function store($account_id, $user_id, $request_amount){
-
         if(Withdrawal_request::where('account_id', $account_id)->where('user_id', $user_id)->where('withdraw_status', 0)->exists()){
-
             Withdrawal_request::where('account_id', $account_id)->where('user_id', $user_id)->where('withdraw_status', 0)
                                 ->update([
-
                                     'withdraw_status' => 2
-
                                 ]);
         }
 
@@ -52,11 +48,9 @@ class WithdrawRequestRepo {
         ]);
 
         $request->answer()->create([
-
             'user_id' => $user_id,
             'account_id' => $account_id,
             'status' => 1
-
         ]);
     }
 
@@ -85,21 +79,15 @@ class WithdrawRequestRepo {
                     ->where('withdraw_status', '=', 0)
                     ->orderBy('created_at', 'desc')->first()->id;
             }
-
             return null;
         }
-
         return null;
-
     }
     
     public function getStatus($request_id){
-
         if($this->model->where('id', $request_id)->exists()) {
             return $this->model->where('id', $request_id)->first()->withdraw_status;
         }
-
         return null;
     }
-
 } 

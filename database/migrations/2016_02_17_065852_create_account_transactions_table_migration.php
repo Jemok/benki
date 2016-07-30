@@ -20,6 +20,8 @@ class CreateAccountTransactionsTableMigration extends Migration
             $table->integer('duration')->unsigned();
             $table->integer('deduct_amount')->unsigned();
             $table->integer('account_id')->unsigned();
+            $table->integer('transaction_status')->unsigned()->default(1);
+            $table->integer('rate_pay_count')->unsigned();
             $table->dateTime('withdraw_date');
             $table->timestamps();
 

@@ -42,4 +42,13 @@ class Current_account extends Model
 
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * CurrentAccount CurrentRecords relationship
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function current_records(){
+
+        return $this->hasMany(CurrentRecord::class);
+    }
 }

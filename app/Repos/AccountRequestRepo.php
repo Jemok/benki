@@ -38,7 +38,7 @@ class AccountRequestRepo {
      */
     public function sendRequest($account_id, $user_id){
 
-       return $this->model->create([
+       $this->model->create([
             'account_id' =>  $account_id,
             'user_id'    => $user_id,
             'confirmation_status' => 0
@@ -48,6 +48,7 @@ class AccountRequestRepo {
     /**
      * @param $user_id
      * @param $account_id
+     * @return int
      */
     public function getConfirmationStatus($user_id, $account_id){
 
@@ -55,15 +56,12 @@ class AccountRequestRepo {
                     ->where('account_id', '=', $account_id)
                     ->where('user_id', '=', $user_id)
                     ->first() != null){
-
             return $this->model
                 ->where('account_id', '=', $account_id)
                 ->where('user_id', '=', $user_id)
                 ->first()
                 ->confirmation_status;
-
         }else{
-
             return 2;
         }
     }
@@ -72,7 +70,6 @@ class AccountRequestRepo {
      * Get all the requests that have been sent to an account
      */
     public function getRequestsForAccount($account_id){
-
         if($this->model
                 ->where('account_id', '=', $account_id)
                 ->where('confirmation_status', '=', 0)
@@ -134,9 +131,7 @@ class AccountRequestRepo {
 //        ]);
 
         $account->update([
-
             'amount' =>  ($account_amount - $request_amount)
-
         ]);
 
         Withdrawal_request::where('account_id', $account_id)
@@ -144,19 +139,13 @@ class AccountRequestRepo {
                             ->where('withdraw_status', '=', 0)
                             ->orderBy('created_at','desc')
                             ->update([
-
                                 'withdraw_status' => 1
-
                             ]);
 
         $current_amount = \Auth::user()->current_account()->first()->account_amount;
 
         \Auth::user()->current_account()->update([
-
-
             'account_amount' => ($current_amount + $request_amount)
-
         ]);
-
     }
 }

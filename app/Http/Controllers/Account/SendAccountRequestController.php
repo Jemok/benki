@@ -25,7 +25,6 @@ class SendAccountRequestController extends Controller
        Session::flash('flash_message', 'Your request was sent successfully, wait for its confirmation now');
 
        return redirect('/home');
-
    }
 
     public function searchAccount(SearchRequestRequest $searchRequestRequest, AccountUserRepo $accountUserRepo, AccountRepo $accountRepo, AccountRequestRepo $accountRequestRepo, WithdrawRequestRepo $withdrawRequestRepo, RequestAnswerRepo $requestAnswerRepo){

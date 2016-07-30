@@ -34,6 +34,14 @@ class User extends Authenticatable
     }
 
     /**
+     * User Transfer relationship
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function transfers(){
+        return $this->hasMany(Transfer::class);
+    }
+
+    /**
      * User and Current_account relationship
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -46,6 +54,14 @@ class User extends Authenticatable
     public function isAdmin(){
 
         if($this->userCategory == 1){
+
+            return true;
+        }
+    }
+
+    public function isAdminTwo(){
+
+        if($this->userCategory == 2){
 
             return true;
         }

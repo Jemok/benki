@@ -7,7 +7,12 @@
  */
 
 namespace App\Repos;
+use App\AccountContribution;
+use App\Current_account;
+use App\CurrentRecord;
 use App\Transaction;
+use App\Transfer;
+use App\Withdrawal_request;
 
 
 class TransferRepo {
@@ -40,6 +45,7 @@ class TransferRepo {
             'account_id' => $account_id,
             'percentage' => $request->percentage,
             'duration' => $request->duration,
+            'rate_pay_count' => 90,
             'withdraw_date' =>  $request->withdraw_date
 
         ]);
@@ -97,5 +103,71 @@ class TransferRepo {
 
 
         ]);
+    }
+
+    public function getReceived($user_id)
+    {
+        if(Transfer::where('receiver_id', $user_id)->exists()){
+
+            return Transfer::where('receiver_id', $user_id)->paginate(10);
+        }else{
+
+            return null;
+        }
+    }
+
+    public function getSent($user_id){
+
+        if(Transfer::where('user_id', $user_id)->exists()){
+
+            return Transfer::where('user_id', $user_id)->paginate(10);
+        }else{
+
+            return null;
+        }
+    }
+
+    public function getWithdrawals($user_id){
+
+        if(Withdrawal_request::where('user_id', $user_id)->exists()){
+
+            return Withdrawal_request::where('user_id', $user_id)->paginate(10);
+
+        }else{
+
+            return null;
+        }
+
+    }
+
+    public function getDeposits($user_id){
+
+        if(AccountContribution::where('user_id', $user_id)->exists()){
+
+            return AccountContribution::where('user_id', $user_id)->paginate(10);
+
+        }else{
+
+            return null;
+        }
+    }
+
+    public function getCurrents($user_id){
+
+        $current_id = Current_account::where('user_id', $user_id)->first()->id;
+
+        if(CurrentRecord::where('current_account_id', $current_id)->exists()){
+
+            return CurrentRecord::where('current_account_id', $current_id)->paginate(10);
+
+        }else{
+
+            return null;
+        }
+    }
+
+    public function getCurrentAmount($user_id){
+
+        return Current_account::where('user_id', $user_id)->first()->account_amount;
     }
 } 

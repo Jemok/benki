@@ -23,6 +23,8 @@ class Transaction extends Model
         'withdraw_date',
         'deduct_amount',
         'percentage',
+        'transaction_status',
+        'rate_pay_count',
         'duration'
     ];
 
@@ -34,5 +36,13 @@ class Transaction extends Model
 
         return $this->belongsTo(Current_account::class, 'account_id');
 
+    }
+
+    /**
+     * Transaction Transaction_records relationships
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function records(){
+        return $this->hasMany(Transaction_records::class);
     }
 }

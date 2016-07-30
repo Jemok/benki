@@ -12,6 +12,8 @@ use App\Account_user;
 use App\AccountContribution;
 use App\AccountType;
 use App\Current_account;
+use App\Transaction;
+use App\Transaction_records;
 use App\User;
 use App\AccountRate;
 use App\WithdrawRequestAnswer;
@@ -127,9 +129,60 @@ class AccountRepo {
             'status' =>  2
 
         ]);
+    }
 
+    public function getAccounts($user_id){
 
+        if(Account_user::where('user_id', $user_id)->exists()){
 
+            return Account_user::where('user_id', $user_id)->paginate(10);
 
+        }else{
+
+            return null;
+        }
+    }
+
+    public function getUserSavings($user_id){
+
+        $user = User::findOrFail($user_id);
+
+        if($user->current_account()->exists()) {
+            $account_id = $user->current_account()->first()->id;
+        }else{
+            $account_id = 0;
+        }
+        if(Transaction::where('account_id', $account_id)->exists()){
+            return Transaction::where('account_id', $account_id)->where('transaction_type', 2)->paginate(10);
+        }else{
+            return null;
+        }
+    }
+
+    public function getSavingsRecords($savings_id){
+
+        if(Transaction_records::where('account_transaction_id', '=', $savings_id)->exists()){
+
+            return Transaction_records::where('account_transaction_id', '=', $savings_id)->paginate(10);
+
+        }else{
+            return null;
+        }
+    }
+
+    public function getFixedRecords($user_id){
+
+        $user = User::findOrFail($user_id);
+
+        if($user->current_account()->exists()) {
+            $account_id = $user->current_account()->first()->id;
+        }else{
+            $account_id = 0;
+        }
+        if(Transaction::where('account_id', $account_id)->exists()){
+            return Transaction::where('account_id', $account_id)->where('transaction_type', 1)->paginate(10);
+        }else{
+            return null;
+        }
     }
 }

@@ -12,10 +12,9 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
-
     <style>
         body {
             font-family: 'Lato';
@@ -57,33 +56,24 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
-
-
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
-
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                         </ul>
                     </li>
-
                 </ul>
-
-
                 @endif
-
-
             </div>
         </div>
     </nav>
-
     @yield('content')
-
     <!-- JavaScripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/select2.min.js') }}" type="text/javascript"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>

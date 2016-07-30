@@ -12,7 +12,6 @@ class WithdrawRequestAnswer extends Model
      * @var array
      */
     protected $fillable = [
-
         'user_id',
         'withdraw_request_id',
         'account_id',
@@ -23,15 +22,10 @@ class WithdrawRequestAnswer extends Model
     public function check($account_id, $user_id, $withdraw_request_id){
 
         if($this->where('account_id', '=', $account_id)->where('user_id', '=', $user_id)->where('status', 1)->where('withdraw_request_id', $withdraw_request_id)->exists()){
-
             return $this->where('account_id', '=', $account_id)->where('user_id', '=', $user_id)->where('status', 1)->where('withdraw_request_id', $withdraw_request_id)->first();
-
         }else{
-
             return null;
-
         }
-
     }
 
     /**
@@ -39,7 +33,6 @@ class WithdrawRequestAnswer extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function request(){
-
         return $this->belongsTo(Withdrawal_request::class);
     }
 }
