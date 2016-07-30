@@ -20,7 +20,7 @@
                 <div class="panel-heading panel-top">Deposit In Your Current Account or Transfer to another user </div>
 
                 <div class="panel-body">
-                    @include('account.partials.deposit_current_form')
+                    {{--@include('account.partials.deposit_current_form')--}}
                     @include('account.partials.transfer')
                 </div>
             </div>
