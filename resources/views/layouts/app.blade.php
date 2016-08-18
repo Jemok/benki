@@ -105,6 +105,7 @@
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/select2.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/all.js') }}" type="text/javascript"></script>
 
     <script>
         $('.tag_list').select2({

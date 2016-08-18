@@ -13,7 +13,7 @@
             @if($account->user_id == \Auth::user()->id)
 
                 <div class="panel">
-                    <div class="panel-heading panel-top">Admin Panel <a href="{{ route('deleteAccount', [$account_id])}}" class="btn btn-warning col-md-offset-8">Delete Account</a></div>
+                    <div class="panel-heading panel-top">Admin Panel <a href="{{ route('deleteAccount', [$account_id])}}" class="btn btn-warning btn-sm col-md-offset-8">Delete Account</a></div>
 
                     <div class="panel-body">
 
@@ -54,7 +54,7 @@
 
                                                             {{csrf_field()}}
 
-                                                            <button class="btn btn-warning" type="submit">Delete</button>
+                                                            <button class="btn btn-warning btn-sm" type="submit">Delete</button>
                                                         </form>
                                                     </td>
                                                 </tr>
@@ -85,7 +85,7 @@
         </div>
 
         <div class="panel">
-                <div class="panel-heading panel-top">Actions <span class="col-md-offset-2">Account Balance: {{$account->amount->amount}}</span> <span class="col-md-offset-5"><a href="{{ route('accountUsers', [$account_id]) }}">Members</a> </span></div>
+                <div class="panel-heading panel-top displayAccountBalanceDiv">Actions <span class="col-md-offset-2 displayAccountBalance">Account Balance: {{$account->amount->amount}}</span> <span class="col-md-offset-5"><a href="{{ route('accountUsers', [$account_id]) }}">Members</a> </span></div>
 
                 <div class="panel-body">
 
@@ -96,7 +96,7 @@
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation"  class="active"><a href="#deposit" aria-controls="deposit" role="tab" data-toggle="tab">Deposit</a></li>
                             <li role="presentation"><a href="#withdraw" aria-controls="withdraw" role="tab" data-toggle="tab">Withdraw</a></li>
-                            <li role="presentation"><a href="#withdrawRequests" aria-controls="withdrawRequests" role="tab" data-toggle="tab">Withdraw Requests <span>{{$info}}</span> </a></li>
+                            <li role="presentation"><a href="#withdrawRequests" aria-controls="withdrawRequests" role="tab" data-toggle="tab">Requests<span>{{$info}}</span> </a></li>
                         </ul>
 
                         <div role="tabpanel" class="tab-pane active" id="deposit">
@@ -128,6 +128,7 @@
 
                         <div role="tabpanel" class="tab-pane" id="withdrawRequests">
 
+                            @if($withdraw_requests->count())
                             <table class="table">
                                 <thead>
                                 <tr>
@@ -136,7 +137,7 @@
                                 </tr>
                                 </thead>
 
-                                @if($withdraw_requests->count())
+
 
                                    @foreach($withdraw_requests as $withdraw_request)
                                         <tr>
@@ -171,12 +172,15 @@
                                         </tr>
                                     @endforeach
 
-                                @else
-
-                                    No withdraw requests here
-
-                                @endif
                             </table>
+
+                            @else
+
+                                <div style="margin-top: 5%;" class="alert alert-info">
+                                    No withdraw requests here
+                                </div>
+
+                            @endif
 
                         </div>
                     </div>

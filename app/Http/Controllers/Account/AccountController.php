@@ -284,12 +284,15 @@ class AccountController extends Controller
 
         $account = $accountRepo->show($account_id);
 
-        $accountAmountRepo->deposit($account, $depositAccountRequest->amount);
+        $updated_account_amount = $accountAmountRepo->deposit($account, $depositAccountRequest->amount);
 
 
-        Session::flash('flash_message', 'Your deposit was successful');
+        return response()->json(['updated_account_amount' => $updated_account_amount]);
 
-        return redirect('accounts/'.$account_id.'/amount');
+
+//        Session::flash('flash_message', 'Your deposit was successful');
+//
+//        return redirect('accounts/'.$account_id.'/amount');
     }
 
     public function depositCurrent(AccountAmountRepo $accountAmountRepo, DepositAmountRequest $depositAmountRequest){
