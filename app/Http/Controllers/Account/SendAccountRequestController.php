@@ -30,7 +30,7 @@ class SendAccountRequestController extends Controller
 
     public function sendRequest($account_id, AccountRequestRepo $accountRequestRepo){
 
-       $$accountRequestRepo->sendRequest($account_id, \Auth::user()->id);
+       $accountRequestRepo->sendRequest($account_id, \Auth::user()->id);
 
 
        Session::flash('flash_message', 'Your request was sent successfully, wait for its confirmation now');
