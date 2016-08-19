@@ -34,7 +34,6 @@ class AccountRequestRepo {
     /**
      * @param $account_id
      * @param $user_id
-     * @return static
      */
     public function sendRequest($account_id, $user_id){
 
@@ -43,6 +42,7 @@ class AccountRequestRepo {
             'user_id'    => $user_id,
             'confirmation_status' => 0
         ]);
+
     }
 
     /**
@@ -147,5 +147,7 @@ class AccountRequestRepo {
         \Auth::user()->current_account()->update([
             'account_amount' => ($current_amount + $request_amount)
         ]);
+
+        return $account;
     }
 }

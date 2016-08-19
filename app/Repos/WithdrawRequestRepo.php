@@ -52,6 +52,8 @@ class WithdrawRequestRepo {
             'account_id' => $account_id,
             'status' => 1
         ]);
+
+        return $request;
     }
 
     /**
@@ -76,6 +78,24 @@ class WithdrawRequestRepo {
                 ->where('withdraw_status', '=', 0)->exists()) {
                 return $this->model->where('account_id', $account_id)
                     ->where('user_id', \Auth::user()->id)
+                    ->where('withdraw_status', '=', 0)
+                    ->orderBy('created_at', 'desc')->first()->id;
+            }
+            return null;
+        }
+        return null;
+    }
+
+    public function getLatestForOtherUser($account_id, $user_id){
+
+        if($this->model->where('account_id', $account_id)
+            ->where('user_id', $user_id)->exists()){
+
+            if($this->model->where('account_id', $account_id)
+                ->where('user_id', $user_id)
+                ->where('withdraw_status', '=', 0)->exists()) {
+                return $this->model->where('account_id', $account_id)
+                    ->where('user_id', $user_id)
                     ->where('withdraw_status', '=', 0)
                     ->orderBy('created_at', 'desc')->first()->id;
             }
