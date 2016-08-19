@@ -1,12 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+    <div class="row">
+        <div class="col-md-3">
+            <a href="{{ url('/') }}" class="navigation"> <i class="fa fa-btn fa-angle-double-left"></i>Home</a>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel">
+            <div class="panel ">
                 <div class="panel-heading panel-top">Login</div>
-                <div class="panel-body">
+                <div class="panel-body panel-left-border">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {!! csrf_field() !!}
 
@@ -62,5 +67,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection

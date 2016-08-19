@@ -2,13 +2,12 @@
 
 @section('content')
 
-<div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+            <div class="panel ">
+                <div class="panel-heading panel-top"><strong>Send request.. Be a chama member</strong></div>
 
-                <div class="panel-body">
+                <div class="panel-body panel-left-border">
                     @if($request == "")
                     <form method="post" action="{{ url('accounts/'. $account_id . '/send/request') }}">
                     {!! csrf_field() !!}
@@ -27,6 +26,6 @@
             </div>
         </div>
     </div>
-</div>
+
 
 @endsection
