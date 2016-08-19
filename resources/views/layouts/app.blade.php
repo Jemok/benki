@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>HBnk</title>
 
@@ -74,15 +75,16 @@
                         @endif
                             <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
-                        <p class="navbar-text nav-amount">
-
+                        <span class="holdsCurrentAccount">
+                        <span class="navbar-text nav-amount">
                             Current Balance Kshs:
                             @if(\Auth::user()->current_account()->exists())
                                 {{\Auth::user()->current_account()->first()->account_amount}}
                             @else
                                 0
                             @endif
-                        </p>
+                        </span>
+                        </span>
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -99,6 +101,9 @@
         </div>
     </nav>
 
+    <div class="show-alert col-md-offset-6">
+    </div>
+
     @yield('content')
 
     <!-- JavaScripts -->
@@ -106,6 +111,13 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/select2.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/all.js') }}" type="text/javascript"></script>
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $( 'meta[name="csrf-token"]' ).attr( 'content' )
+            }
+        });
+    </script>
 
     <script>
         $('.tag_list').select2({
@@ -114,6 +126,67 @@
             maximumSelectionLength: 10
         });
     </script>
+
+    @if(\Auth::check())
+    <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
+    <script>
+        var pusher = new Pusher('{{Config::get('pusher.appKey')}}');
+        var channel = pusher.subscribe('for_user_{{\Auth::user()->id}}');
+
+        // Deposit updation channel
+        channel.bind('new_deposit', function(data) {
+            displayUpdatedAccountAmount(data);
+        });
+
+        // Request confirmation channel
+        channel.bind('request_confirmation', function (data) {
+            alertRequestConfirmation(data);
+            switchWithdrawDivs(data);
+        });
+
+        channel.bind('withdraw', function (data) {
+            displayUpdatedAccountAmount(data);
+        });
+
+        channel.bind('new_request', function (data) {
+
+            displayNewRequest(data);
+
+        });
+
+        function displayNewRequest(data) {
+
+            $('.table_head').after(data.html);
+
+
+        }
+
+
+        function switchWithdrawDivs(data) {
+
+            $('.button_confirmed').detach();
+
+            if(data.html2 != 'undefined'){
+
+                $('.withdraw_div').append(data.html2)
+            }
+        }
+
+        function alertRequestConfirmation(data) {
+            $('.show-alert').append(data.html);
+        }
+
+        // Display new updated amount data in the user interface
+        function displayUpdatedAccountAmount( data ) {
+
+            $('.displayAccountBalance').detach();
+
+            $('.displayAccountBalanceDiv').append(data.html)
+
+        }
+    </script>
+    @endif
+
 
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>

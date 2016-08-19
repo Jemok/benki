@@ -25,7 +25,7 @@ class RequestAnswerRepo {
 
     public function store($account_id, $withdraw_request_id, $user_id){
 
-        $this->model->create([
+        $confirmation = $this->model->create([
 
             'account_id' =>  $account_id,
             'withdraw_request_id' => $withdraw_request_id,
@@ -33,6 +33,8 @@ class RequestAnswerRepo {
             'status' => 1
 
         ]);
+
+        return $confirmation;
     }
 
     public function countAnswers($request_id){

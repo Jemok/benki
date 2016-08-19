@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Account;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
 use App\Repos\AccountRequestRepo;
@@ -15,12 +16,22 @@ use App\Repos\WithdrawRequestRepo;
 use App\Repos\RequestAnswerRepo;
 use App\Account_user;
 use App\WithdrawRequestAnswer;
+use App\Services\PusherWrapper as Pusher;
 
 class SendAccountRequestController extends Controller
 {
-   public function sendRequest($account_id, AccountRequestRepo $accountRequestRepo){
 
-       $accountRequestRepo->sendRequest($account_id, \Auth::user()->id);
+    protected $pusher;
+
+    public function __construct(Pusher $pusherWrapper)
+    {
+        $this->pusher = $pusherWrapper;
+    }
+
+    public function sendRequest($account_id, AccountRequestRepo $accountRequestRepo){
+
+       $$accountRequestRepo->sendRequest($account_id, \Auth::user()->id);
+
 
        Session::flash('flash_message', 'Your request was sent successfully, wait for its confirmation now');
 
@@ -75,10 +86,52 @@ class SendAccountRequestController extends Controller
      */
     public function withdraw(AccountRequestRepo $accountRequestRepo, $account_id){
 
-            $accountRequestRepo->withdraw($account_id, \Auth::user()->id);
+            $updated_account_amount = $accountRequestRepo->withdraw($account_id, \Auth::user()->id);
 
-            Session::flash('flash_message', 'You transaction was successfull');
+//            Session::flash('flash_message', 'You transaction was successfull');
 
-            return redirect('/home');
+                $this->oooPushIt($updated_account_amount);
+//
+//            return redirect()->back();
+
+            return response()->json(['updated_account_amount' => $updated_account_amount, 'current_account_amount' => Auth::user()->current_account()->first()->account_amount]);
     }
+
+    /**
+     * @param AccountRequestRepo $accountRequestRepo
+     * @param $account_id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function withdrawAjax(AccountRequestRepo $accountRequestRepo, $account_id){
+
+        $updated_account_amount = $accountRequestRepo->withdraw($account_id, \Auth::user()->id);
+
+
+        $this->oooPushIt($updated_account_amount);
+
+        Session::flash('flash_message', 'You transaction was successfull');
+
+        return redirect()->back();
+    }
+
+    protected function oooPushIt($updated_account_amount)
+    {
+        $amount = $updated_account_amount->amount;
+
+        $data = [
+            'account_id' => $updated_account_amount->account_id,
+            'amount' => $updated_account_amount->amount,
+            'html' => view('account.partials.account_deposit', compact('amount'))->render(),
+        ];
+
+        $recipients = Account_user::where('account_id', $updated_account_amount->account_id)->get();
+        if ($recipients->count()) {
+            foreach ($recipients as $recipient) {
+
+                $this->pusher->trigger('for_user_' . $recipient->user_id, 'new_deposit', $data);
+            }
+        }
+    }
+
+
 }

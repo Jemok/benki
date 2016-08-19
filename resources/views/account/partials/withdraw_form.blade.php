@@ -1,5 +1,7 @@
 <div style="padding-top: 5%;">
+
     <form class="form-horizontal" method="post" action="{{ route('withdrawRequest', [$account_id]) }}">
+
         {{ csrf_field() }}
 
         <div class="form-group {{ $errors->has('request_amount') ? 'has-error' : ''}}">
@@ -25,3 +27,5 @@
         </div>
     </form>
 </div>
+
+{{--<form class="form-horizontal withdrawRequestForm" id="{{ $account_id }}">--}}

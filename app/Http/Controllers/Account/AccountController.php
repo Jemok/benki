@@ -39,9 +39,18 @@ use App\Http\Requests\AccountValidateUserRequest;
 use App\Services\Validate;
 use App\Http\Requests\AddMemberRequest;
 use App\Http\Requests\DepositAmountRequest;
+use App\Services\PusherWrapper as Pusher;
 
 class AccountController extends Controller
 {
+
+    protected $pusher;
+
+    public function __construct(Pusher $pusherWrapper)
+    {
+        $this->pusher = $pusherWrapper;
+    }
+
     public function getAll(){
 
         $query = "";
@@ -140,9 +149,9 @@ class AccountController extends Controller
 
         if($users_in_account_count == $request_answers_count && $withdraw_status == 0){
 
-            $info = "-- ---- --- --Your Withdrawal was approved, you can withdraw-- ---- -- --";
+            $info = "Approved";
 
-        }elseif($users_in_account_count < $request_answers_count && $withdraw_status == 0){
+        }elseif($users_in_account_count > $request_answers_count && $withdraw_status == 1){
             $info = "";
         }else{
             $info = "";
@@ -281,18 +290,38 @@ class AccountController extends Controller
         }
 
 
-
         $account = $accountRepo->show($account_id);
 
         $updated_account_amount = $accountAmountRepo->deposit($account, $depositAccountRequest->amount);
 
+        $this->oooPushIt($updated_account_amount);
 
-        return response()->json(['updated_account_amount' => $updated_account_amount]);
+        return response()->json(['updated_account_amount' => $updated_account_amount, 'current_account_amount' => Auth::user()->current_account()->first()->account_amount]);
 
 
 //        Session::flash('flash_message', 'Your deposit was successful');
 //
 //        return redirect('accounts/'.$account_id.'/amount');
+    }
+
+
+    protected function oooPushIt($updated_account_amount)
+    {
+        $amount = $updated_account_amount->amount;
+
+        $data = [
+            'account_id' => $updated_account_amount->account_id,
+            'amount' => $updated_account_amount->amount,
+            'html' => view('account.partials.account_deposit', compact('amount'))->render(),
+        ];
+
+        $recipients = Account_user::where('account_id', $updated_account_amount->account_id)->get();
+        if ($recipients->count()) {
+            foreach ($recipients as $recipient) {
+
+                $this->pusher->trigger('for_user_' . $recipient->user_id, 'new_deposit', $data);
+            }
+        }
     }
 
     public function depositCurrent(AccountAmountRepo $accountAmountRepo, DepositAmountRequest $depositAmountRequest){
@@ -335,11 +364,16 @@ class AccountController extends Controller
                 ->withInput();
         }
 
-        $withdrawRequestRepo->store($account_id, \Auth::user()->id, $withdrawAccountRequest->request_amount);
+        $request = $withdrawRequestRepo->store($account_id, \Auth::user()->id, $withdrawAccountRequest->request_amount);
+
+        $this->oooPushItRequest($account_id, $withdrawAccountRequest->request_amount, $request);
+
 
         Session::flash('flash_message', 'Your request was sent successfully, you will be notified when all chama members approve it');
 
-        return redirect('accounts/'.$account_id.'/amount');
+        return redirect()->back();
+
+        //return redirect('accounts/'.$account_id.'/amount');
     }
 
     /**
@@ -571,5 +605,26 @@ class AccountController extends Controller
 
 
         return redirect()->back();
+    }
+
+    protected function oooPushItRequest($request_account_id, $amount, $request)
+    {
+        $request_amount = $amount;
+        $requester_name = $request->user()->first()->name;
+        $request_id =  $request->id;
+        $account_id = $request_account_id;
+
+        $data = [
+
+            'html' => view('account.partials.withdraw_request', compact('request_amount', 'requester_name', 'request_id', 'account_id'))->render(),
+        ];
+
+        $recipients = Account_user::where('account_id', $account_id)->where('user_id', '!=', Auth::user()->id)->get();
+        if ($recipients->count()) {
+            foreach ($recipients as $recipient) {
+
+                $this->pusher->trigger('for_user_' . $recipient->user_id, 'new_request', $data);
+            }
+        }
     }
 }

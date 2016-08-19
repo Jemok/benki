@@ -79,6 +79,7 @@ Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf']
 
        Route::post('{account_id}/account/withdraw', ['as' => 'withdrawFromAccount', 'uses' => 'Account\SendAccountRequestController@withdraw']);
 
+
         Route::post('/transfer/user', ['as' => 'transferToUser', 'uses' => 'Transfer\TransferController@store']);
 
         Route::get('/users/{user_id}',  ['as' => 'userAccounts', 'uses' => 'Account\AccountController@getAccounts']);
@@ -104,5 +105,13 @@ Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf']
         Route::get('/allUsers/get', ['as' => 'searchUsers', 'uses' => 'Account\AccountController@searchUsers']);
 
     });
+
+    Route::post('/set/{account_id}/account/withdraw', ['as' => 'withdrawFromAccountAjax', 'uses' => 'Account\SendAccountRequestController@withdrawAjax']);
+
+    Route::post('/confirm/{account_id}/{withdraw_request_id}/set', ['as' => 'setConfirmAjax', 'uses' => 'Account\RequestAnswerController@storeAjax']);
+
+
+
+
 
 });
