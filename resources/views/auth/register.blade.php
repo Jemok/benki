@@ -2,6 +2,8 @@
 
 @section('content')
 
+    <hr style="color: #33ffcc;border:solid; border-width: thin;">
+
     <div class="row">
         <div class="col-md-3">
             <a href="{{ url('/') }}" class="navigation"> <i class="fa fa-btn fa-angle-double-left"></i>Home</a>

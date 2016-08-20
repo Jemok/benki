@@ -8,7 +8,7 @@
     font-family: Arial;
     text-align: left;
     padding-left: 29px;
-    color: #FFFFFF;
+    color: #000000;
     font-weight: bolder;
 }
 .paragraph-content
@@ -17,7 +17,7 @@
     font-family: Arial;
     text-align: left;
     padding-left: 29px;
-    color: #FFFFFF;
+    color: #000000;
     font-weight: bolder;
 }
 .buttons
@@ -28,13 +28,17 @@
 .sign-up
 {
     background-color: #FFFFFF;
-    border: solid #33ffcc;
-    color: #33ffcc;
+    border: solid #33ffcc ;
+    border-radius: 8px;
+    color: #000000;
+    font-weight: bold;
 }
 .login
 {
     background-color: #33ffcc;
-    color: #FFFFFF;
+    color: #000000;
+    font-weight: bold;
     border: solid #FFFFFF;
     border-width: thin;
+    border-radius: 8px;
 }
