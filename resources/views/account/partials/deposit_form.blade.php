@@ -1,12 +1,13 @@
 <div style="padding-top: 5%;">
-<form class="form-horizontal" method="post" action="{{ route('depositAmount', [$account_id]) }}">
+
+<form class="form-horizontal accountDepositForm" id="{{$account_id}}">
     {{ csrf_field() }}
 
     <div class="form-group {{ $errors->has('amount') ? 'has-error' : ''}}">
-        <label class="col-md-4 control-label">Amount*</label>
+        <label class="col-md-4 control-label amountDepositLabel">Amount*</label>
 
         <div class="col-md-6">
-            <input type="text" class="form-control" name="amount" value="{{ old('amount') }}"  required="">
+            <input type="text" class="form-control accountDepositAmount" name="amount" value="{{ old('amount') }}"  required="">
 
             @if($errors->has('amount'))
                 <span class="help-block">
@@ -25,3 +26,6 @@
     </div>
 </form>
 </div>
+
+{{--commented out--}}
+{{--<form class="form-horizontal" method="post" action="{{ route('depositAmount', [$account_id]) }}">--}}

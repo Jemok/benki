@@ -18,10 +18,12 @@
             @if($account->user_id == \Auth::user()->id)
 
                 <div class="panel">
+
                     <div class="panel-heading panel-top">
                         <h5><strong>Members Panel</strong></h5>
                     </div>
                     <div class="panel-body panel-left-border">
+
 
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -65,7 +67,9 @@
 
                                                             {{csrf_field()}}
 
+
                                                             <button class="btn btn-danger btn-sm" type="submit">Delete &nbsp;<i class="fa fa-btn fa-trash-o" aria-hidden="true"></i></button>
+
                                                         </form>
                                                     </td>
                                                 </tr>
@@ -97,10 +101,13 @@
         </div>
 
         <div class="panel">
+
                 <div class="panel-heading panel-top"><strong>Transactions:&nbsp;&nbsp;</strong>
-                    <span class="col-md-offset-2">Account Balance: {{$account->amount->amount}}</span>
-                    <span class="col-md-offset-5"><a href="{{ route('accountUsers', [$account_id]) }}">&nbsp;&nbsp;Members</a> </span>
+                    <span class="panel-heading panel-top displayAccountBalanceDiv"><span class="col-md-offset-2 displayAccountBalance">Account Balance: {{$account->amount->amount}}</span></span>
+                    {{--<span class="col-md-offset-2">Account Balance: {{$account->amount->amount}}</span>--}}
+                    {{--<span class="col-md-offset-5"><a href="{{ route('accountUsers', [$account_id]) }}">&nbsp;&nbsp;Members</a> </span>--}}
                 </div>
+
 
                 <div class="panel-body panel-left-border">
 
@@ -109,12 +116,14 @@
 
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation"  class="active pane-heading"><a href="#deposit" aria-controls="deposit" role="tab" data-toggle="tab"><strong><u>Deposit</u></strong></a></li>
+
+                            <li role="presentation"  class=" pane-heading"><a href="#deposit" aria-controls="deposit" role="tab" data-toggle="tab"><strong><u>Deposit</u></strong></a></li>
                             <li role="presentation" class="pane-heading"><a href="#withdraw" aria-controls="withdraw" role="tab" data-toggle="tab"><strong><u>Withdraw</u></strong></a></li>
-                            <li role="presentation" class="pane-heading"><a href="#withdrawRequests" aria-controls="withdrawRequests" role="tab" data-toggle="tab"><strong><u>Withdraw Requests</u></strong> <span>{{$info}}</span> </a></li>
+                            <li role="presentation" class=" active pane-heading"><a href="#withdrawRequests" aria-controls="withdrawRequests" role="tab" data-toggle="tab"><strong><u>Withdraw Requests</u></strong> <span>{{$info}}</span> </a></li>
                         </ul>
 
-                        <div role="tabpanel" class="tab-pane active pane-content" id="deposit">
+                        <div role="tabpanel" class="tab-pane pane-content" id="deposit">
+
 
                             @if(\Auth::user()->current_account()->first()->account_amount <= 0)
 
@@ -149,57 +158,85 @@
 
                         </div>
 
-                        <div role="tabpanel" class="tab-pane pane-content" id="withdrawRequests">
 
-                            <table class="table">
-                                <thead>
+                        <div role="tabpanel" class="tab-pane active pane-content" id="withdrawRequests">
+
+
+                            @if($withdraw_requests->count())
+                            <table class="table withdraw_requests_table">
+                                <thead class="table_head">
                                 <tr>
                                     <td>Requester</td>
                                     <td>Request Amount</td>
                                 </tr>
                                 </thead>
 
-                                @if($withdraw_requests->count())
+
 
                                    @foreach($withdraw_requests as $withdraw_request)
-                                        <tr>
+                                        <tr class="first_request_row">
                                             <td><a href="{{ route('getConfirmation', [$withdraw_request->id]) }}"> {{$withdraw_request->user()->first()->name}}</a></td>
                                             <td>{{$withdraw_request->request_amount}}</td>
 
                                             <td>
 
                                                 @if($answer_class->check($account_id, \Auth::user()->id, $withdraw_request->id) == null)
-                                                    <form method="post" action="{{route('setConfirm', [$account_id, $withdraw_request->id])}}">
+                                                    <form method="post" id="{{ $withdraw_request->id }}" data-id="{{ $account_id }}" class="confirm_form">
+                                                    {{--<form method="post" action="{{route('setConfirm', [$account_id, $withdraw_request->id])}}">--}}
 
                                                         {{ csrf_field() }}
 
-                                                        <button type="submit" class="btn btn-info">Confirm</button>
+                                                        <button type="submit" class="btn btn-info btn-sm" id="button_{{$withdraw_request->id}}">Confirm</button>
                                                     </form>
                                                 @else
                                                     @if($users_in_account_count == $request_answers_count && $withdraw_request->withdraw_status == 0)
 
-                                                    <form method="post" action="{{ route('withdrawFromAccount', [$account_id]) }}">
+
+                                                    <form method="post" class="withdrawForm" id="{{ $account_id }}">
+
+                                                        {{--<form method="post" action="{{ route('withdrawFromAccount', [$account_id]) }}">--}}
+
 
                                                         {{ csrf_field() }}
 
-                                                        <button class="btn btn-success" type="submit">Withdraw</button>
+
+                                                        <button class="btn btn-success btn-sm" type="submit">Withdraw</button>
 
                                                     </form>
 
                                                     @elseif($answer_class->check($account_id, \Auth::user()->id, $withdraw_request->id) != null)
-                                                    <button class="btn btn-success disabled">Confirmed</button>
+                                                        <div class="withdraw_div" id="withdraw_div">
+                                                        </div>
+                                                        <button class="btn btn-success disabled button_confirmed">Confirmed</button>
                                                     @endif
                                                 @endif
                                             </td>
                                         </tr>
                                     @endforeach
 
-                                @else
+                            </table>
+
 
                                     <p>No withdraw requests received</p>
 
-                                @endif
-                            </table>
+                            @else
+
+
+                                <table class="table withdraw_requests_table">
+                                    <thead class="table_head">
+                                    <tr>
+                                        <td>Requester</td>
+                                        <td>Request Amount</td>
+                                    </tr>
+                                    </thead>
+                                    <tr class="default_request_row">
+                                        <td>
+                                        <div style="margin-top: 5%;" class="alert alert-info">
+                                            No withdraw requests here
+                                        </div>
+                                        </td>
+                                    </tr>
+                            @endif
 
                         </div>
                     </div>
