@@ -4,8 +4,7 @@
 
         @if(Session::has('flash_message_important'))
 
-             <button type="button" class="close" data-dismiss="alert" aria-hidden="true" aria-label="close">
-                 <span aria-hidden="true">&times;</span></button>
+             <button type="button" class="close" data-dismiss="alert" aria-label="close">&times;</button>
 
         @endif
 

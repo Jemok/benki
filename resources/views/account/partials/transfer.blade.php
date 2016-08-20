@@ -44,7 +44,7 @@
                         <i class="fa fa-btn fa-sign-in"></i>Current account is low Kshs {{\Auth::user()->current_account()->first()->account_amount}}
                     </button>
                     @else
-                    <button type="submit" class="btn btn-primary col-md-offset-2 col-md-4">
+                    <button type="submit" class="btn btn-primary btn-sm col-md-offset-2 col-md-4">
                         <i class="fa fa-btn fa-sign-in"></i>Transfer
                     </button>
                     @endif

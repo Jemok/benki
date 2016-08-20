@@ -1,4 +1,4 @@
-<div style="padding-top: 5%;">
+
 
     <form class="form-horizontal" method="post" action="{{ route('withdrawRequest', [$account_id]) }}">
 
@@ -20,12 +20,12 @@
 
         <div class="form-group">
             <div class="col-md-6 col-md-offset-6">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary btn-sm">
                     <i class="fa fa-btn fa-sign-in"></i>Send Request
                 </button>
             </div>
         </div>
     </form>
-</div>
+
 
 {{--<form class="form-horizontal withdrawRequestForm" id="{{ $account_id }}">--}}

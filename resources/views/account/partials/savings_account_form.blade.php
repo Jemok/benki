@@ -8,7 +8,7 @@
             <div class="col-md-6">
                 <input type="text" name="amount" class="form-control" value="{{ old('amount')}}" required>
 
-                @if( $errors->has('amount') )
+                @if( $errors->has('amount') )</div>
 
                     <span class="help-block">
                         <strong>{{ $errors->first('amount') }}</strong>
@@ -75,7 +75,7 @@
 
             <div class="form-group">
                 <div class="col-md-3 col-sm-offset-1 ">
-                    <button type="submit" class="btn btn-danger" @if(\Auth::user()->current_account->account_amount == 0) disabled @endif>
+                    <button type="submit" class="btn btn-danger btn-sm" @if(\Auth::user()->current_account->account_amount == 0) disabled @endif>
                     @if(\Auth::user()->current_account->account_amount != 0)
                         <i class="fa fa-btn fa-sign-in"></i>Save
                     @else

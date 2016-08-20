@@ -33,7 +33,7 @@
                             </p>
                         @endforeach
                     @else
-                        <h5 class="list-unstyled col-md-offset-2 text-success">Sorry,, you have no requests at this moment</h5>
+                        <h5 class="list-unstyled col-md-offset-2 text-success"><strong>Sorry,, you have no requests at this moment</strong></h5>
                     @endif
                 </div>
             </div>

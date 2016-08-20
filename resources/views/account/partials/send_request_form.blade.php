@@ -4,7 +4,7 @@
 
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary btn-sm">
 
                     <i class="fa fa-btn fa-sign-in"></i>Send Request
                 </button>

@@ -21,35 +21,35 @@
 
                     @if($saving != null)
 
-                    <h4>
+                    <h5>
 
-                       Your savings summary:{{$saving->percentage}} %
+                       Your savings rate :<strong>{{$saving->percentage}} %</strong> <br>
 
                        @if($saving->duration == 1)
 
-                            Daily
+                           on <strong>Daily basis </strong><br>
 
                        @endif
 
                        @if($saving->duration == 7)
 
-                        Weekly
+                         on <strong>Weekly basis </strong><br>
 
                        @endif
 
                        @if($saving->duration == 30)
 
-                        Weekly
+                        on <strong>Monthly basis </strong><br>
 
                        @endif
 
-                       until {{$saving->withdraw_date}}
+                       until <strong>{{$saving->withdraw_date}}</strong>
 
-                    </h4>
+                    </h5>
 
-                    <h4>
-                        Savings Account has Kshs: {{$saving->transaction_amount}}
-                    </h4>
+                    <h5>
+                        <strong>Savings Account has Kshs: {{$saving->transaction_amount}}</strong>
+                    </h5>
 
                         @include('account.partials.savings_account_update_form')
 

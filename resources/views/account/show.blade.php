@@ -103,7 +103,7 @@
         <div class="panel">
 
                 <div class="panel-heading panel-top"><strong>Transactions:&nbsp;&nbsp;</strong>
-                    <span class="panel-heading panel-top displayAccountBalanceDiv"><span class="col-md-offset-2 displayAccountBalance">Account Balance: {{$account->amount->amount}}</span></span>
+                    <span class="panel-heading panel-top displayAccountBalanceDiv"><span class="col-md-offset-2 displayAccountBalance"><strong>Account Balance: {{$account->amount->amount}}</strong></span></span>
                     {{--<span class="col-md-offset-2">Account Balance: {{$account->amount->amount}}</span>--}}
                     {{--<span class="col-md-offset-5"><a href="{{ route('accountUsers', [$account_id]) }}">&nbsp;&nbsp;Members</a> </span>--}}
                 </div>
@@ -166,8 +166,8 @@
                             <table class="table withdraw_requests_table">
                                 <thead class="table_head">
                                 <tr>
-                                    <td>Requester</td>
-                                    <td>Request Amount</td>
+                                    <td><strong>Requester</strong></td>
+                                    <td><strong>Requested Amount</strong></td>
                                 </tr>
                                 </thead>
 
@@ -207,7 +207,7 @@
                                                     @elseif($answer_class->check($account_id, \Auth::user()->id, $withdraw_request->id) != null)
                                                         <div class="withdraw_div" id="withdraw_div">
                                                         </div>
-                                                        <button class="btn btn-success disabled button_confirmed">Confirmed</button>
+                                                        <button class="btn btn-success btn-sm disabled button_confirmed">Confirmed</button>
                                                     @endif
                                                 @endif
                                             </td>
@@ -216,27 +216,30 @@
 
                             </table>
 
-
-                                    <p>No withdraw requests received</p>
-
                             @else
 
+                                <p class="pane-content"><strong>No withdraw requests here</strong></p>
 
-                                <table class="table withdraw_requests_table">
-                                    <thead class="table_head">
-                                    <tr>
-                                        <td>Requester</td>
-                                        <td>Request Amount</td>
-                                    </tr>
-                                    </thead>
-                                    <tr class="default_request_row">
-                                        <td>
-                                        <div style="margin-top: 5%;" class="alert alert-info">
-                                            No withdraw requests here
-                                        </div>
-                                        </td>
-                                    </tr>
                             @endif
+
+                            {{--@else--}}
+
+
+                                {{--<table class="table withdraw_requests_table">--}}
+                                    {{--<thead class="table_head">--}}
+                                    {{--<tr>--}}
+                                        {{--<td>Requester</td>--}}
+                                        {{--<td>Request Amount</td>--}}
+                                    {{--</tr>--}}
+                                    {{--</thead>--}}
+                                    {{--<tr class="default_request_row">--}}
+                                        {{--<td>--}}
+                                        {{--<div style="margin-top: 5%;" class="alert alert-info">--}}
+                                            {{--No withdraw requests here--}}
+                                        {{--</div>--}}
+                                        {{--</td>--}}
+                                    {{--</tr>--}}
+                                {{--@endif--}}
 
                         </div>
                     </div>

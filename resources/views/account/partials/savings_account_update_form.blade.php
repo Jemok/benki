@@ -1,5 +1,4 @@
-<div style="padding-top: 5%;">
-    <form class="form-horizontal" method="post" action="{{ route('updateSavings', [$saving->id]) }}">
+<form class="form-horizontal" method="post" action="{{ route('updateSavings', [$saving->id]) }}">
         {{ csrf_field() }}
 
         <!--
@@ -35,7 +34,7 @@
 
         <div class="form-group {{ $errors->has('duration') ? ' has-error' : '' }}">
 
-            <label class="control-label col-md-4">Duration to deduct</label>
+            <label class="control-label col-md-4">Deduction</label>
 
             <div class="col-md-6">
 
@@ -74,14 +73,10 @@
 
 
         <div class="form-group">
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary" disabled>
-                        <i class="fa fa-btn fa-sign-in"></i>Yo have Kshs {{$saving->transaction_amount }} in your savings account
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary btn-sm" disabled>
+                        <i class="fa fa-btn fa-sign-in"></i>You have Kshs {{$saving->transaction_amount }} in your savings account
                     </button>
                 </div>
-            </div>
-
         </div>
     </form>
-</div>

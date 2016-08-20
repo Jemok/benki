@@ -20,8 +20,8 @@
                 <div class="panel-heading panel-top"><strong>Fixed savings</strong></div>
                 <div class="panel-body panel-left-border">
                     @if($fixed != null)
-                    <h4>You have Kshs {{$fixed->transaction_amount}} in your fixed account, withdraw
-                    date is on {{$fixed->withdraw_date}}</h4>
+                    <h5>You have <strong> Kshs: {{$fixed->transaction_amount}} </strong>in your fixed account,<br> withdraw
+                    date is on <strong>{{$fixed->withdraw_date}}</strong></h5>
                     @endif
 
                     @include('account.partials.fixed_account_form')
