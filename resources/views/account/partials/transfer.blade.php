@@ -1,11 +1,10 @@
-<div style="padding-top: 2%;">
-    <form class="form-horizontal col-md-12" method="post" action="{{ route('transferToUser') }}">
+ <form class="form-horizontal" method="post" action="{{ route('transferToUser') }}">
         {{ csrf_field() }}
 
         <div  class="form-group {{ $errors->has('transfer_to') ? ' has-error' : '' }}">
 
 
-            <div class="col-md-6 col-md-offset-1">
+            <div class="col-md-12">
 
                 <select class="form-control tag_list" name="transfer_to[]" multiple>
 
@@ -27,7 +26,7 @@
           </div>
         <div class="form-group {{ $errors->has('transfer_amount') ? 'has-error' : ''}}">
 
-            <div class="col-md-2 col-md-offset-3">
+            <div class="col-md-6">
                 <input type="text" class="form-control" placeholder="Amount" name="transfer_amount" value="{{ old('transfer_amount') }}"  required="">
 
                 @if($errors->has('transfer_amount'))
@@ -52,4 +51,3 @@
             </div>
 
     </form>
-</div>

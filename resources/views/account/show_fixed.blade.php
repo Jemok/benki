@@ -26,7 +26,6 @@
 
                     @include('account.partials.fixed_account_form')
                 </div>
-
             </div>
 
 

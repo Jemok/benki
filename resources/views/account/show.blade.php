@@ -20,7 +20,7 @@
                 <div class="panel">
 
                     <div class="panel-heading panel-top">
-                        <h5><strong>Members Panel</strong></h5>
+                        <h5><strong>Members Panel</strong><span class="col-md-offset-3"><a href="{{ route('accountUsers', [$account_id]) }}">&nbsp;&nbsp;Members</a> </span></h5>
                     </div>
                     <div class="panel-body panel-left-border">
 
@@ -218,7 +218,7 @@
 
                             @else
 
-                                <p class="pane-content"><strong>No withdraw requests here</strong></p>
+                                <h5 class="pane-content"><strong>No withdraw requests here</strong></h5>
 
                             @endif
 
