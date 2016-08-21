@@ -29,8 +29,8 @@
                         <div class="tab-content">
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation"  class="active pane-heading"><a href="#addMembers" aria-controls="addMembers" role="tab" data-toggle="tab"><strong><u>Add Members</u></strong></a></li>
-                                <li role="presentation" class="pane-heading"><a href="#removeMembers" aria-controls="removeMembers" role="tab" data-toggle="tab"><strong><u>Remove Members</u></strong></a></li>
+                                <li role="presentation"  class="active pane-heading"><a href="#addMembers" aria-controls="addMembers" role="tab" data-toggle="tab"><strong><u>Add</u></strong></a></li>
+                                <li role="presentation" class="pane-heading"><a href="#removeMembers" aria-controls="removeMembers" role="tab" data-toggle="tab"><strong><u>Remove</u></strong></a></li>
                             </ul>
 
                             <div role="tabpanel" class="tab-pane active pane-content"  id="addMembers">
@@ -106,7 +106,7 @@
         <div class="panel">
 
                 <div class="panel-heading panel-top"><strong>Transactions</strong>
-                    <span class="panel-heading panel-top displayAccountBalanceDiv"><span class="col-md-offset-2 displayAccountBalance">Account Balance: {{$account->amount->amount}}</span></span>
+                    <span class="panel-heading panel-top displayAccountBalanceDiv"><span class="col-md-offset-2 displayAccountBalance">Balance: {{$account->amount->amount}}</span></span>
                     {{--<span class="col-md-offset-2">Account Balance: {{$account->amount->amount}}</span>--}}
                     {{--<span class="col-md-offset-5"><a href="{{ route('accountUsers', [$account_id]) }}">&nbsp;&nbsp;Members</a> </span>--}}
                 </div>
