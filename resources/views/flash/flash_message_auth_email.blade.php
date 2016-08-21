@@ -1,6 +1,6 @@
 @if(Session::has('flash_message_auth_email'))
 
-    <div class="alert-message alert alert-info {{Session::has('flash_message_important') ? 'alert-important' : '' }}">
+    <div class="alert-message alert alert-info alert-dismissible {{Session::has('flash_message_important') ? 'alert-important' : '' }}">
 
         @if(Session::has('flash_message_important'))
 

@@ -1,0 +1,44 @@
+.landing-page
+{
+    background-color: #33ffcc
+}
+.header-content
+{
+    font-size: 28px;
+    font-family: Arial;
+    text-align: left;
+    padding-left: 29px;
+    color: #000000;
+    font-weight: bolder;
+}
+.paragraph-content
+{
+    font-size: 15px;
+    font-family: Arial;
+    text-align: left;
+    padding-left: 29px;
+    color: #000000;
+    font-weight: bolder;
+}
+.buttons
+{
+    text-align: center;
+    margin-top: 70px;
+}
+.sign-up
+{
+    background-color: #FFFFFF;
+    border: solid #33ffcc ;
+    border-radius: 8px;
+    color: #000000;
+    font-weight: bold;
+}
+.login
+{
+    background-color: #33ffcc;
+    color: #000000;
+    font-weight: bold;
+    border: solid #FFFFFF;
+    border-width: thin;
+    border-radius: 8px;
+}

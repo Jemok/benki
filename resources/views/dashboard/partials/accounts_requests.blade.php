@@ -1,21 +1,62 @@
-<div class="row">
-    <div class="col-md-6">
+<div class="row" xmlns="http://www.w3.org/1999/html">
+    <div class="col-md-12">
+        <div>
 
-        <span class="col-md-offset-3">My Accounts</span>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active pane-heading"><a href="#my-account" aria-controls="my-account" role="tab" data-toggle="tab"><strong><u>My accounts</u></strong></a></li>
+                <li role="presentation"><a href="#chama-request" aria-controls="chama-request" role="tab" data-toggle="tab"><strong><u>Chama requests</u></strong></a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active pane-content" id="my-account">
+                    @if($user_accounts->count())
+                        @foreach($user_accounts as $user_account)
+                            <table class="table">
+                                <thead>
+                                    <a href="{{ route('getAccount', [$user_account->account_id]) }}">{{$account_class->accountName($user_account)}}</a>
+                                </thead>
+                            </table>
+                        @endforeach
+                    @else
+                        <h5 class="text-success">You have no accounts...</h5>
+                    @endif
+                </div>
+
+                <div role="tabpanel" class="tab-pane pane-content" id="chama-request">
+                    @if($account_requests->count())
+                        @foreach($account_requests as $request)
+                            <p>
+                                <?php $account_id = $request->account()->first()->id; ?>
+                                <!--<li class="list-unstyled col-md-offset-2">--> <a href="{{ url('accounts/'.$account_id)}}"> {{$request->account()->first()->account_name}}</a></li>
+                            </p>
+                        @endforeach
+                    @else
+                        <h5 class="list-unstyled col-md-offset-2 text-success">Sorry,, you have no requests at this moment</h5>
+                    @endif
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--<div class="col-md-6">
+
+        <span class="col-md-offset-3"><u><strong>My Accounts</strong></u></span>
 
         @if($user_accounts->count())
             @foreach($user_accounts as $user_account)
                 <ul>
-                    <li class="list-unstyled col-md-offset-2"><a href="{{ route('getAccount', [$user_account->account_id]) }}">{{$account_class->accountName($user_account)}}</a></li>
+                    <li class="list-unstyled col-md-offset-2 "><a href="{{ route('getAccount', [$user_account->account_id]) }}">{{$account_class->accountName($user_account)}}</a></li>
                 </ul>
             @endforeach
         @else
-            <h5>You have no accounts</h5>
+            <h5 class="text-success">You have no accounts...</h5>
         @endif
-    </div>
+    </div>-->
 
-    <div class="col-md-6">
-        <span class="col-md-offset-3">Chama Requests</span>
+    <!--<div class="col-md-6">
+        <span class="col-md-offset-3"><u><strong>Chama Requests</strong></u></span>
         {{--<span class="col-md-offset-2">OR</span>--}}
         {{--<span class="col-md-offset-2"><a href="{{ url('accounts/get/all') }}">View all accounts</a></span>--}}
     @if($account_requests->count())
@@ -26,7 +67,7 @@
                 </ul>
             @endforeach
         @else
-            <h5 class="list-unstyled col-md-offset-2 text-success">Sorry,, but you have no requests at this moment</h5>
+            <h5 class="list-unstyled col-md-offset-2 text-success">Sorry,, you have no requests at this moment</h5>
         @endif
-    </div>
+    </div>-->
  </div>

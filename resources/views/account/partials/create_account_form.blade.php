@@ -1,9 +1,14 @@
-<form class="form-horizontal col-md-12" method="post" action="{{ route('createAccount') }}">
+<form class="form-horizontal" id="createAccountForm" method="post" action="{{ route('createAccount') }}">
     {{ csrf_field() }}
 
-    <div class="form-group {{ $errors->has('account_name') ? 'has-error' : ''}}">
-        <div class="col-md-6 col-md-offset-1">
-            <input type="text" class="form-control" name="account_name" placeholder="Account Name" value="{{ old('account_name') }}">
+    <div class="form-group ">
+        <div class="col-md-6">
+        <div class="input-group changethisone {{ $errors->has('account_name') ? 'has-error' : ''}}">
+            <input type="text" class="form-control" name="account_name" placeholder="Account Name" value="{{ old('account_name') }}"/>
+
+            <span class="input-group-addon" onclick="createAccount()">
+                <i class="fa fa-plus-square" aria-hidden="true">&nbsp; create account</i>
+            </span>
 
             @if($errors->has('account_name'))
                 <span class="help-block">
@@ -11,17 +16,14 @@
                 </span>
             @endif
         </div>
-
-    </div>
-<!-- @if($accounts_type->count())-->
-
-    <div class="form-group">
-        <div class="col-md-4 col-md-offset-3">
-            <button type="submit" class="btn btn-primary">
-                <i class="fa fa-btn fa-sign-in"></i>Create Account
-            </button>
         </div>
     </div>
+
+<!-- @if($accounts_type->count())-->
+
+
+
+
 
 <!-- @endif -->
     <!--

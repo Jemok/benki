@@ -2,23 +2,28 @@
 
 @section('content')
 
-<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <a href="#" class="navigation"> <i class="fa fa-btn fa-angle-double-left"></i>Back</a>
+        </div>
+    </div>
+
     @include('flash.flash_message')
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 
             <div class="panel">
-                <div class="panel-heading panel-top">Users</div>
-
-                <div class="panel-body">
-
+                <div class="panel-heading panel-top">
+                    <h5><strong><u>Chama members</u></strong></h5>
+                </div>
+                <div class="panel-body panel-left-border">
 
                     @if($users->count())
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <td>User</td>
-                                    <td>Email</td>
+                                    <td><strong>Name</strong></td>
+                                    <td><strong>Email</strong></td>
                                 </tr>
                             </thead>
                             @foreach($users as $user)
@@ -34,7 +39,7 @@
 
                     @else
 
-                        <p>No users were found for this account</p>
+                        <p>No members were found for this account</p>
 
                     @endif
 
@@ -42,4 +47,5 @@
                 </div>
             </div>
         </div>
+    </div>
 @endsection

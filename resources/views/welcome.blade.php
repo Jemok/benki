@@ -1,17 +1,17 @@
-@extends('layouts.app')
-
+@extends('layouts.landing')
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Welcome</div>
 
-                <div class="panel-body">
-                    Your Application's Landing Page.
-                </div>
-            </div>
-        </div>
+
+<h1 class="header-content">
+    Welcome to
+    <br> HBnk
+</h1>
+    <p class="paragraph-content">
+        HBnk a mobile banking app for chamas
+        <br>and individuals
+    </p>
+    <div class="buttons col-md-12">
+        <a class="btn  btn-block sign-up" name="register" href="{{ url('/register') }}">Sign up</a>
+        <a class="btn btn-block login" name="login" href="{{ url('/login') }}">Log in</a>
     </div>
-</div>
 @endsection
