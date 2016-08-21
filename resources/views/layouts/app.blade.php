@@ -39,14 +39,14 @@
 
                 <a class="navbar-brand" href="#">
                     <span class="holdsCurrentAccount">
-                        <p class="navbar-text nav-amount">
+                        <span class="navbar-text nav-amount">
                             Current Balance Kshs:
                             @if(\Auth::user()->current_account()->exists())
                                 {{\Auth::user()->current_account()->first()->account_amount}}
                             @else
                                 0
                             @endif
-                        </p>
+                        </span>
                         </span>
                 </a>
                 <!-- Collapsed Hamburger -->
@@ -103,16 +103,16 @@
                             {{--@endif--}}
                         {{--</li>--}}
 
-                        <span class="holdsCurrentAccount">
-                        <span class="navbar-text nav-amount">
-                            Current Balance Kshs:
-                            @if(\Auth::user()->current_account()->exists())
-                                {{\Auth::user()->current_account()->first()->account_amount}}
-                            @else
-                                0
-                            @endif
-                        </span>
-                        </span>
+                        {{--<span class="holdsCurrentAccount">--}}
+                        {{--<span class="navbar-text nav-amount">--}}
+                            {{--Current Balance Kshs:--}}
+                            {{--@if(\Auth::user()->current_account()->exists())--}}
+                                {{--{{\Auth::user()->current_account()->first()->account_amount}}--}}
+                            {{--@else--}}
+                                {{--0--}}
+                            {{--@endif--}}
+                        {{--</span>--}}
+                        {{--</span>--}}
 
 
                         <li class="dropdown">

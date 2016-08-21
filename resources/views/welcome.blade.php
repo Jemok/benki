@@ -7,7 +7,7 @@
     <br> HBnk
 </h1>
     <p class="paragraph-content">
-        HBnk a mobile banking app for chamas
+        HBnk is a mobile banking app for chamas
         <br>and individuals
     </p>
     <div class="buttons col-md-12">

@@ -7,7 +7,7 @@
             <input type="text" class="form-control" name="account_name" placeholder="Account Name" value="{{ old('account_name') }}"/>
 
             <span class="input-group-addon" onclick="createAccount()">
-                <i class="fa fa-plus-square" aria-hidden="true">&nbsp; create account</i>
+                <i class="fa fa-plus-square" aria-hidden="true">&nbsp; create</i>
             </span>
 
             @if($errors->has('account_name'))

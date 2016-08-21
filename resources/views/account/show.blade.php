@@ -9,7 +9,7 @@
     </div>
 
     @include('flash.flash_message')
-    <a href="/{{ \Illuminate\Support\Facades\Request::path()}}">Refresh</a>
+    {{--<a href="/{{ \Illuminate\Support\Facades\Request::path()}}">Refresh</a>--}}
     <div class="row">
         <div class="col-md-12">
 
@@ -91,18 +91,21 @@
                     </div>
                 </div>
 
-            @endif
                     <div class="panel-footer panel-bottom">
                         <a href="{{ route('deleteAccount', [$account_id])}}" class="btn btn-danger btn-sm"><i class="fa fa-btn fa-trash" aria-hidden="true"></i>Delete Account</a>
                     </div>
+
+            @endif
+
 
 
 
         </div>
 
+
         <div class="panel">
 
-                <div class="panel-heading panel-top"><strong>Transactions:&nbsp;&nbsp;</strong>
+                <div class="panel-heading panel-top"><strong>Transactions</strong>
                     <span class="panel-heading panel-top displayAccountBalanceDiv"><span class="col-md-offset-2 displayAccountBalance">Account Balance: {{$account->amount->amount}}</span></span>
                     {{--<span class="col-md-offset-2">Account Balance: {{$account->amount->amount}}</span>--}}
                     {{--<span class="col-md-offset-5"><a href="{{ route('accountUsers', [$account_id]) }}">&nbsp;&nbsp;Members</a> </span>--}}
@@ -119,7 +122,7 @@
 
                             <li role="presentation"  class=" pane-heading"><a href="#deposit" aria-controls="deposit" role="tab" data-toggle="tab"><strong><u>Deposit</u></strong></a></li>
                             <li role="presentation" class="pane-heading"><a href="#withdraw" aria-controls="withdraw" role="tab" data-toggle="tab"><strong><u>Withdraw</u></strong></a></li>
-                            <li role="presentation" class=" active pane-heading"><a href="#withdrawRequests" aria-controls="withdrawRequests" role="tab" data-toggle="tab"><strong><u>Withdraw Requests</u></strong> <span>{{$info}}</span> </a></li>
+                            <li role="presentation" class=" active pane-heading"><a href="#withdrawRequests" aria-controls="withdrawRequests" role="tab" data-toggle="tab"><strong><u>Requests</u></strong> <span>{{$info}}</span> </a></li>
                         </ul>
 
                         <div role="tabpanel" class="tab-pane pane-content" id="deposit">
@@ -167,7 +170,7 @@
                                 <thead class="table_head">
                                 <tr>
                                     <td>Requester</td>
-                                    <td>Request Amount</td>
+                                    <td>Amount</td>
                                 </tr>
                                 </thead>
 
@@ -226,7 +229,7 @@
                                     <thead class="table_head">
                                     <tr>
                                         <td>Requester</td>
-                                        <td>Request Amount</td>
+                                        <td>Amount</td>
                                     </tr>
                                     </thead>
                                     <tr class="default_request_row">
