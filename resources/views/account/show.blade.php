@@ -18,7 +18,7 @@
 
                 <div class="panel">
                     <div class="panel-heading panel-top">
-                        <h5><strong>Members Panel</strong><span class="col-md-offset-3"><a href="{{ route('accountUsers', [$account_id]) }}">&nbsp;&nbsp;<i class="fa fa-btn fa-group"></i>Members</a> </span></h5>
+                        <h5><strong>Members Panel</strong><span class="col-md-offset-3"><a href="{{ route('accountUsers', [$account_id]) }}">&nbsp;&nbsp;<span class="text">Members</span> <i class="fa fa-btn fa-group"></i></a> </span></h5>
                     </div>
                     <div class="panel-body panel-left-border">
 
@@ -99,7 +99,7 @@
 
         <div class="panel">
                 <div class="panel-heading panel-top"><strong>Transactions:&nbsp;&nbsp;</strong>
-                    <span class="panel-heading panel-top displayAccountBalanceDiv"><span class="col-md-offset-1 displayAccountBalance"><strong>Account Balance: <span class="amount">{{$account->amount->amount}}</span></strong></span></span>
+                    <span class="panel-heading panel-top displayAccountBalanceDiv"><span class="col-md-offset-1 displayAccountBalance"><strong>Balance: <span class="amount">{{$account->amount->amount}}</span></strong></span></span>
 
                 {{--<div class="panel-heading panel-top"><strong>Transactions</strong>--}}
                     {{--<span class="panel-heading panel-top displayAccountBalanceDiv"><span class="col-md-offset-2 displayAccountBalance">Balance: {{$account->amount->amount}}</span></span>--}}
