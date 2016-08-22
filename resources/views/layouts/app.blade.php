@@ -128,19 +128,19 @@
                 {{--</a>--}}
             {{--</li>--}}
             <li>
-                <a href="{{ url('/home') }}"><i class="fa fa-fw fa-home"></i> {{Request::path() == 'home' ? 'HBnk' : 'Home'}}</a>
+                <a href="{{ url('/home') }}"><i class="fa fa-fw fa-home"></i> <span class="menu">{{Request::path() == 'home' ? 'HBnk' : 'Home'}}</span></a>
             </li>
             <li>
-                <a href="{{ url('/home') }}"><i class="fa fa-fw fa-home"></i> {{Request::path() == 'home' ? 'HBnk' : 'Home'}}</a>
+                <a href="{{ url('/home') }}"><i class="fa fa-fw fa-home"></i> <span class="menu">{{Request::path() == 'home' ? 'HBnk' : 'Home'}}</span></a>
 
                 {{--<a href="#"><i class="fa fa-fw fa-folder"></i> Page one</a>--}}
             </li>
             <li>
-                <a href="{{ route('getSavingsAccount')}}" class="link"> <i class="fa fa-fw fa-file-o"></i>Savings rates</a>
+                <a href="{{ route('getSavingsAccount')}}" class="link"> <span class="menu"><i class="fa fa-fw fa-file-o"></i>Savings rates</span></a>
                 {{--<a href="#"><i class="fa fa-fw fa-file-o"></i> Second page</a>--}}
             </li>
             <li>
-                <a href="{{ route('getFixedAccount') }}" class="link"><i class="fa fa-sticky-note"></i> Fixed deposits</a>
+                <a href="{{ route('getFixedAccount') }}" class="link"><span class="menu"><i class="fa fa-sticky-note"></i> Fixed deposits</span></a>
                 {{--<a href="#"><i class="fa fa-fw fa-cog"></i> Third page</a>--}}
             </li>
             {{--<li class="dropdown">--}}
@@ -155,13 +155,14 @@
                 {{--</ul>--}}
             {{--</li>--}}
             <li>
+
                 <a >
-                    <i class="fa fa-user"></i> {{ Auth::user()->name }}
+                    <i class="fa fa-user"></i> <span class="menu">{{ Auth::user()->name }}</span>
                 </a>
             </li>
 
             <li>
-                <a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a>
+                <a href="{{ url('/logout') }}"><span class="menu"><i class="fa fa-btn fa-sign-out"></i>Logout</span></a>
                 {{--<a href="#"><i class="fa fa-fw fa-dropbox"></i> Page 5</a>--}}
             </li>
             {{--<li>--}}
