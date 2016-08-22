@@ -7,7 +7,9 @@
             <input type="text" class="form-control" name="account_name" placeholder="Chama account Name" value="{{ old('account_name') }}"/>
 
             <span class="input-group-addon" onclick="createAccount()">
+
                 <i class="fa fa-plus-square" aria-hidden="true">&nbsp;<strong>create account</strong></i>
+
             </span>
 
             @if($errors->has('account_name'))

@@ -8,7 +8,7 @@
     </div>
 
     @include('flash.flash_message')
-    <a href="/{{ \Illuminate\Support\Facades\Request::path()}}">Refresh</a>
+    {{--<a href="/{{ \Illuminate\Support\Facades\Request::path()}}">Refresh</a>--}}
     <div class="row">
         <div class="col-md-12">
 
@@ -26,8 +26,8 @@
                         <div class="tab-content">
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation"  class="active pane-heading"><a href="#addMembers" aria-controls="addMembers" role="tab" data-toggle="tab"><strong><u>Add Members</u></strong></a></li>
-                                <li role="presentation" class="pane-heading"><a href="#removeMembers" aria-controls="removeMembers" role="tab" data-toggle="tab"><strong><u>Remove Members</u></strong></a></li>
+                                <li role="presentation"  class="active pane-heading"><a href="#addMembers" aria-controls="addMembers" role="tab" data-toggle="tab"><strong><u>Add</u></strong></a></li>
+                                <li role="presentation" class="pane-heading"><a href="#removeMembers" aria-controls="removeMembers" role="tab" data-toggle="tab"><strong><u>Remove</u></strong></a></li>
                             </ul>
 
                             <div role="tabpanel" class="tab-pane active pane-content"  id="addMembers">
@@ -86,6 +86,7 @@
 
                     </div>
                 </div>
+
                     <div class="panel-footer panel-bottom">
                         <a href="{{ route('deleteAccount', [$account_id])}}" class="btn btn-delete btn-sm"><i class="fa fa-btn fa-trash" aria-hidden="true"></i>Delete Account</a>
                     </div>
@@ -96,12 +97,13 @@
 
 
 
-
-
         <div class="panel">
-
                 <div class="panel-heading panel-top"><strong>Transactions:&nbsp;&nbsp;</strong>
                     <span class="panel-heading panel-top displayAccountBalanceDiv"><span class="col-md-offset-2 displayAccountBalance"><strong>Account Balance: <span class="amount">{{$account->amount->amount}}</span></strong></span></span>
+
+                {{--<div class="panel-heading panel-top"><strong>Transactions</strong>--}}
+                    {{--<span class="panel-heading panel-top displayAccountBalanceDiv"><span class="col-md-offset-2 displayAccountBalance">Balance: {{$account->amount->amount}}</span></span>--}}
+
                     {{--<span class="col-md-offset-2">Account Balance: {{$account->amount->amount}}</span>--}}
                     {{--<span class="col-md-offset-5"><a href="{{ route('accountUsers', [$account_id]) }}">&nbsp;&nbsp;Members</a> </span>--}}
                 </div>
@@ -116,7 +118,7 @@
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation"  class=" pane-heading"><a href="#deposit" aria-controls="deposit" role="tab" data-toggle="tab"><strong><u>Deposit</u></strong></a></li>
                             <li role="presentation" class="pane-heading"><a href="#withdraw" aria-controls="withdraw" role="tab" data-toggle="tab"><strong><u>Withdraw</u></strong></a></li>
-                            <li role="presentation" class=" active pane-heading"><a href="#withdrawRequests" aria-controls="withdrawRequests" role="tab" data-toggle="tab"><strong><u>Withdraw Requests</u></strong> <span>{{$info}}</span> </a></li>
+                            <li role="presentation" class=" active pane-heading"><a href="#withdrawRequests" aria-controls="withdrawRequests" role="tab" data-toggle="tab"><strong><u>Requests</u></strong> <span>{{$info}}</span> </a></li>
                         </ul>
 
                         <div role="tabpanel" class="tab-pane pane-content" id="deposit">
@@ -127,7 +129,6 @@
                                 <div style="margin-top: 5%;" class="alert alert-info alert-dismissible">
                                     You cannot deposit in this chama account since your current balance is very low
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
-
 
                             @else
 
@@ -159,15 +160,14 @@
                         <div role="tabpanel" class="tab-pane active pane-content" id="withdrawRequests">
 
 
-                            <table class="table withdraw_requests_table">
-                                <thead class="table_head">
-                                <tr>
-                                    <td><strong>Requester</strong></td>
-                                    <td><strong>Requested Amount</strong></td>
-                                </tr>
-                                </thead>
-
                             @if($withdraw_requests->count())
+                                <table class="table withdraw_requests_table">
+                                    <thead class="table_head">
+                                    <tr>
+                                        <td><strong>Requester</strong></td>
+                                        <td><strong>Requested Amount</strong></td>
+                                    </tr>
+                                    </thead>
 
                                    @foreach($withdraw_requests as $withdraw_request)
                                         <tr class="first_request_row">
@@ -210,14 +210,11 @@
                                         </tr>
                                     @endforeach
 
-                            </table>
-
                             @else
 
                                 <h5 class="pane-content"><strong>No withdraw requests here</strong></h5>
-
+                            </table>
                             @endif
-
                             {{--@else--}}
 
 
