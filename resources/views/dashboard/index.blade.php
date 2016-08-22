@@ -3,7 +3,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            @include('dashboard.partials.search_account_form')
+
         </div>
     </div>
 

@@ -32,7 +32,6 @@
                             {{--</div>--}}
                         {{--</div>--}}
                     {{--</form>--}}
-                    @include('dashboard.partials.search_account_form')
                 </div>
                 <!--end of search-->
             </div>
