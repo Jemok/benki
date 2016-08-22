@@ -11,13 +11,13 @@
                     @if($request == "")
                     <form method="post" action="{{ url('accounts/'. $account_id . '/send/request') }}">
                     {!! csrf_field() !!}
-                    <button class="btn btn-primary" type="submit">Not a member want to Send a Request??</button>
+                    <button class="btn btn-send-request" type="submit">Not a member want to Send a Request??</button>
                     </form>
                     @else
 
                     <div class="alert alert-info">
 
-                    <h4>The request you sent has not yet been confirmed!</h4>
+                    <span class="text">The request you sent has not yet been confirmed!</span>
 
                     </div>
 

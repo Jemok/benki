@@ -40,9 +40,9 @@
                 <a class="navbar-brand" href="#">
                     <span class="holdsCurrentAccount">
                         <span class="navbar-text nav-amount">
-                            Current Balance Kshs:
+                           <span style="color: #000000;">Current Balance Kshs:</span>
                             @if(\Auth::user()->current_account()->exists())
-                                {{\Auth::user()->current_account()->first()->account_amount}}
+                                <span class="amount">{{\Auth::user()->current_account()->first()->account_amount}}</span>
                             @else
                                 0
                             @endif
@@ -60,7 +60,7 @@
             @if(\Auth::guest())
                 <!-- Branding Image -->
                     <a class="navbar-brand link" href="{{ url('/') }}">
-                        HBnk
+                        <span class="menu">HBnk</span>
                     </a>
                 @endif
             </div>
@@ -72,9 +72,9 @@
                 <!-- Left Side Of Navbar -->
 
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/home') }}" class="link">{{Request::path() == 'home' ? 'HBnk' : 'Home'}}</a></li>
-                        <li><a href="{{ route('getSavingsAccount')}}" class="link">Savings rates</a></li>
-                        <li><a href="{{ route('getFixedAccount') }}" class="link">Fixed deposits</a></li>
+                        <li><a href="{{ url('/home') }}" class="link"><span class="menu">{{Request::path() == 'home' ? 'HBnk' : 'Home'}}</span></a></li>
+                        <li><a href="{{ route('getSavingsAccount')}}" class="link"><span class="menu">Savings rates</span></a></li>
+                        <li><a href="{{ route('getFixedAccount') }}" class="link"><span class="menu">Fixed deposits</span></a></li>
                     </ul>
                     <!-- <ul class="nav navbar-nav">
                         <li><a href="{{ route('getSavingsAccount')}}">Savings</a></li>
@@ -117,7 +117,7 @@
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                <i class="fa fa-user" aria-hidden="true"></i> {{ Auth::user()->name }} <span class="caret"></span>
+                                <i class="fa fa-user" aria-hidden="true"></i> <span class="menu">{{ Auth::user()->name }}</span><span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
@@ -133,9 +133,10 @@
 
 
         <div class="container" style="margin-top: 65px;">
-            <div class="show-alert col-md-offset-2">
+            <div class="row">
+                <div class="show-alert col-md-offset-2">
+                </div>
             </div>
-
             @yield('content')
         </div>
 

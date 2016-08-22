@@ -24,6 +24,6 @@
     </div>
 
     @if(!$users == null)
-    <button type="submit" class="btn btn-primary"><i class="fa fa-btn fa-angle-double-left"></i>&nbsp;Add member</button>
+    <button type="submit" class="btn btn-add-member"><i class="fa fa-btn fa-angle-double-left"></i>&nbsp;Add member</button>
     @endif
 </form>

@@ -1,6 +1,170 @@
 /*body{*/
     /*background-color: #C2B280;*/
 /*}*/
+.amount
+{
+    color: #01579b;
+    font-weight: bolder;
+}
+.btn-add-member
+{
+    border-radius: 0px;
+    color: #ffffff;
+    border-color: #307d7e;
+    font-weight: bold;
+    background: linear-gradient(to bottom right, #01579b, #307d7e);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align: center;
+}
+.btn-amount
+{
+    border-radius: 0px;
+    color: #ffffff;
+    border-color: #307d7e;
+    font-weight: bold;
+    background: linear-gradient(to bottom right, #01579b, #307d7e);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align: center;
+}
+.btn-register
+{
+    border-radius: 0px;
+    color: #000000;
+    border-color: #307d7e;
+    font-weight: bold;
+    background: linear-gradient(to bottom right, #33ffcc, #307d7e);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align: center;
+}
+.btn-register:hover
+{
+    background-color: #307d7e;
+}
+.btn-login
+{
+    border-radius: 0px;
+    color: #000000;
+    border-color: #307d7e;
+    font-weight: bold;
+    background: linear-gradient(to bottom right, #33ffcc, #307d7e);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align: center;
+}
+.btn-login
+{
+    background-color: #307d7e;
+}
+.btn-transfer
+{
+    border-radius: 0px;
+    color: #000000;
+    border-color: #307d7e;
+    font-weight: bold;
+    background: linear-gradient(to bottom right, #33ffcc, #307d7e);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align: center;
+    width: 30%;
+    font-size: 14px;
+}
+.btn-transfer
+{
+    background-color: #307d7e;
+}
+.btn-account
+{
+    border-radius: 0px;
+    background-color: #d50000 ;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+.btn-account.disabled
+{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.btn-delete
+{
+    border-radius: 0px;
+    background-color:#c62828;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+.btn-deposit
+{
+    border-radius: 2px;
+    color: #000000;
+    border-color: #307d7e;
+    font-weight: bold;
+    background: linear-gradient(to bottom right, #0277bd, #307d7e);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align: center;
+    font-size: 14px;
+}
+.btn-fixed-deposit
+{
+    border-radius: 2px;
+    color: #FFFFFF;
+    border-color: #307d7e;
+    font-weight: bold;
+    background: linear-gradient(to bottom right, #0277bd, #307d7e);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align: center;
+    font-size: 14px;
+}
+.btn-withdrawal
+{
+    border-radius: 2px;
+    color: #000000;
+    border-color: #307d7e;
+    font-weight: bold;
+    background: linear-gradient(to bottom right, #0277bd, #307d7e);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align: center;
+    font-size: 14px;
+}
+.btn-savings
+{
+    border-radius: 2px;
+    color: #FFFFFF;
+    border-color: #307d7e;
+    font-weight: bold;
+    background: linear-gradient(to bottom right, #0277bd, #307d7e);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align: center;
+    font-size: 14px;
+}
+.btn-withdrawal-date
+{
+    border-radius: 2px;
+    color: #FFFFFF;
+    border-color: #307d7e;
+    font-weight: bold;
+    background: linear-gradient(to bottom right, #0277bd, #307d7e);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align: center;
+    font-size: 14px;
+}
+.text
+{
+    font-weight: bolder;
+}
+.btn-send-request
+{
+    border-radius: 2px;
+    color: #FFFFFF;
+    border-color: #307d7e;
+    font-weight: bold;
+    background: linear-gradient(to bottom right, #0277bd, #307d7e);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align: center;
+    font-size: 16px;
+}
+/*.btn-register:active*/
+/*{*/
+    /*background-color: #307d7e;*/
+/*}*/
 
 .changethisone span
 {
@@ -68,6 +232,11 @@
 .panel-left-border
 {
     border-left: solid #33ffcc 2px ;
+}
+.menu
+{
+    font-weight: bold;
+    font-size: 13px;
 }
 .navigation
 {

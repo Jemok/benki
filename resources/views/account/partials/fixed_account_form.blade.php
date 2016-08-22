@@ -37,14 +37,14 @@
             @if($fixed->withdraw_date > $today)
 
             <div class="col-md-3">
-                <button type="submit" class="btn btn-success col-md-10" disabled>
-                    <i class="fa fa-btn fa-sign-in"></i>withdraw date: {{$fixed->withdraw_date}}
+                <button type="submit" class="btn btn-withdrawal-date  col-md-10" disabled>
+                    <i class="fa fa-btn fa-sign-in"></i>Withdraw date: {{$fixed->withdraw_date}}
                 </button>
             </div>
             @else
 
             <div class="col-md-3">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-fixed-deposit">
                     <i class="fa fa-btn fa-sign-in"></i>Deposit
                 </button>
             </div>
@@ -54,7 +54,7 @@
         <!--<div class="form-group">-->
             <div class="col-md-4 col-md-offset-1">
 
-                <button type="submit" class="btn btn-danger btn-sm"  @if(\Auth::user()->current_account->account_amount == 0) disabled @endif>
+                <button type="submit" class="btn btn-fixed-deposit  btn-sm"  @if(\Auth::user()->current_account->account_amount == 0) disabled @endif>
                     @if(\Auth::user()->current_account->account_amount != 0)
                     <i class="fa fa-btn fa-sign-in"></i>Deposit
                     @else

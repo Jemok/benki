@@ -14,7 +14,7 @@
 
             <div class="panel">
                 <div class="panel-heading panel-top">
-                    <h5><strong><u>Chama members</u></strong></h5>
+                    <h5><strong>Chama members</strong></h5>
                 </div>
                 <div class="panel-body panel-left-border">
 

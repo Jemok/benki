@@ -34,7 +34,7 @@
 
         <div class="form-group {{ $errors->has('duration') ? ' has-error' : '' }}">
 
-            <label class="control-label col-md-4">Deduction</label>
+            <label class="control-label col-md-4">Deduction period</label>
 
             <div class="col-md-6">
 
@@ -74,7 +74,7 @@
 
         <div class="form-group">
                 <div class="col-md-6">
-                    <button type="submit" class="btn btn-primary btn-sm" disabled>
+                    <button type="submit" class="btn btn-amount btn-sm" disabled>
                         <i class="fa fa-btn fa-sign-in"></i>You have Kshs {{$saving->transaction_amount }} in your savings account
                     </button>
                 </div>

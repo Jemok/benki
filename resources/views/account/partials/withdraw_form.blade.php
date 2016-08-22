@@ -19,7 +19,7 @@
 
         <div class="form-group">
             <div class="col-md-6">
-                <button type="submit" class="btn btn-primary btn-sm">
+                <button type="submit" class="btn btn-withdrawal btn-sm">
                     <i class="fa fa-btn fa-sign-in"></i>Send Request
                 </button>
             </div>

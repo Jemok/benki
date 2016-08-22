@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 
     <div class="row">
@@ -18,12 +17,10 @@
             @if($account->user_id == \Auth::user()->id)
 
                 <div class="panel">
-
                     <div class="panel-heading panel-top">
-                        <h5><strong>Members Panel</strong><span class="col-md-offset-3"><a href="{{ route('accountUsers', [$account_id]) }}">&nbsp;&nbsp;Members</a> </span></h5>
+                        <h5><strong>Members Panel</strong><span class="col-md-offset-3"><a href="{{ route('accountUsers', [$account_id]) }}">&nbsp;&nbsp;<i class="fa fa-btn fa-group"></i>Members</a> </span></h5>
                     </div>
                     <div class="panel-body panel-left-border">
-
 
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -68,8 +65,7 @@
                                                             {{csrf_field()}}
 
 
-                                                            <button class="btn btn-danger btn-sm" type="submit">Delete &nbsp;<i class="fa fa-btn fa-trash-o" aria-hidden="true"></i></button>
-
+                                                            <button class="btn btn-delete btn-sm" type="submit">Delete &nbsp;<i class="fa fa-btn fa-trash-o" aria-hidden="true"></i></button>
                                                         </form>
                                                     </td>
                                                 </tr>
@@ -90,20 +86,22 @@
 
                     </div>
                 </div>
+                    <div class="panel-footer panel-bottom">
+                        <a href="{{ route('deleteAccount', [$account_id])}}" class="btn btn-delete btn-sm"><i class="fa fa-btn fa-trash" aria-hidden="true"></i>Delete Account</a>
+                    </div>
+                </div>
 
             @endif
-                    <div class="panel-footer panel-bottom">
-                        <a href="{{ route('deleteAccount', [$account_id])}}" class="btn btn-danger btn-sm"><i class="fa fa-btn fa-trash" aria-hidden="true"></i>Delete Account</a>
-                    </div>
 
 
 
-        </div>
+
+
 
         <div class="panel">
 
                 <div class="panel-heading panel-top"><strong>Transactions:&nbsp;&nbsp;</strong>
-                    <span class="panel-heading panel-top displayAccountBalanceDiv"><span class="col-md-offset-2 displayAccountBalance"><strong>Account Balance: {{$account->amount->amount}}</strong></span></span>
+                    <span class="panel-heading panel-top displayAccountBalanceDiv"><span class="col-md-offset-2 displayAccountBalance"><strong>Account Balance: <span class="amount">{{$account->amount->amount}}</span></strong></span></span>
                     {{--<span class="col-md-offset-2">Account Balance: {{$account->amount->amount}}</span>--}}
                     {{--<span class="col-md-offset-5"><a href="{{ route('accountUsers', [$account_id]) }}">&nbsp;&nbsp;Members</a> </span>--}}
                 </div>
@@ -116,7 +114,6 @@
 
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
-
                             <li role="presentation"  class=" pane-heading"><a href="#deposit" aria-controls="deposit" role="tab" data-toggle="tab"><strong><u>Deposit</u></strong></a></li>
                             <li role="presentation" class="pane-heading"><a href="#withdraw" aria-controls="withdraw" role="tab" data-toggle="tab"><strong><u>Withdraw</u></strong></a></li>
                             <li role="presentation" class=" active pane-heading"><a href="#withdrawRequests" aria-controls="withdrawRequests" role="tab" data-toggle="tab"><strong><u>Withdraw Requests</u></strong> <span>{{$info}}</span> </a></li>
@@ -162,7 +159,6 @@
                         <div role="tabpanel" class="tab-pane active pane-content" id="withdrawRequests">
 
 
-                            @if($withdraw_requests->count())
                             <table class="table withdraw_requests_table">
                                 <thead class="table_head">
                                 <tr>
@@ -171,7 +167,7 @@
                                 </tr>
                                 </thead>
 
-
+                            @if($withdraw_requests->count())
 
                                    @foreach($withdraw_requests as $withdraw_request)
                                         <tr class="first_request_row">

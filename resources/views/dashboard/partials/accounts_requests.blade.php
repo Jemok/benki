@@ -15,12 +15,12 @@
                         @foreach($user_accounts as $user_account)
                             <table class="table">
                                 <thead>
-                                    <a href="{{ route('getAccount', [$user_account->account_id]) }}">{{$account_class->accountName($user_account)}}</a>
+                                    <span class="text"><a href="{{ route('getAccount', [$user_account->account_id]) }}">{{$account_class->accountName($user_account)}}</a></span>
                                 </thead>
                             </table>
                         @endforeach
                     @else
-                        <h5 class="text-success">You have no accounts...</h5>
+                        <span class="text text-success">You have no chama account and you do not belong in any.</span>
                     @endif
                 </div>
 
@@ -29,11 +29,11 @@
                         @foreach($account_requests as $request)
                             <p>
                                 <?php $account_id = $request->account()->first()->id; ?>
-                                <!--<li class="list-unstyled col-md-offset-2">--> <a href="{{ url('accounts/'.$account_id)}}"> {{$request->account()->first()->account_name}}</a></li>
+                                <!--<li class="list-unstyled col-md-offset-2">--> <span class="text"><a href="{{ url('accounts/'.$account_id)}}"> {{$request->account()->first()->account_name}}</a></span><!--</li>-->
                             </p>
                         @endforeach
                     @else
-                        <h5 class="list-unstyled col-md-offset-2 text-success"><strong>Sorry,, you have no requests at this moment</strong></h5>
+                        <span class="list-unstyled col-md-offset-2 text-success text">Sorry,, you have no requests at this moment</span>
                     @endif
                 </div>
             </div>
