@@ -99,7 +99,7 @@
 
         <div class="panel">
                 <div class="panel-heading panel-top"><strong>Transactions:&nbsp;&nbsp;</strong>
-                    <span class="panel-heading panel-top displayAccountBalanceDiv"><span class="col-md-offset-1 displayAccountBalance"><strong>Balance: <span class="amount">{{$account->amount->amount}}</span></strong></span></span>
+                    <span class="panel-heading panel-top displayAccountBalanceDiv"><span class="col-md-offset-1 displayAccountBalance"><strong>Account Balance: <span class="amount">{{$account->amount->amount}}</span></strong></span></span>
 
                 {{--<div class="panel-heading panel-top"><strong>Transactions</strong>--}}
                     {{--<span class="panel-heading panel-top displayAccountBalanceDiv"><span class="col-md-offset-2 displayAccountBalance">Balance: {{$account->amount->amount}}</span></span>--}}
@@ -240,7 +240,7 @@
     </div>
     @else
             <div class="panel">
-                <div class="panel-heading panel-top">Actions</div>
+                <div class="panel-heading panel-top">Processing request</div>
 
                 <div class="panel-body">
 

@@ -296,14 +296,14 @@
     @endif
 
 
-    <div class="container">
+    <!--<div class="container">-->
         <div class="row">
             <div class="show-alert col-md-offset-2">
             </div>
         </div>
 
         @yield('content')
-    </div>
+    <!--</div>-->
 
 
 
