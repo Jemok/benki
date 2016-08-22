@@ -309,7 +309,7 @@
             $('.show-alert').append(data.html);
 
             // notify the user
-            $.growl.notice({ title: 'Notification', message: data.html });
+            $.growl.notice({ title: 'Notification', message: data.html});
         }
 
         // Display new updated amount data in the user interface

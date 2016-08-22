@@ -58,17 +58,18 @@ class RequestAnswerController extends Controller
 
         $account_id = $confirmation->account_id;
 
-
         $withdraw_request = Withdrawal_request::where('id', $confirmation->withdraw_request_id)->with('user')->first();
 
         $withdraw_user = $withdraw_request->user;
 
         $csrf_value = csrf_token();
 
+        $message = "You can now withdraw";
+
 
         if($this->checkStatus(new AccountUserRepo(new Account_user()), $account_id, $withdraw_user->id, new WithdrawRequestRepo(new Withdrawal_request()), new RequestAnswerRepo(new WithdrawRequestAnswer()))){
             $data = [
-                'html' => view('account.partials.confirmation_notification', compact('user_name'))->render(),
+                'html' => view('account.partials.confirmation_notification', compact('user_name', 'message'))->render(),
                 'html2' => view('account.partials.withdraw_view', compact('account_id', 'csrf_value'))->render()
             ];
 
