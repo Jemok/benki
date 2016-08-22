@@ -17,6 +17,8 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/jquery.growl.css') }}" rel="stylesheet" />
+
 
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
@@ -205,13 +207,13 @@
         {{--</nav>--}}
 @endif
 
-
+<div class="show-alert col-md-offset-2 hidden" style="margin-top: 60px;">
+</div>
         <div class="container" id="page-content-wrapper" style="padding-top: 50px;">
             @if(Auth::check())
             @include('dashboard.partials.search_account_form')
             @endif
-            <div class="show-alert col-md-offset-2">
-            </div>
+
 
             @yield('content')
         </div>
@@ -226,6 +228,8 @@
     <script src="{{ asset('js/select2.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/all.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/nav.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/jquery.growl.js') }}" type="text/javascript"></script>
+
 
 <script>
         $.ajaxSetup({
@@ -303,6 +307,9 @@
 
         function alertRequestConfirmation(data) {
             $('.show-alert').append(data.html);
+
+            // notify the user
+            $.growl.notice({ title: 'Notification', message: data.html });
         }
 
         // Display new updated amount data in the user interface
