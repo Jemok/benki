@@ -14,7 +14,27 @@ use Illuminate\Support\Facades\Session;
 class TransferController extends Controller
 {
     public function store(TransferUsersRepo $transferUsersRepo, TransferUserRequest $transferUserRequest ){
-        $transferUsersRepo->store($transferUserRequest->transfer_amount, $transferUserRequest->transfer_to, \Auth::user()->id);
+
+        if($transferUserRequest->transfer_amount > \Auth::user()->current_account()->first()->account_amount){
+
+            Session::flash('flash_message_error', 'You do no have enough cash in your current account to complete the transfer');
+
+            return redirect()->back();
+
+        }
+
+        $errors = $transferUsersRepo->store($transferUserRequest->transfer_amount, $transferUserRequest->transfer_to, \Auth::user()->id);
+
+        if(!empty($errors)){
+
+            $errors = implode(',', $errors);
+
+            Session::flash('flash_message_error', 'A transfer error occurred for user ' . $errors);
+
+            return redirect()->back();
+
+        }
+
         Session::flash('flash_message', 'The transfer was successful');
         return redirect()->back();
     }

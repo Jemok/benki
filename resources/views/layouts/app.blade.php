@@ -15,9 +15,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/nav.css') }}" rel="stylesheet"/>
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
+    {{--<link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />--}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/jquery.growl.css') }}" rel="stylesheet" />
+    <link href="{{asset('css/multiple_input_css/multiple_input.css')}}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('css/selectize.bootstrap3.css') }}" type="text/css" rel="stylesheet">
+
 
 
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
@@ -312,13 +315,15 @@
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     {{--<script src="{{ asset('js/jquery.mmenu.min.js') }}"></script>--}}
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/select2.min.js') }}" type="text/javascript"></script>
+    {{--<script src="{{ asset('js/select2.min.js') }}" type="text/javascript"></script>--}}
     <script src="{{ asset('js/all.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/nav.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/jquery.growl.js') }}" type="text/javascript"></script>
+        <script src="{{asset('js/selectize.min.js')}}"></script>
 
 
-    <script>
+
+        <script>
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $( 'meta[name="csrf-token"]' ).attr( 'content' )
@@ -327,11 +332,21 @@
     </script>
 
     <script>
-        $('.tag_list').select2({
-            tags: true,
-            placeholder: 'Select users',
-            maximumSelectionLength: 10
-        });
+            $('#transfer_to').selectize({
+                delimiter: ',',
+                persist: false,
+                create: function(input) {
+                    return {
+                        value: input,
+                        text: input
+                    }
+                }
+            });
+//        $('.tag_list').select2({
+//            tags: true,
+//            placeholder: 'Select users',
+//            maximumSelectionLength: 10
+//        });
 
 
         // Submit the search form

@@ -9,6 +9,7 @@
 namespace App\Repos;
 use App\Current_account;
 use App\Transfer;
+use App\User;
 
 
 class TransferUsersRepo {
@@ -18,6 +19,8 @@ class TransferUsersRepo {
      * @var
      */
     private $model;
+
+    private $error_users = [];
 
     /**
      * This class constructor initializer
@@ -38,35 +41,47 @@ class TransferUsersRepo {
      */
     public function store($transfer_amount, $receiver_id ,$user_id){
 
+        $receiver_id = explode(',', $receiver_id);
+
         foreach ($receiver_id as $receiver) {
 
-            $this->model->create([
+            if (User::where('phone_number', '=', $receiver)
+                ->orWhere('email', '=', $receiver)->exists()
+            ) {
 
-                'transfer_amount' => $transfer_amount,
-                'receiver_id' => $receiver,
-                'user_id' => $user_id
-            ]);
+                $user_receiver = User::where('phone_number', '=', $receiver)
+                    ->orWhere('email', '=', $receiver)->first()->id;
 
+                $this->model->create([
 
-            $current_account_user = Current_account::where('user_id', '=', $user_id)->first();
+                    'transfer_amount' => $transfer_amount,
+                    'receiver_id' => $user_receiver,
+                    'user_id' => $user_id
+                ]);
 
-            $account_amount_user = $current_account_user->account_amount;
+                $current_account_user = Current_account::where('user_id', '=', $user_id)->first();
 
-            $current_account_receiver = Current_account::where('user_id', '=', $receiver)->first();
+                $account_amount_user = $current_account_user->account_amount;
 
-            $account_amount_receiver = $current_account_receiver->account_amount;
+                $current_account_receiver = Current_account::where('user_id', '=', $user_receiver)->first();
 
-            $current_account_user->update([
+                $account_amount_receiver = $current_account_receiver->account_amount;
 
-                'account_amount' => $account_amount_user - $transfer_amount
+                $current_account_user->update([
 
-            ]);
+                    'account_amount' => $account_amount_user - $transfer_amount
 
-            $current_account_receiver->update([
+                ]);
 
-                'account_amount' => $account_amount_receiver + $transfer_amount
-            ]);
+                $current_account_receiver->update([
+
+                    'account_amount' => $account_amount_receiver + $transfer_amount
+                ]);
+            }else{
+
+                $this->error_users[] =  $receiver;
+            }
         }
-
+        return $this->error_users;
     }
 } 

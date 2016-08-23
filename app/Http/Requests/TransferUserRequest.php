@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TransferUserRequest extends Request
 {
@@ -25,7 +26,7 @@ class TransferUserRequest extends Request
     {
         return [
             'transfer_to' => 'required',
-            'transfer_amount' => 'required'
+            'transfer_amount' => 'required | max:50000'
         ];
     }
 }

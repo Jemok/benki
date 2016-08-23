@@ -1,33 +1,48 @@
  <form class="form-horizontal" method="post" action="{{ route('transferToUser') }}">
         {{ csrf_field() }}
 
-        <div  class="form-group {{ $errors->has('transfer_to') ? ' has-error' : '' }}">
+
+     <div class="form-group {{ $errors->has('transfer_to') ? ' has-error' : '' }}">
+         <label for="transfer_to" class="col-md-2 control-label">To</label>
+
+         <div class="col-md-10">
+             <input type="text" id="transfer_to" name="transfer_to" required>
+
+             @if($errors->has('transfer_to'))
+                 <span class="help-block">
+                     <strong>{{ $errors->first('transfer_to') }}</strong>
+                 </span>
+             @endif
+         </div>
+     </div>
+
+        {{--<div  class="form-group {{ $errors->has('transfer_to') ? ' has-error' : '' }}">--}}
 
 
-            <div class="col-md-12">
+            {{--<div class="col-md-12">--}}
 
-                <select class="form-control tag_list" name="transfer_to[]" multiple>
+                {{--<select class="form-control tag_list" name="transfer_to[]" multiple>--}}
 
-                    @if($users->count())
-                        @foreach($users as $user)
+                    {{--@if($users->count())--}}
+                        {{--@foreach($users as $user)--}}
 
-                        <option value="{{$user->id}}">{{$user->email}}</option>
+                        {{--<option value="{{$user->id}}">{{$user->email}}</option>--}}
 
-                        @endforeach
-                    @endif
+                        {{--@endforeach--}}
+                    {{--@endif--}}
 
-                </select>
-                @if ($errors->has('transfer_to'))
-                         <span class="help-block">
-                             <strong>{{ $errors->first('transfer_to') }}</strong>
-                         </span>
-                @endif
-            </div>
-          </div>
+                {{--</select>--}}
+                {{--@if ($errors->has('transfer_to'))--}}
+                         {{--<span class="help-block">--}}
+                             {{--<strong>{{ $errors->first('transfer_to') }}</strong>--}}
+                         {{--</span>--}}
+                {{--@endif--}}
+            {{--</div>--}}
+          {{--</div>--}}
         <div class="form-group {{ $errors->has('transfer_amount') ? 'has-error' : ''}}">
 
             <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Amount" name="transfer_amount" value="{{ old('transfer_amount') }}"  required="">
+                <input type="number" class="form-control" min="0" max="{{ Auth::user()->current_account()->first()->account_amount }}" placeholder="Amount" name="transfer_amount" value="{{ old('transfer_amount') }}"  required="">
 
                 @if($errors->has('transfer_amount'))
                     <span class="help-block">

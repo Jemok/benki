@@ -28,10 +28,7 @@ class AccountAmountRepo {
 
     }
 
-    /**
-     * @param Account $account
-     * @return static
-     */
+
     public function store(Account $account){
 
         return $this->model->create([

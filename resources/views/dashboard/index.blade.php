@@ -10,6 +10,7 @@
     <div class="row">
         <div class="col-md-12">
             @include('flash.flash_message')
+            @include('flash.flash_message_error')
             <div class="panel">
                 <div class="panel-heading panel-top"><strong>Chama Accounts</strong></div>
 
