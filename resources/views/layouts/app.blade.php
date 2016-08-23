@@ -331,6 +331,8 @@
         });
     </script>
 
+
+
     <script>
             $('#transfer_to').selectize({
                 delimiter: ',',
@@ -342,7 +344,6 @@
                     }
                 }
             });
-
 
 //        $('.tag_list').select2({
 //            tags: true,
