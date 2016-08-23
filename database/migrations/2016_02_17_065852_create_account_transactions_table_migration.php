@@ -16,7 +16,7 @@ class CreateAccountTransactionsTableMigration extends Migration
             $table->increments('id');
             $table->integer('transaction_type');
             $table->decimal('transaction_amount', 15, 2)->unsigned()->unsigned();
-            $table->decimal('percentage', 2, 2)->unsigned();
+            $table->decimal('percentage')->unsigned();
             $table->integer('duration')->unsigned();
             $table->decimal('deduct_amount', 15, 2)->unsigned();
             $table->integer('account_id')->unsigned();
