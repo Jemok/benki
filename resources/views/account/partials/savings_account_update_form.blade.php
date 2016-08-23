@@ -60,7 +60,7 @@
 
             <div class="col-md-6">
 
-                <input type="date" class="form-control" min="{{$today}}" name="withdraw_date" value="{{$saving->withdraw_date}}" required="">
+                <input type="datetime-local" class="form-control" min="{{$today}}" name="withdraw_date" value="{{$saving->withdraw_date}}" required="">
 
                 @if($errors->has('withdraw_date'))
                     <span class="help-block">

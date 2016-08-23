@@ -342,6 +342,11 @@
                     }
                 }
             });
+
+            if ( $('[type="date"]').prop('type') != 'date' ) {
+                $('[type="date"]').datepicker();
+            }
+
 //        $('.tag_list').select2({
 //            tags: true,
 //            placeholder: 'Select users',
