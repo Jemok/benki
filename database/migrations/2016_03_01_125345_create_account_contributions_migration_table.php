@@ -16,7 +16,7 @@ class CreateAccountContributionsMigrationTable extends Migration
             $table->increments('id');
             $table->integer('account_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->integer('amount')->unsigned();
+            $table->decimal('amount', 15, 2)->unsigned();
             $table->timestamps();
         });
     }

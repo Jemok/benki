@@ -16,7 +16,7 @@ class CreateTransfersTableMigration extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('receiver_id')->unsigned();
-            $table->integer('transfer_amount')->unsigned();
+            $table->decimal('transfer_amount', 15, 2)->unsigned();
             $table->timestamps();
         });
     }

@@ -1,11 +1,12 @@
 @extends('layouts.app')
 @section('content')
 
-    <div class="row">
-        <div class="col-md-3">
-            <a href="{{ url('/home') }}" class="navigation"> <i class="fa fa-btn fa-angle-double-left"></i>Back</a>
-        </div>
-    </div>
+    {{--<div class="row">--}}
+        {{--<div class="col-md-3">--}}
+            {{--<a href="{{ url('/home') }}" class="navigation"> <i class="fa fa-btn fa-angle-double-left"></i>Back</a>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+    @include('partials.back')
 
     @include('flash.flash_message')
     {{--<a href="/{{ \Illuminate\Support\Facades\Request::path()}}">Refresh</a>--}}
@@ -80,23 +81,14 @@
                                     <p>No members were found for this account</p>
 
                                     @endif
-
-
                             </div>
-
                     </div>
                 </div>
-
                     <div class="panel-footer panel-bottom">
                         <a href="{{ route('deleteAccount', [$account_id])}}" class="btn btn-delete btn-sm"><i class="fa fa-btn fa-trash" aria-hidden="true"></i>Delete Account</a>
                     </div>
                 </div>
-
             @endif
-
-
-
-
         <div class="panel">
                 <div class="panel-heading panel-top"><strong>Transactions:&nbsp;&nbsp;</strong>
                     <span class="panel-heading panel-top displayAccountBalanceDiv"><span class="col-md-offset-1 displayAccountBalance"><strong>Account Balance: <span class="amount">{{$account->amount->amount}}</span></strong></span></span>
@@ -107,8 +99,6 @@
                     {{--<span class="col-md-offset-2">Account Balance: {{$account->amount->amount}}</span>--}}
                     {{--<span class="col-md-offset-5"><a href="{{ route('accountUsers', [$account_id]) }}">&nbsp;&nbsp;Members</a> </span>--}}
                 </div>
-
-
                 <div class="panel-body panel-left-border">
 
                     <!-- Tab panes -->
@@ -147,19 +137,11 @@
                                      <span aria-hidden="true">&times;</span>
                                  </button>
                              </div>
-
                             @else
-
                              @include('account.partials.withdraw_form')
-
                             @endif
-
                         </div>
-
-
                         <div role="tabpanel" class="tab-pane active pane-content" id="withdrawRequests">
-
-
                             @if($withdraw_requests->count())
                                 <table class="table withdraw_requests_table">
                                     <thead class="table_head">

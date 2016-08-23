@@ -57,16 +57,14 @@ class TransferRepo {
     public function getFixed(){
 
         if(Transaction::where('account_id', '=', \Auth::user()->current_account()->first()->id)
-            ->where('transaction_type', '=', 1)->orderBy('id', 'desc')->exists()){
+            ->where('transaction_type', '=', 1)->where('transaction_status', '=', 1)->orderBy('id', 'desc')->exists()){
 
             return Transaction::where('account_id', '=', \Auth::user()->current_account()->first()->id)
-                ->where('transaction_type', '=', 1)->orderBy('id', 'desc')->first();
+                ->where('transaction_type', '=', 1)->where('transaction_status', '=', 1)->orderBy('id', 'desc')->first();
         }else{
 
             return null;
         }
-
-
     }
 
     /**
@@ -75,13 +73,13 @@ class TransferRepo {
     public function getSaving(){
 
         if(Transaction::where('account_id', '=', \Auth::user()->current_account()->first()->id)
-                            ->where('transaction_type', '=', 2)->first() == null){
+                            ->where('transaction_type', '=', 2)->where('transaction_status', '=', 1)->first() == null){
 
             return false;
         }else{
 
             return Transaction::where('account_id', '=', \Auth::user()->current_account()->first()->id)
-                                ->where('transaction_type', '=', 2)->first();
+                                ->where('transaction_type', '=', 2)->where('transaction_status', '=', 1)->first();
 
         }
     }

@@ -15,7 +15,7 @@ class CreateWithdrawRequestsMigrationTable extends Migration
         Schema::create('withdraw_requests', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('account_id')->unsigned();
-            $table->integer('request_amount');
+            $table->decimal('request_amount', 15, 2)->unsigned();
             $table->integer('withdraw_status')->default(0);
             $table->integer('user_id')->unsigned();
             $table->timestamps();

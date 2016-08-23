@@ -40,7 +40,7 @@ class ManageFixed extends Command
     {
         $today = (new \Carbon\Carbon())->addHours(3);
 
-        $transactions  = Transaction::where('withdraw_date', '=', $today)->get();
+        $transactions  = Transaction::where('withdraw_date', '=', $today)->where('transaction_type', '=', 1)->where('transaction_status','=', 1 )->get();
 
         foreach($transactions as $transaction){
 
@@ -51,8 +51,11 @@ class ManageFixed extends Command
             $account_amount =  $current_account->account_amount;
 
             $current_account->update([
-
                 'account_amount' => $account_amount + $transaction_amount
+            ]);
+
+            $transaction->update([
+                'transaction_status' => 0
             ]);
         }
     }

@@ -145,20 +145,20 @@ class DeductSaving extends Command
 
             $today = (new \Carbon\Carbon())->addHours(3);
 
-            if($withdraw_date == $today){
+            if($withdraw_date == '2016-08-31 00:00:00'){
 
                 $current_account->update([
 
-                    'account_amount' => $account_amount + $transaction_amount+$amount_add
+                    'account_amount' => $account_amount + $transaction_amount+$amount
                 ]);
 
                 $transaction->update([
-                    'transaction_amount' => $transaction_amount + $amount_add,
+                    'transaction_amount' => $amount_add,
                     'transaction_status' => 0
                 ]);
 
                 $transaction->records()->create([
-                    'amount' => $amount_add
+                    'amount' => $amount
                 ]);
 
             }else{
@@ -167,12 +167,12 @@ class DeductSaving extends Command
                 ]);
 
                 $transaction->update([
-                    'transaction_amount' => $transaction_amount + $amount_add
+                    'transaction_amount' => $amount_add
                 ]);
 
                 $transaction->records()->create([
 
-                       'amount' => $amount_add
+                       'amount' => $amount
                 ]);
             }
         }

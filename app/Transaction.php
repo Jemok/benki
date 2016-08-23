@@ -43,6 +43,6 @@ class Transaction extends Model
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function records(){
-        return $this->hasMany(Transaction_records::class);
+        return $this->hasMany(Transaction_records::class, 'account_transaction_id');
     }
 }

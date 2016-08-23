@@ -14,7 +14,7 @@ class CreateCurrentAccountsMigrationTable extends Migration
     {
         Schema::create('current_accounts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('account_amount')->default(0);
+            $table->decimal('account_amount', 15, 2)->default(0.00)->unsigned();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
 

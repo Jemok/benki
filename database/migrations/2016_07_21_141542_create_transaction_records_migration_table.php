@@ -15,7 +15,7 @@ class CreateTransactionRecordsMigrationTable extends Migration
         Schema::create('transaction_records', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('account_transaction_id')->unsigned()->index();
-            $table->decimal('amount');
+            $table->decimal('amount')->unsigned();
             $table->timestamps();
 
             //disable foreign key checks

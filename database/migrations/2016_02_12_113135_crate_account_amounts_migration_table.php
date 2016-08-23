@@ -15,7 +15,7 @@ class CrateAccountAmountsMigrationTable extends Migration
         Schema::create('account_amounts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('account_id')->unsigned();
-            $table->integer('amount')->default(0);
+            $table->decimal('amount', 15, 2)->default(0.00)->unsigned();
             $table->timestamps();
 
             $table->foreign('account_id')
