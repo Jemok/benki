@@ -43,6 +43,8 @@ class DeductSaving extends Command
         /**
          * If transaction_status == 1 then the transaction is still active
          */
+
+
         $transactions = Transaction::where('duration', '=', 1)->where('transaction_status', '=', 1)->get();
 
         foreach($transactions as $transaction){
@@ -51,129 +53,132 @@ class DeductSaving extends Command
 
             $account_amount =  $current_account->account_amount;
 
-            $amount = ($transaction->percentage/100)*$current_account->account_amount;
+            if(!($account_amount <= 0)) {
 
-            $amount_add = ($transaction->percentage/100)*$current_account->account_amount;
+                $amount = ($transaction->percentage / 100) * $current_account->account_amount;
 
-            $transaction_amount = $transaction->transaction_amount;
+                $amount_add = ($transaction->percentage / 100) * $current_account->account_amount;
 
-            if($account_amount > 50000){
+                $transaction_amount = $transaction->transaction_amount;
 
-                if($transaction->rate_pay_count == 0){
+                if ($account_amount > 50000) {
 
-                    $rate = AccountRate::where('id', '=', 1)->first()->category_one;
+                    if ($transaction->rate_pay_count == 0) {
 
-                    $rate = ($rate/100);
+                        $rate = AccountRate::where('id', '=', 1)->first()->category_one;
 
-                    $amount_add = $amount_add +  ($transaction_amount*$rate);
+                        $rate = ($rate / 100);
+
+                        $amount_add = $amount_add + ($transaction_amount * $rate);
+
+                        $transaction->update([
+                            'rate_pay_count' => 90
+                        ]);
+                    }
+
+                    $amount_add = $amount_add + $transaction_amount;
 
                     $transaction->update([
-                        'rate_pay_count' => 90
+                        'rate_pay_count' => $transaction->rate_pay_count - 1
+                    ]);
+
+                } elseif ($account_amount > 20000 && $account_amount <= 50000) {
+
+                    if ($transaction->rate_pay_count == 0) {
+
+                        $rate = AccountRate::where('id', '=', 1)->first()->category_two;
+
+                        $rate = ($rate / 100);
+
+                        $amount_add = $amount_add + ($transaction_amount * $rate);
+
+                        $transaction->update([
+                            'rate_pay_count' => 90
+                        ]);
+                    }
+                    $amount_add = $amount_add + $transaction_amount;
+
+                    $transaction->update([
+                        'rate_pay_count' => $transaction->rate_pay_count - 1
+                    ]);
+
+                } elseif ($account_amount > 10000 && $account_amount <= 20000) {
+
+                    if ($transaction->rate_pay_count == 0) {
+
+                        $rate = AccountRate::where('id', '=', 1)->first()->category_three;
+
+                        $rate = ($rate / 100);
+
+                        $amount_add = $amount_add + ($transaction_amount * $rate);
+
+                        $transaction->update([
+                            'rate_pay_count' => 90
+                        ]);
+                    }
+
+                    $amount_add = $amount_add + $transaction_amount;
+
+                    $transaction->update([
+                        'rate_pay_count' => $transaction->rate_pay_count - 1
+                    ]);
+
+                } elseif ($account_amount > 0 && $account_amount <= 10000) {
+
+                    if ($transaction->rate_pay_count == 0) {
+
+                        $rate = AccountRate::where('id', '=', 1)->first()->category_four;
+
+                        $rate = ($rate / 100);
+
+                        $amount_add = $amount_add + ($transaction_amount * $rate);
+
+                        $transaction->update([
+                            'rate_pay_count' => 90
+                        ]);
+                    }
+                    $amount_add = $amount_add + $transaction_amount;
+
+                    $transaction->update([
+
+                        'rate_pay_count' => $transaction->rate_pay_count - 1
                     ]);
                 }
 
-                $amount_add = $amount_add + $transaction_amount;
+                $withdraw_date = $transaction->withdraw_date;
 
-                $transaction->update([
-                    'rate_pay_count' => $transaction->rate_pay_count - 1
-                ]);
+                $today = (new \Carbon\Carbon())->addHours(3);
 
-            }elseif($account_amount > 20000 && $account_amount <= 50000 ){
+                if ($withdraw_date == $today) {
 
-                if($transaction->rate_pay_count == 0){
+                    $current_account->update([
 
-                    $rate = AccountRate::where('id', '=', 1)->first()->category_two;
-
-                    $rate = ($rate/100);
-
-                    $amount_add = $amount_add +  ($transaction_amount*$rate);
+                        'account_amount' => $account_amount + $transaction_amount + $amount
+                    ]);
 
                     $transaction->update([
-                        'rate_pay_count' => 90
+                        'transaction_amount' => $amount_add,
+                        'transaction_status' => 0
                     ]);
-                }
-                $amount_add = $amount_add + $transaction_amount;
 
-                $transaction->update([
-                    'rate_pay_count' => $transaction->rate_pay_count - 1
-                ]);
+                    $transaction->records()->create([
+                        'amount' => $amount
+                    ]);
 
-            }elseif($account_amount > 10000 && $account_amount <= 20000  ){
-
-                if($transaction->rate_pay_count == 0){
-
-                    $rate = AccountRate::where('id', '=', 1)->first()->category_three;
-
-                    $rate = ($rate/100);
-
-                    $amount_add = $amount_add +  ($transaction_amount*$rate);
+                } else {
+                    $current_account->update([
+                        'account_amount' => $account_amount - $amount
+                    ]);
 
                     $transaction->update([
-                        'rate_pay_count' => 90
+                        'transaction_amount' => $amount_add
+                    ]);
+
+                    $transaction->records()->create([
+
+                        'amount' => $amount
                     ]);
                 }
-
-                $amount_add = $amount_add + $transaction_amount;
-
-                $transaction->update([
-                    'rate_pay_count' => $transaction->rate_pay_count - 1
-                ]);
-
-            }elseif($account_amount >0 && $account_amount <= 10000){
-
-                if($transaction->rate_pay_count == 0){
-
-                    $rate = AccountRate::where('id', '=', 1)->first()->category_four;
-
-                    $rate = ($rate/100);
-
-                    $amount_add = $amount_add +  ($transaction_amount*$rate);
-
-                    $transaction->update([
-                        'rate_pay_count' => 90
-                    ]);
-                }
-                $amount_add = $amount_add + $transaction_amount;
-
-                $transaction->update([
-
-                    'rate_pay_count' => $transaction->rate_pay_count - 1
-                ]);
-            }
-
-            $withdraw_date = $transaction->withdraw_date;
-
-            $today = (new \Carbon\Carbon())->addHours(3);
-
-            if($withdraw_date == '2016-08-31 00:00:00'){
-
-                $current_account->update([
-
-                    'account_amount' => $account_amount + $transaction_amount+$amount
-                ]);
-
-                $transaction->update([
-                    'transaction_amount' => $amount_add,
-                    'transaction_status' => 0
-                ]);
-
-                $transaction->records()->create([
-                    'amount' => $amount
-                ]);
-
-            }else{
-                $current_account->update([
-                    'account_amount' => $account_amount - $amount
-                ]);
-
-                $transaction->update([
-                    'transaction_amount' => $amount_add
-                ]);
-
-                $transaction->records()->create([
-
-                       'amount' => $amount
-                ]);
             }
         }
     }
