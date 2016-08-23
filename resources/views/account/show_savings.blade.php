@@ -8,7 +8,7 @@
             {{--<a href="{{ url('/home') }}" class="navigation"> <i class="fa fa-btn fa-angle-double-left"></i>Back</a>--}}
         {{--</div>--}}
     {{--</div>--}}
-    @include('partials.back')
+    {{--@include('partials.back')--}}
 
 
     @include('flash.flash_message')
