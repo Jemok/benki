@@ -17,7 +17,7 @@
         </div>
 
         <div class="form-group {{ $errors->has('withdraw_date') ? 'has-error' : ''}}">
-            <label class="col-md-4 control-label">Withdraw date*</label>
+            <label class="col-md-4 control-label">Withdraw date* e.g mm/dd/yyyy</label>
 
             <div class="col-md-6">
                 <input type="date" class="form-control savings_date" min="{{$today}}" name="withdraw_date" value="{{ old('withdraw_date')}}" required="">

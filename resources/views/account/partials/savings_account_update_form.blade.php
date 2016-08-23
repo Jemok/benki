@@ -56,7 +56,7 @@
 
         <div class="form-group {{ $errors->has('withdraw_date') ? ' has-error' : '' }}">
 
-            <label class="control-label col-md-4">Until</label>
+            <label class="control-label col-md-4">Until e.g mm/dd/yyyy</label>
 
             <div class="col-md-6">
 
