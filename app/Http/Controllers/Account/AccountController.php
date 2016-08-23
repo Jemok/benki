@@ -439,6 +439,9 @@ class AccountController extends Controller
      */
     public function depositSavings(TransferRepo $transferRepo, TransferCurrentToSavingsRequest $toSavingsRequest){
 
+
+//        dd($toSavingsRequest->withdraw_date);
+
         $transferRepo->transactToSavings($toSavingsRequest, Auth::user()->current_account()->first()->id);
 
         Session::flash('flash_message', 'The transfer was successful');

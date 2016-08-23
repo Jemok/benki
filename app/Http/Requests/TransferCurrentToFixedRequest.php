@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Carbon\Carbon;
 
 class TransferCurrentToFixedRequest extends Request
 {
@@ -26,7 +27,7 @@ class TransferCurrentToFixedRequest extends Request
         return [
 
             'amount' => 'required|numeric|min:1',
-            'withdraw_date' => 'required|date'
+            'withdraw_date' => 'required|date|date_format:"Y-m-d"|after:' . Carbon::today()->toDateString()
 
         ];
     }

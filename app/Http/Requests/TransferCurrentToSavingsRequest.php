@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Carbon\Carbon;
 
 class TransferCurrentToSavingsRequest extends Request
 {
@@ -27,7 +28,7 @@ class TransferCurrentToSavingsRequest extends Request
             //'amount' => 'required|numeric',
             'percentage'  => 'required|numeric',
             'duration'    => 'required|numeric',
-            'withdraw_date' => 'required|date'
+            'withdraw_date' => 'required|date|date_format:"Y-m-d"|after:' . Carbon::today()->toDateString()
 
         ];
     }
