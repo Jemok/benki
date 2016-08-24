@@ -10,8 +10,6 @@
 
                     <div class="panel-body">
                         <div class="row col-md-12">
-                            @if($records_count > 0)
-                                @foreach($saving_records as $records)
 
                                     <div>
                                         Savings Transactions Records
@@ -35,29 +33,29 @@
                                         </tr>
 
                                         </thead>
+                                        @if($records_count > 0)
+                                            @foreach($saving_records as $records)
                                         <tr>
                                             <td>
                                                 {{$records->amount}}
                                             </td>
                                             <td>
-                                                {{$savings->percentage}}
+                                                {{$records->percentage}}
                                             </td>
                                             <td>
-                                                {{$savings->created_at}}
+                                                {{$records->created_at}}
                                             </td>
                                             <td>
-                                                {{ $savings->updated_at  }}
+                                                {{ $records->updated_at  }}
                                             </td>
                                         </tr>
+                                            @endforeach{{--end of for each--}}
                                     </table>
-
-                                    <!--end of teams data-->
-                                @endforeach{{--end of for each--}}
 
                                 {{--pagination--}}
                                 <div class="row">
                                     <div class="col-md-offset-3 col">
-                                        {!! $user_savings->render() !!}
+                                        {!! $saving_records->render() !!}
                                     </div>
                                 </div>
                             @else

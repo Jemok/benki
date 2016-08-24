@@ -574,7 +574,7 @@ class AccountController extends Controller
             $records_count = 1;
         }
 
-        return view('savings.records', compact('savings_records', 'records_count'));
+        return view('savings.records', compact('saving_records', 'records_count'));
     }
 
     public function fixedRecords($user_id, AccountRepo $accountRepo){
