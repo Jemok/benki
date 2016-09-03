@@ -26,6 +26,7 @@ use PayPal\Api\Transaction;
 use App\Http\Requests\PayWithPayPalRequest;
 class PayPalController extends Controller
 {
+
     private $_api_context;
 
     public function __construct()
@@ -86,7 +87,7 @@ class PayPalController extends Controller
 
         if(isset($redirect_url)) {
             // redirect to paypal
-            return Redirect::away($redirect_url);
+            return redirect($redirect_url);
         }
 
         return Redirect::route('original.route')
