@@ -2,6 +2,8 @@
 
 @section('content')
 
-   <a href="{{ $redirect_url }}">Click Here</a>
+  <textarea>
+    {{ $redirect_url }}
+  </textarea>
 
 @endsection
