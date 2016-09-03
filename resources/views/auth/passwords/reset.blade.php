@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" style="background-color: #33ffcc;">
     <div class="row">
         <div class="col-md-3">
             <a href="{{ url('/') }}" class="navigation"> <i class="fa fa-btn fa-angle-double-left"></i>Home</a>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel">
+    <div class="row" style="background-color: #33ffcc;">
+        <div class="col-md-8 col-md-offset-2" style="background-color: #33ffcc;">
+            <div class="panel" style="background-color: #33ffcc;">
                 <div class="panel-heading panel-top">Reset Password</div>
 
                 <div class="panel-body">

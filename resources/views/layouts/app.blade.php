@@ -37,7 +37,7 @@
     </style>
 </head>
 
-@if(Request::path() == 'register' || Request::path() == 'login')
+@if(Request::path() == 'register' || Request::path() == 'login' || Request::path() == 'password/reset')
 
     <body id="app-layout" style="background-color: #33ffcc;">
 
