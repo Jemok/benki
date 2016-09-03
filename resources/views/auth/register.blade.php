@@ -2,7 +2,6 @@
 
 @section('content')
 
-    <hr style="color: #33ffcc;border:solid; border-width: thin;">
 
     <div class="row">
         <div class="col-md-3">
@@ -10,9 +9,9 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel ">
+    <div class="row" class="landing-page">
+        <div class="col-md-8 col-md-offset-2 landing-page" >
+            <div class="panel landing-page">
                 <div class="panel-heading panel-top">Register</div>
                 <div class="panel-body panel-left-border">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">

@@ -2,17 +2,15 @@
 
 @section('content')
 
-        <hr style="color: #33ffcc;border:solid; border-width: thin;">
-
 
     <div class="row">
         <div class="col-md-3">
             <a href="{{ url('/') }}" class="navigation"> <i class="fa fa-btn fa-angle-double-left"></i>Home</a>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel ">
+    <div class="row landing-page">
+        <div class="col-md-8 col-md-offset-2 landing-page">
+            <div class="panel landing-page ">
                 <div class="panel-heading panel-top">Login</div>
                 <div class="panel-body panel-left-border">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">

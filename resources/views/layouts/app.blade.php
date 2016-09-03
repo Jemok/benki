@@ -36,7 +36,16 @@
         }
     </style>
 </head>
+
+@if(Request::path() == 'register' || Request::path() == 'login')
+
+    <body id="app-layout" class="landing-page">
+
+    @else
+
 <body id="app-layout">
+
+@endif
 @if(!\Auth::guest())
 
     {{--<nav class="navbar navbar-fixed-top nav-guest" style="margin-bottom: 50px;">--}}
