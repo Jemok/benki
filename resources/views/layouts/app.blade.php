@@ -39,7 +39,7 @@
 
 @if(Request::path() == 'register' || Request::path() == 'login')
 
-    <body id="app-layout" class="landing-page">
+    <body id="app-layout" style="background-color: #33ffcc;">
 
     @else
 
