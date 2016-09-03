@@ -112,7 +112,9 @@ Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf']
 
     Route::post('/charges/add', ['as' => 'addCharge', 'uses' => 'TransactionChargesController@store']);
 
+    Route::get('/charges/get', ['as' => 'getCharges', 'uses' => 'TransactionChargesController@getAppCharges']);
 
+    Route::get('/charges/{charge_id}/update', ['as' => 'updateTransactionCharge', 'uses' => 'TransactionChargesController@updateCharge']);
 
     Route::post('payment', array(
         'as' => 'payment',

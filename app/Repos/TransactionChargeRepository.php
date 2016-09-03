@@ -40,4 +40,9 @@ class TransactionChargeRepository
             'charge'           => $request->charge
         ]);
     }
+
+    public function all(){
+
+        return $this->model->all();
+    }
 }
