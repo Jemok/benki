@@ -2,6 +2,6 @@
 
 @section('content')
 
-    {{ $redirect_url }}
+   <a href="{{ $redirect_url }}">Click Here</a>
 
 @endsection
