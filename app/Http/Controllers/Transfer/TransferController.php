@@ -29,7 +29,7 @@ class TransferController extends Controller
 
             $errors = implode(',', $errors);
 
-            Session::flash('flash_message_error', 'A transfer error occurred for user ' . $errors);
+            Session::flash('flash_message_error', 'A transfer error occurred for user ' . $errors . ' Try again later');
 
             return redirect()->back();
 
