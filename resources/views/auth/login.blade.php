@@ -8,9 +8,9 @@
             <a href="{{ url('/') }}" class="navigation"> <i class="fa fa-btn fa-angle-double-left"></i>Home</a>
         </div>
     </div>
-    <div class="row landing-page">
-        <div class="col-md-8 col-md-offset-2 landing-page">
-            <div class="panel landing-page ">
+    <div class="row" style="background-color: #33ffcc;">
+        <div class="col-md-8 col-md-offset-2" style="background-color: #33ffcc;">
+            <div class="panel" style="background-color: #33ffcc;">
                 <div class="panel-heading panel-top">Login</div>
                 <div class="panel-body panel-left-border">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
