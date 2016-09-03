@@ -166,6 +166,13 @@
             </li>
 
             <li>
+
+                <a href="{{ route('payWithPayPal') }}" >
+                    <i class="fa fa-user"></i> <span class="menu">PayPal</span>
+                </a>
+            </li>
+
+            <li>
                 <a href="{{ url('/logout') }}"><span class="menu"><i class="fa fa-btn fa-sign-out"></i>Logout</span></a>
                 {{--<a href="#"><i class="fa fa-fw fa-dropbox"></i> Page 5</a>--}}
             </li>

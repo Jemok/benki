@@ -114,6 +114,17 @@ Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf']
 
 
 
+    Route::post('payment', array(
+        'as' => 'payment',
+        'uses' => 'PayPalController@postPayment',
+    ));
 
+// this is after make the payment, PayPal redirect back to your site
+    Route::get('payment/status', array(
+        'as' => 'payment.status',
+        'uses' => 'PayPalController@getPaymentStatus',
+    ));
+
+    Route::get('/paypal/pay', ['as' => 'payWithPayPal', 'uses' => 'PayPalController@getPaymentPage']);
 
 });
