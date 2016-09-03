@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <div class="row" class="landing-page">
+    <div class="row landing-page">
         <div class="col-md-8 col-md-offset-2 landing-page" >
             <div class="panel landing-page">
                 <div class="panel-heading panel-top">Register</div>
