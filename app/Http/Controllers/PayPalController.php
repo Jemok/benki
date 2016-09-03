@@ -87,7 +87,7 @@ class PayPalController extends Controller
 
         if(isset($redirect_url)) {
             // redirect to paypal
-            return redirect($redirect_url);
+            return view('paypal.redirect', compact('redirect_url'));
         }
 
         return Redirect::route('original.route')
