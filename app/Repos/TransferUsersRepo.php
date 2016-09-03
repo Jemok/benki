@@ -49,7 +49,8 @@ class TransferUsersRepo {
         foreach ($receiver_id as $receiver) {
 
             if (User::where('phone_number', '=', $receiver)
-                ->orWhere('email', '=', $receiver)->exists()
+
+                ->orWhere('email', '=', $receiver)->exists() && (Auth::user()->email != $receiver && Auth::user()->phone_number != $receiver)
             ) {
 
                 $user_receiver = User::where('phone_number', '=', $receiver)
