@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <textarea>
+  <textarea rows="50" cols="50">
     {{ $redirect_url }}
   </textarea>
 
