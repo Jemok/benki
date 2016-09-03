@@ -26,7 +26,6 @@ class WithdrawRequestRepo {
         $this->model =$withdrawal_request;
     }
 
-
     /**
      * Add a new withdrawal request to the database
      * @param $account_id

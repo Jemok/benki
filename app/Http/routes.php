@@ -110,6 +110,8 @@ Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf']
 
     Route::post('/confirm/{account_id}/{withdraw_request_id}/set', ['as' => 'setConfirmAjax', 'uses' => 'Account\RequestAnswerController@storeAjax']);
 
+    Route::post('/charges/add', ['as' => 'addCharge', 'uses' => 'TransactionChargesController@store']);
+
 
 
 

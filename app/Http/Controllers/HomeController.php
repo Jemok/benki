@@ -38,6 +38,9 @@ class HomeController extends Controller
                 $users = User::where('userCategory', 0)->latest()->paginate(10);
 
                 return view('user.admin_two', compact('users'));
+            }elseif(Auth::user()->isAdminThree()){
+
+                return view('user.admin_three');
             }
             else{
 

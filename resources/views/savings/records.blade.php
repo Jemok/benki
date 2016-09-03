@@ -21,9 +21,9 @@
                                             <td>
                                                 Amount
                                             </td>
-                                            <td>
-                                                Percentage(%)
-                                            </td>
+                                            {{--<td>--}}
+                                                {{--Percentage(%)--}}
+                                            {{--</td>--}}
                                             <td>
                                                 Creation
                                             </td>
@@ -39,9 +39,9 @@
                                             <td>
                                                 {{$records->amount}}
                                             </td>
-                                            <td>
-                                                {{$records->percentage}}
-                                            </td>
+                                            {{--<td>--}}
+                                                {{--{{$records->transactions->percentage}}--}}
+                                            {{--</td>--}}
                                             <td>
                                                 {{$records->created_at}}
                                             </td>

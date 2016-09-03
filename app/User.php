@@ -51,18 +51,33 @@ class User extends Authenticatable
 
     }
 
+    /**
+     * Check if a user is an admin
+     * @return bool
+     */
     public function isAdmin(){
-
         if($this->userCategory == 1){
-
             return true;
         }
     }
 
+    /**
+     * Check if a user is an admin 2
+     * @return bool
+     */
     public function isAdminTwo(){
 
         if($this->userCategory == 2){
+            return true;
+        }
+    }
+    /**
+     * Check if a user is an admin 3
+     * @return bool
+     */
+    public function isAdminThree(){
 
+        if($this->userCategory == 3){
             return true;
         }
     }
@@ -75,5 +90,13 @@ class User extends Authenticatable
     public function userName($user_id)
     {
         return $this->where('id', '=', $user_id)->first()->name;
+    }
+
+    /**
+     * User TransactionCharge relationship
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function transaction_charges(){
+        return $this->hasMany(TransactionCharge::class);
     }
 }
