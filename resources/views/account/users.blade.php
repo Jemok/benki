@@ -24,6 +24,7 @@
                                 <tr>
                                     <td><strong>Name</strong></td>
                                     <td><strong>Email</strong></td>
+                                    <td><strong>Contribution (Kshs)</strong></td>
                                 </tr>
                             </thead>
                             @foreach($users as $user)
@@ -31,6 +32,7 @@
                             <tr>
                                 <td>{{$user->name}}</td>
                                 <td>{{ $user->email }}</td>
+                                <td>{{ \App\AccountContribution::where('user_id', $user->id)->sum('amount')  }}</td>
                             </tr>
                             @endforeach
 

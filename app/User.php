@@ -108,4 +108,9 @@ class User extends Authenticatable
 
         return $this->hasMany(DollarRate::class);
     }
+
+    public function contributions(){
+
+        return $this->hasMany(AccountContribution::class);
+    }
 }
