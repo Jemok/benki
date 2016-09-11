@@ -55,7 +55,7 @@
          <div class="form-group {{ $errors->has('password') ? 'has-error' : ''}}">
 
              <div class="col-md-6">
-                 <input type="text" name="password" class="form-control" placeholder="Your password"  required="">
+                 <input type="password" name="password" class="form-control" placeholder="Your password"  required="">
 
                  @if($errors->has('password'))
                      <span class="help-block">
