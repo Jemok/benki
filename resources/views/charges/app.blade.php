@@ -58,14 +58,11 @@
                                             <a href="{{ route('updateTransactionCharge', [$charge->id]) }}">Update</a>
                                         </td>
                                     </tr>
-
                                 @endforeach
-
                             </table>
                             @else
                                 <h4>No charges have been set in the app</h4>
                             @endif
-
                         </div>
                     </div>
                 </div>

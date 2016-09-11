@@ -31,6 +31,11 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
+
+    Route::post('/dollar/rates/set', ['as' => 'setDollarRate', 'uses' => 'DollarController@setDollar']);
+
+
+
 });
 
 Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf'], function() {
@@ -129,4 +134,9 @@ Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf']
 
     Route::get('/paypal/pay', ['as' => 'payWithPayPal', 'uses' => 'PayPalController@getPaymentPage']);
 
+    Route::get('/dollar/rates/view', ['as' => 'viewDollarRates', 'uses' => 'PayPalController@viewDollarRates']);
+
+
 });
+
+

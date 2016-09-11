@@ -17,5 +17,20 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel">
+                    <div class="panel-heading panel-top">Set Dollar Rate <a href="{{ route('viewDollarRates') }}">View Rates</a> </div>
+                    <div class="panel-body">
+                        <div class="row col-md-12">
+
+                            @include('charges.set_dolar_rate')
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

@@ -99,4 +99,13 @@ class User extends Authenticatable
     public function transaction_charges(){
         return $this->hasMany(TransactionCharge::class);
     }
+
+    /**
+     * User DollarRate relationship
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function dollar(){
+
+        return $this->hasMany(DollarRate::class);
+    }
 }

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\DollarRate;
+use App\Repos\DollarRateRepository;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -24,6 +27,8 @@ use PayPal\Api\ExecutePayment;
 use PayPal\Api\PaymentExecution;
 use PayPal\Api\Transaction;
 use App\Http\Requests\PayWithPayPalRequest;
+use App\Http\Requests\SetDollarRate;
+
 class PayPalController extends Controller
 {
 
@@ -41,13 +46,17 @@ class PayPalController extends Controller
     public function postPayment(PayWithPayPalRequest $payWithPayPalRequest)
     {
 
+        $current_dollar_rate = DollarRate::orderBy('id', 'desc')->first()->rate;
+
+        $pay_amount = ($payWithPayPalRequest->amount/$current_dollar_rate);
+
 
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
 
         $amount = new Amount();
         $amount->setCurrency('USD')
-            ->setTotal($payWithPayPalRequest->amount);
+            ->setTotal($pay_amount);
 
         $transaction = new Transaction();
         $transaction->setAmount($amount)
@@ -87,6 +96,14 @@ class PayPalController extends Controller
 
         if(isset($redirect_url)) {
             // redirect to paypal
+            $current_account = Auth::user()->current_account()->first();
+
+            $current_account->update([
+
+                'account_amount' => ($current_account->account_amount + $payWithPayPalRequest->amount)
+
+            ]);
+
             return view('paypal.redirect', compact('redirect_url'));
         }
 
@@ -114,6 +131,7 @@ class PayPalController extends Controller
         // The payer_id is added to the request query parameters
         // when the user is redirected from paypal back to your site
         $execution = new PaymentExecution();
+
         $execution->setPayerId(Input::get('PayerID'));
 
         //Execute the payment
@@ -122,6 +140,7 @@ class PayPalController extends Controller
 //        echo '<pre>';print_r($result);echo '</pre>';exit; // DEBUG RESULT, remove it later
 
         if ($result->getState() == 'approved') { // payment made
+
             return Redirect::route('original.route')
                 ->with('success', 'Payment success');
         }
@@ -129,9 +148,24 @@ class PayPalController extends Controller
             ->with('error', 'Payment failed');
     }
 
+    public function setDollar(SetDollarRate $setDollarRate, DollarRateRepository $dollarRateRepository){
+
+        $dollarRateRepository->store($setDollarRate);
+
+        Session::flash('flash_message', 'New Dollar Rate was set successfully');
+
+        return redirect()-back();
+
+    }
+
     public function getPaymentPage(){
-
         return view('paypal.pay');
+    }
 
+    public function viewDollarRates(DollarRateRepository $dollarRateRepository){
+
+        $rates = $dollarRateRepository->getPrevious();
+
+        return view('dollar.rates', compact('rates'));
     }
 }

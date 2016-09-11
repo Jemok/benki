@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AccountTypesTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(AccountRatesTableSeeder::class);
-
+        $this->call(ChargesTableSeeder::class);
 
         //Supposed to only apply to a single connection and reset itself
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
