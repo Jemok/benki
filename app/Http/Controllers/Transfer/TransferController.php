@@ -3,17 +3,31 @@
 namespace App\Http\Controllers\Transfer;
 
 use App\Repos\TransferRepo;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repos\TransferUsersRepo;
 use App\Http\Requests\TransferUserRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class TransferController extends Controller
 {
     public function store(TransferUsersRepo $transferUsersRepo, TransferUserRequest $transferUserRequest ){
+
+        $user = User::find(Auth::user()->id);
+
+
+        if(!(Hash::check($transferUserRequest->password, $user->password))){
+
+            Session::flash('flash_message_error', 'Wrong Password, Try again');
+
+
+            return redirect()->back();
+        }
 
         if($transferUserRequest->transfer_amount > \Auth::user()->current_account()->first()->account_amount){
 
@@ -22,6 +36,7 @@ class TransferController extends Controller
             return redirect()->back();
 
         }
+
 
         $errors = $transferUsersRepo->store($transferUserRequest->transfer_amount, $transferUserRequest->transfer_to, \Auth::user()->id);
 

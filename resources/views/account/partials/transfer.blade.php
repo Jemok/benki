@@ -51,6 +51,19 @@
                 @endif
             </div>
         </div>
+
+         <div class="form-group {{ $errors->has('password') ? 'has-error' : ''}}">
+
+             <div class="col-md-6">
+                 <input type="text" name="password" class="form-control" placeholder="Your password"  required="">
+
+                 @if($errors->has('password'))
+                     <span class="help-block">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                 @endif
+             </div>
+         </div>
             <div class="form-group">
                 <div class="col-md-12">
                     @if(\Auth::user()->current_account()->first()->account_amount <= 0)
