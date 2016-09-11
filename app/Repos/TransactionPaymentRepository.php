@@ -33,10 +33,12 @@ class TransactionPaymentRepository
      * @param $owner_id
      * @param $transaction_id
      * @param $payment
+     * @param $transaction_type
      */
-    public function store($transaction_charge_id, $owner_id, $transaction_id, $payment){
+    public function store($transaction_charge_id, $owner_id, $transaction_id, $payment, $transaction_type){
         $this->model->create([
             'transaction_charge_id' => $transaction_charge_id,
+            'transaction_type'      => $transaction_type,
             'owner_id'              => $owner_id,
             'transaction_id'        => $transaction_id,
             'payment'               => $payment

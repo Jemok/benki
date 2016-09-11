@@ -215,7 +215,6 @@ class AccountRequestRepo {
             $this->savePayment($transaction_charge_id, $owner_id, $transaction_id, $payment);
         }
 
-
         return $account;
     }
 
@@ -223,7 +222,6 @@ class AccountRequestRepo {
 
         $transactionPaymentRepository = new TransactionPaymentRepository(new TransactionPayment());
 
-        $transactionPaymentRepository->store($transaction_charge_id, $owner_id, $transaction_id, $payment);
-
+        $transactionPaymentRepository->store($transaction_charge_id, $owner_id, $transaction_id, $payment, 2);
     }
 }

@@ -159,7 +159,7 @@ class TransferUsersRepo {
 
         $transactionPaymentRepository = new TransactionPaymentRepository(new TransactionPayment());
 
-        $transactionPaymentRepository->store($transaction_charge_id, $owner_id, $transaction_id, $payment);
+        $transactionPaymentRepository->store($transaction_charge_id, $owner_id, $transaction_id, $payment, 1);
 
     }
 } 

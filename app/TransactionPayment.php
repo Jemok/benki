@@ -18,6 +18,7 @@ class TransactionPayment extends Model
      */
     protected $fillable = [
         'transaction_charge_id',
+        'transaction_type',
         'owner_id',
         'transaction_id',
         'payment'

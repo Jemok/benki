@@ -15,10 +15,13 @@ class ProfitController extends Controller
 
         $date = $getProfitRequest->profit_date;
 
+       $profits_transfers = $profitRepository->getProfitForDayTransfers($getProfitRequest);
+
+       $profits_chama_withdrawals = $profitRepository->getProfitForDayWithdrawals($getProfitRequest);
+
        $profits = $profitRepository->getProfitForDay($getProfitRequest);
 
 
-       return view('profit.show', compact('profits', 'date'));
-
+       return view('profit.show', compact('profits_transfers', 'profits_chama_withdrawals', 'profits', 'date'));
     }
 }

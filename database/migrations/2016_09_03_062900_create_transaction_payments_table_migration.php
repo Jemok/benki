@@ -22,6 +22,12 @@ class CreateTransactionPaymentsTableMigration extends Migration
              * The Chama or User who owns this payment
              */
             $table->integer('owner_id')->index()->unsigned();
+
+            /**
+             * The type of transaction Either: 1 for transfer or 2 for withdraw
+             */
+            $table->integer('transaction_type')->unsigned();
+
             /**
              * Either the transfer id or the withdraw id for this payment
              */

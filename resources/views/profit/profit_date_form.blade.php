@@ -2,7 +2,7 @@
     {{ csrf_field() }}
 
     <div class="form-group {{ $errors->has('profit_date') ? 'has-error' : ''}}">
-        <label class="col-md-4 control-label">Profit Date</label>
+        <label class="col-md-4 control-label">Profit Date (e.g 2016-09-11) (YYYY-MM-DD)</label>
 
         <div class="col-md-6">
             <input type="date" class="form-control" name="profit_date" value="{{ old('profit_date') }}"  required="">
