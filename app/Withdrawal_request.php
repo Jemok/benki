@@ -18,6 +18,7 @@ class Withdrawal_request extends Model
     protected $fillable = [
         'request_amount',
         'user_id',
+        'withdraw_status',
         'account_id'
     ];
 

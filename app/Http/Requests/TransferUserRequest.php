@@ -26,7 +26,8 @@ class TransferUserRequest extends Request
     {
         return [
             'transfer_to' => 'required',
-            'transfer_amount' => 'required | max:50000'
+            'transfer_amount' => 'required | max:50000',
+            'password' => 'required'
         ];
     }
 }

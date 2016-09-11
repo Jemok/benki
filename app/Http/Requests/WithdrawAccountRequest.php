@@ -24,7 +24,8 @@ class WithdrawAccountRequest extends Request
     public function rules()
     {
         return [
-            'request_amount' => 'required|numeric|min:1'
+            'request_amount' => 'required|numeric|min:1',
+            'password' => 'required'
         ];
     }
 }

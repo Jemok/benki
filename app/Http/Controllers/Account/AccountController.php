@@ -20,6 +20,7 @@ use App\WithdrawRequestAnswer;
 use Faker\Provider\zh_TW\DateTime;
 use Illuminate\Http\Request;
 use App\Http\Requests\RatesRequest;
+use Illuminate\Support\Facades\Hash;
 use Validator;
 
 use App\Http\Requests;
@@ -350,6 +351,16 @@ class AccountController extends Controller
      * @return $this|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function withdrawRequest(WithdrawAccountRequest $withdrawAccountRequest, $account_id, WithdrawRequestRepo $withdrawRequestRepo, AccountAmountRepo $accountAmountRepo){
+
+        $user = User::find(Auth::user()->id);
+
+
+        if(!(Hash::check($withdrawAccountRequest->password, $user->password))){
+
+            Session::flash('flash_message_error', 'Wrong Password, Try again');
+
+            return redirect()->back();
+        }
 
 
         $account_amount = $accountAmountRepo->getAmount($account_id);
