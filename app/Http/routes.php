@@ -136,6 +136,8 @@ Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf']
 
     Route::get('/dollar/rates/view', ['as' => 'viewDollarRates', 'uses' => 'PayPalController@viewDollarRates']);
 
+    Route::post('/profit/date', ['as' => 'getProfitDate', 'uses' => 'ProfitController@getProfitDate']);
+
 
 });
 

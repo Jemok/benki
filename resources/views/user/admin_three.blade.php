@@ -32,5 +32,20 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel">
+                    <div class="panel-heading panel-top">View Your Profits</div>
+                    <div class="panel-body">
+                        <div class="row col-md-12">
+
+                            @include('profit.profit_date_form')
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
