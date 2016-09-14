@@ -264,7 +264,6 @@ class AccountController extends Controller
 
         $users= $accountUserRepo->getMembersInAccount($account_id);
 
-
         return view('account.users',  compact('users', 'account_id'));
     }
 

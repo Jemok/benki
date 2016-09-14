@@ -13,6 +13,7 @@ use App\TransactionPayment;
 use App\Transfer;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use GuzzleHttp;
 
 
 class TransferUsersRepo {
@@ -96,6 +97,8 @@ class TransferUsersRepo {
                     $payment = $transaction_charge->charge;
 
                     $this->savePayment($transaction_charge_id, $owner_id, $transaction_id, $payment);
+
+                    $this->sendSms($transfer_amount, $user_receiver->phone_number);
                 }elseif($transfer_amount > 20000 && $transfer_amount <= 70000){
 
                     $transaction_charge = TransactionCharge::where('transaction_type', 1)->where('transaction_category', 2)->first();
@@ -109,6 +112,8 @@ class TransferUsersRepo {
                     $payment = $transaction_charge->charge;
 
                     $this->savePayment($transaction_charge_id, $owner_id, $transaction_id, $payment);
+                    $this->sendSms($transfer_amount, $user_receiver->phone_number);
+
                 }elseif($transfer_amount > 3000 && $transfer_amount <= 20000){
                     $transaction_charge = TransactionCharge::where('transaction_type', 1)->where('transaction_category', 3)->first();
 
@@ -121,6 +126,8 @@ class TransferUsersRepo {
                     $payment = $transaction_charge->charge;
 
                     $this->savePayment($transaction_charge_id, $owner_id, $transaction_id, $payment);
+                    $this->sendSms($transfer_amount, $user_receiver->phone_number);
+
                 }elseif($transfer_amount > 100 && $transfer_amount <= 3000){
                     $transaction_charge = TransactionCharge::where('transaction_type', 1)->where('transaction_category', 4)->first();
 
@@ -133,6 +140,8 @@ class TransferUsersRepo {
                     $payment = $transaction_charge->charge;
 
                     $this->savePayment($transaction_charge_id, $owner_id, $transaction_id, $payment);
+                    $this->sendSms($transfer_amount, $user_receiver->phone_number);
+
                 }elseif($transfer_amount > 0 && $transfer_amount <= 100){
                     $transaction_charge = TransactionCharge::where('transaction_type', 1)->where('transaction_category', 5)->first();
 
@@ -145,6 +154,7 @@ class TransferUsersRepo {
                     $payment = $transaction_charge->charge;
 
                     $this->savePayment($transaction_charge_id, $owner_id, $transaction_id, $payment);
+                    $this->sendSms($transfer_amount, $user_receiver->phone_number);
                 }
 
             }else{
@@ -160,6 +170,19 @@ class TransferUsersRepo {
         $transactionPaymentRepository = new TransactionPaymentRepository(new TransactionPayment());
 
         $transactionPaymentRepository->store($transaction_charge_id, $owner_id, $transaction_id, $payment, 1);
+
+    }
+
+    public function sendSms($transfer_amount, $number){
+
+        $message = "HandBank: Kshs " . $transfer_amount ." has been transferred to your HandBank account";
+
+        $url = "http://techsult.co.ke/vas/remote/?user=zinake&pass=zinakep@ss&msisdn=". $number ."&message=$message";
+
+
+        $client = new GuzzleHttp\Client();
+
+        $res = $client->request('GET', $url);
 
     }
 } 
