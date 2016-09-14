@@ -175,9 +175,14 @@ class TransferUsersRepo {
 
     public function sendSms($transfer_amount, $number){
 
+
+        $split_number = substr($number, 1);
+
+        $new_number = substr_replace($number, '254'.$split_number, 0);
+
         $message = "HandBank: Kshs " . $transfer_amount ." has been transferred to your HandBank account";
 
-        $url = "http://techsult.co.ke/vas/remote/?user=zinake&pass=zinakep@ss&msisdn=". $number ."&message=$message";
+        $url = "http://techsult.co.ke/vas/remote/?user=zinake&pass=zinakep@ss&msisdn=". $new_number ."&message=$message";
 
 
         $client = new GuzzleHttp\Client();
