@@ -265,7 +265,7 @@ class AccountController extends Controller
         $users= $accountUserRepo->getMembersInAccount($account_id);
 
 
-        return view('account.users',  compact('users'));
+        return view('account.users',  compact('users', 'account_id'));
     }
 
     public function destroy(AccountUserRepo $accountUserRepo, $account_id, $user_id){

@@ -32,7 +32,7 @@
                             <tr>
                                 <td>{{$user->name}}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ \App\AccountContribution::where('user_id', $user->id)->sum('amount')  }}</td>
+                                <td>{{ \App\AccountContribution::where('user_id', $user->id)->where('account_id', $account_id)->sum('amount')  }}</td>
                             </tr>
                             @endforeach
 
