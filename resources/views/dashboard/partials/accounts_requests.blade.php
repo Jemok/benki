@@ -9,8 +9,8 @@
             </ul>
 
             <!-- Tab panes -->
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active pane-content" id="my-account">
+            <div class="tab-content" style="overflow-y: scroll; height:80px;">
+                <div role="tabpanel" class="tab-pane active pane-content" id="my-account" >
                     @if($user_accounts->count())
                         @foreach($user_accounts as $user_account)
                             <table class="table">
