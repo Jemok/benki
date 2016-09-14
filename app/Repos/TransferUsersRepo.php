@@ -55,12 +55,12 @@ class TransferUsersRepo {
             ) {
 
                 $user_receiver = User::where('phone_number', '=', $receiver)
-                    ->orWhere('email', '=', $receiver)->first()->id;
+                    ->orWhere('email', '=', $receiver)->first();
 
                 $transfer = $this->model->create([
 
                     'transfer_amount' => $transfer_amount,
-                    'receiver_id' => $user_receiver,
+                    'receiver_id' => $user_receiver->id,
                     'user_id' => $user_id
                 ]);
 
@@ -68,7 +68,7 @@ class TransferUsersRepo {
 
                 $account_amount_user = $current_account_user->account_amount;
 
-                $current_account_receiver = Current_account::where('user_id', '=', $user_receiver)->first();
+                $current_account_receiver = Current_account::where('user_id', '=', $user_receiver->id)->first();
 
                 $account_amount_receiver = $current_account_receiver->account_amount;
 
