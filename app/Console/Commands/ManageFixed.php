@@ -58,7 +58,7 @@ class ManageFixed extends Command
                 ]);
 
                 $transaction->update([
-                    'transaction_amount',
+                    'transaction_amount' => 0,
                     'transaction_status' => 0
                 ]);
 
