@@ -149,21 +149,23 @@ class DeductSaving extends Command
 
                 $today = (new \Carbon\Carbon())->addHours(3);
 
-                if ($withdraw_date == $today) {
+                if ($withdraw_date < $today) {
 
-                    $current_account->update([
+                    if($transaction->transaction_status != 0) {
+                        $current_account->update([
 
-                        'account_amount' => $account_amount + $transaction_amount + $amount
-                    ]);
+                            'account_amount' => $account_amount + $transaction_amount + $amount
+                        ]);
 
-                    $transaction->update([
-                        'transaction_amount' => $amount_add,
-                        'transaction_status' => 0
-                    ]);
+                        $transaction->update([
+                            'transaction_amount' => $amount_add,
+                            'transaction_status' => 0
+                        ]);
 
-                    $transaction->records()->create([
-                        'amount' => $amount
-                    ]);
+                        $transaction->records()->create([
+                            'amount' => $amount
+                        ]);
+                    }
 
                 } else {
                     $current_account->update([
