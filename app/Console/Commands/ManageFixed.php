@@ -58,7 +58,12 @@ class ManageFixed extends Command
                 ]);
 
                 $transaction->update([
+                    'transaction_amount',
                     'transaction_status' => 0
+                ]);
+
+                $transaction->records()->create([
+                    'amount' => $transaction_amount
                 ]);
             }
         }
