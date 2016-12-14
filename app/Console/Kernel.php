@@ -40,6 +40,6 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('deduct:savingMonthly')->monthly();
 
-        $schedule->command('ManageFixed')->everyMinute();
+        $schedule->command('deduct:ManageFixed')->everyMinute();
     }
 }
