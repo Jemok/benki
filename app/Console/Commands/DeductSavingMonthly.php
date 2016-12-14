@@ -146,19 +146,22 @@ class DeductSavingMonthly extends Command
 
                 if ($withdraw_date < $today) {
 
-                    $current_account->update([
+                    if($transaction->transaction_status != 0) {
 
-                        'account_amount' => $account_amount + $transaction_amount + $amount
-                    ]);
+                        $current_account->update([
 
-                    $transaction->update([
-                        'transaction_amount' => $amount_add,
-                        'transaction_status' => 0
-                    ]);
+                            'account_amount' => $account_amount + $transaction_amount + $amount
+                        ]);
 
-                    $transaction->records()->create([
-                        'amount' => $amount
-                    ]);
+                        $transaction->update([
+                            'transaction_amount' => $amount_add,
+                            'transaction_status' => 0
+                        ]);
+
+                        $transaction->records()->create([
+                            'amount' => $amount
+                        ]);
+                    }
 
                 } else {
                     $current_account->update([
