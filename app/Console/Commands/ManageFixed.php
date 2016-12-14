@@ -40,7 +40,7 @@ class ManageFixed extends Command
     {
         $today = (new \Carbon\Carbon())->addHours(3);
 
-        $transactions  = Transaction::where('withdraw_date', '<', $today)->where('transaction_type', '=', 1)->where('transaction_status','=', 1 )->get();
+        $transactions  = Transaction::where('withdraw_date', '<', $today)->where('transaction_type', '=', 1)->where('transaction_status','=', 1)->get();
 
         foreach($transactions as $transaction){
 
