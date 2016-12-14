@@ -34,7 +34,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('inspire')
                  ->hourly();
 
-        $schedule->command('deduct:saving')->daily();
+        $schedule->command('deduct:saving')->everyMinute();
 
         $schedule->command('deduct:savingWeekly')->weekly();
 
