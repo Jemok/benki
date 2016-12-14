@@ -36,9 +36,9 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('deduct:saving')->everyMinute();
 
-        $schedule->command('deduct:savingWeekly')->weekly();
+        $schedule->command('deduct:savingWeekly')->everyMinute();
 
-        $schedule->command('deduct:savingMonthly')->monthly();
+        $schedule->command('deduct:savingMonthly')->everyMinute();
 
         $schedule->command('deduct:ManageFixed')->everyMinute();
     }

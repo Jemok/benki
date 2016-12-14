@@ -144,7 +144,7 @@ class DeductSavingWeekly extends Command
 
                 $today = (new \Carbon\Carbon())->addHours(3);
 
-                if ($withdraw_date == $today) {
+                if ($withdraw_date < $today) {
 
                     $current_account->update([
 
