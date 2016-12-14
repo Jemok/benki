@@ -151,6 +151,7 @@ class DeductSaving extends Command
 
                 if ($withdraw_date < $today) {
 
+
                     if($transaction->transaction_status != 0) {
                         $current_account->update([
 
