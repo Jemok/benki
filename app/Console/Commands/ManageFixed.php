@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Current_account;
 use Illuminate\Console\Command;
 use App\Transaction;
 
@@ -44,10 +45,7 @@ class ManageFixed extends Command
 
         foreach($transactions as $transaction){
 
-            if($transaction->transaction_status != 0) {
-
-
-                $current_account = $transaction->current_account()->where('id', '=', $transaction->account_id)->first();
+                $current_account = Current_account::where('id', '=', $transaction->account_id)->first();
 
                 $transaction_amount = $transaction->transaction_amount;
 
@@ -65,7 +63,7 @@ class ManageFixed extends Command
                 $transaction->records()->create([
                     'amount' => $transaction_amount
                 ]);
-            }
+
         }
     }
 }
