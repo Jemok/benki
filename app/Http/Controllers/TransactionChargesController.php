@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repos\TransactionChargeRepository;
+use App\TransactionCharge;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -43,5 +44,31 @@ class TransactionChargesController extends Controller
         }
 
         return view('errors.404');
+    }
+
+    public function editCharge($charge_id){
+
+        $transaction_charge = TransactionCharge::findOrFail($charge_id);
+
+
+        return view('charges.update', compact('charge_id', 'transaction_charge'));
+
+    }
+
+    public function updateCharge(AddTransactionChargeRequest $addTransactionChargeRequest, $charge_id){
+
+        $transaction_charge = TransactionCharge::findOrFail($charge_id);
+
+        $transaction_charge->transaction_type       = $addTransactionChargeRequest->transaction_type;
+        $transaction_charge->transaction_category   = $addTransactionChargeRequest->transaction_category;
+        $transaction_charge->transaction_name       = $addTransactionChargeRequest->transaction_name;
+        $transaction_charge->charge                 = $addTransactionChargeRequest->charge;
+
+        $transaction_charge->save();
+
+
+        Session::flash('flash_message', 'Charge was updated successfully');
+
+        return redirect()->back();
     }
 }

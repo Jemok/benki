@@ -22,7 +22,10 @@
 
                 <div class="panel">
                     <div class="panel-heading panel-top">
-                        <h5><strong>Members Panel</strong><span class="col-md-offset-3"><a href="{{ route('accountUsers', [$account_id]) }}">&nbsp;&nbsp;<span class="text">Members</span> <i class="fa fa-btn fa-group"></i></a> </span></h5>
+                        <h5><strong>Members Panel</strong><span class="col-md-offset-3"><a href="{{ route('accountUsers', [$account_id]) }}">&nbsp;&nbsp;<span class="text" style="color: #FFFFFF;">Members</span>
+                            {{--<i class="fa fa-btn fa-group"></i>--}}
+                                </a>
+                            </span></h5>
                     </div>
                     <div class="panel-body panel-left-border">
 

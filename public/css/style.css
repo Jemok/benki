@@ -31,23 +31,23 @@
 {
     border-radius: 0px;
     color: #000000;
-    border-color: #307d7e;
+    border-color: #FFFFFF;
     font-weight: bold;
-    background: linear-gradient(to bottom right, #33ffcc, #307d7e);
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background: linear-gradient(to bottom right, #FFFFFF, #FFFFFF);
+    /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.19);*/
     text-align: center;
 }
 .btn-register:hover
 {
-    background-color: #307d7e;
+    background-color: #FFFFFF;
 }
 .btn-login
 {
     border-radius: 0px;
     color: #000000;
-    border-color: #307d7e;
+    border-color: #FFFFFF;
     font-weight: bold;
-    background: linear-gradient(to bottom right, #33ffcc, #307d7e);
+    background: linear-gradient(to bottom right, #FFFFFF, #FFFFFF);
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     text-align: center;
 }
@@ -190,11 +190,11 @@
 }
 .humbeger
 {
-    background-color: #307d7e;
+    background-color: #a8614e;
 }
 .nav-guest
 {
-    background-color: #33ffcc;
+    background-color: #a8614e;
     color: #307d7e;
 }
 
@@ -208,15 +208,15 @@
 {
     border-radius: 0px;
     text-align: center;
-    background-color:#33ffcc ;
+    background-color:#a8614e;
 }
 .panel-top
 {
-    background-color: #33ffcc;
+    background-color: #a8614e;
 }
 .panel-bottom
 {
-    background-color: #33ffcc;
+    background-color: #a8614e;
 }
 .pane-heading
 {
@@ -232,7 +232,7 @@
 
 .panel-left-border
 {
-    border-left: solid #33ffcc 2px ;
+    border-left: solid #a8614e 2px ;
 }
 .menu
 {
@@ -241,6 +241,15 @@
 }
 .navigation
 {
-    color: #307d7e;
+    color: black;
+}
+
+.error-class{
+    color: black;
+}
+
+.btn-email{
+    background-color: #FFFFFF;
+    color: black;
 }
 

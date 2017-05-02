@@ -39,7 +39,7 @@
 
 @if(Request::path() == 'register' || Request::path() == 'login' || Request::path() == 'password/reset')
 
-    <body id="app-layout" style="background-color: #33ffcc;">
+    <body id="app-layout" style="background-color: #a8614e;">
 
     @else
 
@@ -111,9 +111,9 @@
     {{--<li><a href="{{ url('/register') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Register</a></li>--}}
     {{--@else--}}
     <!-- Sidebar -->
-    <div class="navbar navbar-fixed-top" style="background-color: #33ffcc; padding-left: 2%;  padding-top: 10px;">
-        <div style="background-color: #33ffcc;" >
-            <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas" style="background-color: #33ffcc;">
+    <div class="navbar navbar-fixed-top" style="background-color:  #a8614e; padding-left: 2%;  padding-top: 10px;">
+        <div style="background-color: #a8614e;" >
+            <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas" style="background-color: #a8614e;">
                 <span class="hamb-top"></span>
                 <span class="hamb-middle"></span>
                 <span class="hamb-bottom"></span>
@@ -121,8 +121,8 @@
         </div>
         <span class="holdsCurrentAccount" style="margin-left: 15%;">
             <span class="navbar-text nav-amount">
-               <span class="text">Current Balance Kshs:</span>
-                <span class="amount">@if(\Auth::user()->current_account()->exists())
+               <span class="text" style="color: black;">Current Balance Kshs:</span>
+                <span class="amount" style="color: black;">@if(\Auth::user()->current_account()->exists())
                         {{\Auth::user()->current_account()->first()->account_amount}}
                     @else
                         0
@@ -133,7 +133,7 @@
     </div>
 
 
-    <nav class="navbar navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+    <nav class="navbar navbar-fixed-top" id="sidebar-wrapper" role="navigation" style="background-color: #a8614e;">
         <ul class="nav sidebar-nav">
             {{--<li class="sidebar-brand">--}}
             {{--<a href="#">--}}

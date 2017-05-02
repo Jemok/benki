@@ -1,6 +1,6 @@
 .landing-page
 {
-    background-color: #33ffcc
+    background-color: #a8614e;
 }
 .header-content
 {
@@ -28,14 +28,14 @@
 .sign-up
 {
     background-color: #FFFFFF;
-    border: solid #33ffcc ;
+    border: solid #FFFFFF;
     border-radius: 8px;
     color: #000000;
     font-weight: bold;
 }
 .login
 {
-    background-color: #33ffcc;
+    background-color: #FFFFFF;
     color: #000000;
     font-weight: bold;
     border: solid #FFFFFF;

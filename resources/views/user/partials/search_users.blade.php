@@ -9,8 +9,8 @@
                 </span>
             @endif
         </div>
-        <div class="">
-            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> search</button>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default center-block"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> search</button>
         </div>
     </div>
 </form>

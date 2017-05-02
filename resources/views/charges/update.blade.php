@@ -1,11 +1,18 @@
-<form class="form-horizontal" method="post" action="{{ route('addCharge') }}">
+@extends('layouts.app')
+
+@section('content')
+
+    @include('flash.flash_message')
+
+
+    <form class="form-horizontal" method="post" action="{{ route('updateTransactionCharge', [$transaction_charge->id]) }}">
     {{ csrf_field() }}
 
     <div class="form-group {{ $errors->has('transaction_type') ? 'has-error' : ''}}">
         <label class="col-md-4 control-label">Transaction Type</label>
 
         <div class="col-md-6">
-            <input type="number" class="form-control" name="transaction_type" value="{{ old('transaction_type') }}"  required="">
+            <input type="number" class="form-control" name="transaction_type" value="{{ $transaction_charge->transaction_type }}"  required="">
 
             @if($errors->has('transaction_type'))
                 <span class="help-block">
@@ -19,7 +26,7 @@
         <label class="col-md-4 control-label">Transaction Category</label>
 
         <div class="col-md-6">
-            <input type="number" class="form-control" name="transaction_category" value="{{ old('transaction_category') }}"  required="">
+            <input type="number" class="form-control" name="transaction_category" value="{{ $transaction_charge->transaction_category }}"  required="">
 
             @if($errors->has('transaction_category'))
                 <span class="help-block">
@@ -33,7 +40,7 @@
         <label class="col-md-4 control-label">Transaction Name</label>
 
         <div class="col-md-6">
-            <input type="text" class="form-control" name="transaction_name" value="{{ old('transaction_name') }}"  required="">
+            <input type="text" class="form-control" name="transaction_name" value="{{ $transaction_charge->transaction_name  }}"  required="">
 
             @if($errors->has('transaction_name'))
                 <span class="help-block">
@@ -47,7 +54,7 @@
         <label class="col-md-4 control-label">Transaction Charge</label>
 
         <div class="col-md-6">
-            <input type="number" class="form-control" name="charge" value="{{ old('charge') }}"  required="">
+            <input type="number" class="form-control" name="charge" value="{{ $transaction_charge->charge }}"  required="">
 
             @if($errors->has('charge'))
                 <span class="help-block">
@@ -59,9 +66,10 @@
 
     <div class="form-group">
         <div class="col-md-6 col-md-offset-6">
-            <button type="submit" class="btn btn-deposit center-block">
+            <button type="submit" class="btn btn-deposit ">
                 <i class="fa fa-btn fa-sign-in"></i>Save
             </button>
         </div>
     </div>
 </form>
+@endsection

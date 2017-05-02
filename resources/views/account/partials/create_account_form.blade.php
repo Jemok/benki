@@ -11,13 +11,12 @@
                 <i class="fa fa-plus-square" aria-hidden="true">&nbsp;<strong>create account</strong></i>
 
             </span>
-
+        </div>
             @if($errors->has('account_name'))
                 <span class="help-block">
                     <strong>{{ $errors->first('account_name') }}</strong>
                 </span>
             @endif
-        </div>
         </div>
     </div>
 

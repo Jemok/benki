@@ -3,10 +3,10 @@
 
 
      <div class="form-group {{ $errors->has('transfer_to') ? ' has-error' : '' }}">
-         <label for="transfer_to" class="col-md-2 control-label">To</label>
+         {{--<label for="transfer_to" class="col-md-2 control-label">To</label>--}}
 
          <div class="col-md-10">
-             <input type="text" id="transfer_to" name="transfer_to" required>
+             <input type="text" id="transfer_to" name="transfer_to" placeholder="Phone number" required>
 
              @if($errors->has('transfer_to'))
                  <span class="help-block">

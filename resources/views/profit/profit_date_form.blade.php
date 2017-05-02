@@ -18,7 +18,7 @@
 
     <div class="form-group">
         <div class="col-md-6 col-md-offset-6">
-            <button type="submit" class="btn btn-deposit ">
+            <button type="submit" class="btn btn-deposit center-block">
                 <i class="fa fa-btn fa-sign-in"></i>Query
             </button>
         </div>

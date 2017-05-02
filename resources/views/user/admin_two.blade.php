@@ -12,7 +12,7 @@
 
                         @include('user.partials.search_users')
 
-                        <div class="row col-md-12">
+                        <div class="row col-md-12 table-responsive">
                             @if($users->count())
 
                                 <table class="table">

@@ -55,7 +55,7 @@
                                             {{ $charge->charge }}
                                         </td>
                                         <td>
-                                            <a href="{{ route('updateTransactionCharge', [$charge->id]) }}">Update</a>
+                                            <a href="{{ url('/accounts/charges/'.$charge->id.'/update') }}">Update</a>
                                         </td>
                                     </tr>
                                 @endforeach
