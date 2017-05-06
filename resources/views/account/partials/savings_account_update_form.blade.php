@@ -74,7 +74,7 @@
 
         <div class="form-group">
                 <div class="col-md-6">
-                    <button type="submit" class="btn btn-amount btn-sm" disabled>
+                    <button type="submit" class="btn btn-amount btn-sm center-block" disabled>
                         <i class="fa fa-btn fa-sign-in"></i>You have Kshs {{$saving->transaction_amount }} in your savings account
                     </button>
                 </div>

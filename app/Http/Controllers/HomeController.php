@@ -69,4 +69,8 @@ class HomeController extends Controller
         }
         return view('welcome');
     }
+
+    public function getDepositAndTransfers(){
+        return view('deposit-transfers');
+    }
 }

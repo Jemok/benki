@@ -114,7 +114,7 @@
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation"  class=" pane-heading"><a href="#deposit" aria-controls="deposit" role="tab" data-toggle="tab"><strong><u>Deposit</u></strong></a></li>
                             <li role="presentation" class="pane-heading"><a href="#withdraw" aria-controls="withdraw" role="tab" data-toggle="tab"><strong><u>Withdraw</u></strong></a></li>
-                            <li role="presentation" class=" active pane-heading"><a href="#withdrawRequests" aria-controls="withdrawRequests" role="tab" data-toggle="tab"><strong><u>Requests</u></strong> <span>{{$info}}</span> </a></li>
+                            <li role="presentation" class=" active pane-heading"><a href="#withdrawRequests" aria-controls="withdrawRequests" role="tab" data-toggle="tab"><strong><u>Requests <span class="badge" style="background-color: red;">{{ $withdraw_requests->count()  }}</span> </u></strong> <span>{{$info}}</span> </a></li>
                         </ul>
 
                         <div role="tabpanel" class="tab-pane pane-content" id="deposit">

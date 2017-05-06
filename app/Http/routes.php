@@ -41,7 +41,8 @@ Route::group(['middleware' => 'web'], function () {
 Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf'], function() {
 
     Route::group(['middleware' => 'auth'], function(){
-       Route::post('/store', ['as' => 'createAccount', 'uses' => 'Account\AccountController@store']);
+        Route::get('/', ['as' => 'getAccountPage', 'uses' => 'Account\AccountController@getAccountPage']);
+        Route::post('/store', ['as' => 'createAccount', 'uses' => 'Account\AccountController@store']);
        Route::get('/{id}', ['as' => 'getAccount', 'uses' => 'Account\AccountController@show']);
        Route::post('/{account_id}/validate', ['as' => 'validateForAccount', 'uses' => 'Account\AccountController@validateUser']);
        Route::get('/{account_id}/validate', ['as' => 'validateForAccount', 'uses' => 'Account\AccountController@notFound']);
@@ -123,6 +124,10 @@ Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf']
 
     Route::post('/charges/{charge_id}/update', ['as' => 'updateTransactionCharge', 'uses' => 'TransactionChargesController@updateCharge']);
 
+    Route::group(['middleware' => 'auth'], function() {
+        Route::get('/deposit/transfer', ['as' => 'depositAndTransfer', 'uses' => 'HomeController@getDepositAndTransfers']);
+
+    });
 
     Route::post('payment', array(
         'as' => 'payment',

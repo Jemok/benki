@@ -4,12 +4,12 @@
 
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active pane-heading"><a href="#my-account" aria-controls="my-account" role="tab" data-toggle="tab"><strong><u>My accounts</u></strong></a></li>
-                <li role="presentation"><a href="#chama-request" aria-controls="chama-request" role="tab" data-toggle="tab"><strong><u>Chama requests</u></strong></a></li>
+                <li role="presentation" class="active pane-heading"><a href="#my-account" aria-controls="my-account" role="tab" data-toggle="tab"><strong><u>My accounts <span class="badge" style="background-color: red;">{{ $user_accounts->count() }}</span></u></strong></a></li>
+                <li role="presentation"><a href="#chama-request" aria-controls="chama-request" role="tab" data-toggle="tab"><strong><u>Chama requests <span class="badge" style="background-color: red;">{{ $account_requests->count() }}</span> </u></strong></a></li>
             </ul>
 
             <!-- Tab panes -->
-            <div class="tab-content" style="overflow-y: scroll; height:80px;">
+            <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active pane-content" id="my-account" >
                     @if($user_accounts->count())
                         @foreach($user_accounts as $user_account)

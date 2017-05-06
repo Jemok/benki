@@ -43,7 +43,7 @@
                 <div class="col-md-12">
                     <div class="panel">
                         <div class="panel-heading panel-top">
-                            <h5><strong>All available chamas</strong></h5>
+                            <h5><strong>Select a chama</strong></h5>
                         </div>
                         <div class="panel-body panel-left-border">
 

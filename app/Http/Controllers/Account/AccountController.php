@@ -61,6 +61,20 @@ class AccountController extends Controller
         return view('account.all', compact('accounts', 'query'));
     }
 
+    public function getAccountPage(AccountTypeRepo $accountTypeRepo, AccountUserRepo $accountUserRepo, AccountRequestRepo $accountRequestRepo){
+
+        $accounts_type = $accountTypeRepo->all();
+
+        $user_accounts = $accountUserRepo->showForUser(Auth::user());
+
+        $account_class = new Account();
+
+        $account_requests = $accountRequestRepo->getForUser(\Auth::user()->id);
+
+
+        return view('account.chama', compact('accounts_type', 'user_accounts', 'account_class', 'account_requests'));
+    }
+
 
     public function search(Request $request){
 
