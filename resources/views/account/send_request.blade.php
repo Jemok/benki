@@ -11,7 +11,7 @@
                     @if($request == "")
                     <form method="post" action="{{ url('accounts/'. $account_id . '/send/request') }}">
                     {!! csrf_field() !!}
-                    <button class="btn btn-send-request" type="submit">Not a member want to Send a Request??</button>
+                    <button class="btn btn-send-request" type="submit">Send Request</button>
                     </form>
                     @else
 
