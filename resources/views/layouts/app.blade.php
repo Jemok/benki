@@ -90,19 +90,19 @@
 
                         <li>
                             <a href="{{ url('/') }}" style="color: black; font-weight: bold;" class="text-center">
-                                {{ Auth::user()->name }} : Home
+                                Home
                             </a>
                         </li>
 
                         <li>
-                            <a href="{{ url('/accounts/allAccounts/get?q=')  }}" style="color: black; font-weight: bold;" class="text-center">
+                            <a href="{{ route('getWithdrawPage') }}" style="color: black; font-weight: bold;" class="text-center">
                                 Withdraw
                             </a>
                         </li>
 
                         <li>
                             <a href="{{ route('depositAndTransfer')  }}" style="color: black; font-weight: bold;" class="text-center">
-                                Deposit & Transfers
+                                Transfers
                             </a>
                         </li>
 
@@ -120,7 +120,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ url('/accounts/allAccounts/get?q=')  }}" style="color: black; font-weight: bold;" class="text-center">
+                            <a href="{{ route('getAccountPage') }}" style="color: black; font-weight: bold;" class="text-center">
                                 Chama accounts
                             </a>
                         </li>
@@ -156,7 +156,10 @@
         </div>
 
         @yield('content')
-    <!--</div>-->
+
+        <h5 id="copyright" class="text-center">Logged in as  {{ Auth::user()->name }} </>
+
+        <!--</div>-->
 
 
 

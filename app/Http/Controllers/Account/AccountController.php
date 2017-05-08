@@ -75,6 +75,17 @@ class AccountController extends Controller
         return view('account.chama', compact('accounts_type', 'user_accounts', 'account_class', 'account_requests'));
     }
 
+    public function getWithdrawPage(AccountTypeRepo $accountTypeRepo, AccountUserRepo $accountUserRepo, AccountRequestRepo $accountRequestRepo){
+
+        $accounts_type = $accountTypeRepo->all();
+
+        $user_accounts = $accountUserRepo->showForUser(Auth::user());
+
+        $account_class = new Account();
+
+        return view('account.withdraw', compact('accounts_type', 'user_accounts', 'account_class'));
+    }
+
 
     public function search(Request $request){
 

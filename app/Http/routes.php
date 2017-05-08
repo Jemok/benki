@@ -42,6 +42,8 @@ Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf']
 
     Route::group(['middleware' => 'auth'], function(){
         Route::get('/', ['as' => 'getAccountPage', 'uses' => 'Account\AccountController@getAccountPage']);
+        Route::get('/account/withdraw', ['as' => 'getWithdrawPage', 'uses' => 'Account\AccountController@getWithdrawPage']);
+
         Route::post('/store', ['as' => 'createAccount', 'uses' => 'Account\AccountController@store']);
        Route::get('/{id}', ['as' => 'getAccount', 'uses' => 'Account\AccountController@show']);
        Route::post('/{account_id}/validate', ['as' => 'validateForAccount', 'uses' => 'Account\AccountController@validateUser']);
