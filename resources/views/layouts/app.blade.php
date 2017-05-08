@@ -157,7 +157,12 @@
 
         @yield('content')
 
-        <h5 id="copyright" class="text-center">Logged in as  {{ Auth::user()->name }} </>
+        @if(!Auth::guest())
+
+            <h5 id="copyright" class="text-center">Logged in as  {{ Auth::user()->name }} </>
+
+        @endif
+
 
         <!--</div>-->
 
