@@ -11,7 +11,7 @@
             </div>
 
             <div class="panel">
-                <div class="panel-heading panel-top"><strong>Chama Accounts</strong></div>
+                <div class="panel-heading panel-top"><strong>Select a Chama</strong></div>
                 <div class="panel-body panel-left-border">
                     <div class="row" xmlns="http://www.w3.org/1999/html">
                         <div class="col-md-12">
@@ -19,7 +19,7 @@
 
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs" role="tablist">
-                                    <li role="presentation" class="active pane-heading"><a href="#my-account" aria-controls="my-account" role="tab" data-toggle="tab"><strong><u>My accounts s</u></strong></a></li>
+                                    <li role="presentation" class="active pane-heading"><a href="#my-account" aria-controls="my-account" role="tab" data-toggle="tab"><strong><u>Chama Name</u></strong></a></li>
                                 </ul>
 
                                 <!-- Tab panes -->
