@@ -4,10 +4,10 @@
         <div class="col-md-12">
             @include('flash.flash_message')
             @include('flash.flash_message_error')
-
             <div>
-    <span>
-    </span>
+
+                @include('dashboard.partials.search_account_form')
+
             </div>
 
             <div class="panel">

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('dashboard.partials.search_account_form')
 
 
     <div class="row">

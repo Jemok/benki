@@ -71,11 +71,10 @@
             </div>
         </div>
 
-
         <div class="form-group">
                 <div class="col-md-6">
                     <button type="submit" class="btn btn-amount btn-sm center-block" disabled>
-                        <i class="fa fa-btn fa-sign-in"></i>You have Kshs {{$saving->transaction_amount }} in your savings account
+                        <i class="fa fa-btn fa-sign-in"></i>Kshs {{$saving->transaction_amount }} saved
                     </button>
                 </div>
         </div>

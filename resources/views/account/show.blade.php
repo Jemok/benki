@@ -12,11 +12,14 @@
     @include('flash.flash_message_error')
 
 
+
+
+
     {{--<a href="/{{ \Illuminate\Support\Facades\Request::path()}}">Refresh</a>--}}
     <div class="row">
         <div class="col-md-12">
 
-            @if($class_model->checkIfMember(\Auth::user()->id) == true)
+        @if($class_model->checkIfMember(\Auth::user()->id) == true)
 
 
         <div class="panel">

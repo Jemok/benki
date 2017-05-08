@@ -79,7 +79,7 @@
                     @if(\Auth::user()->current_account->account_amount != 0)
                         <i class="fa fa-btn fa-sign-in"></i>Save
                     @else
-                        <i class="fa fa-btn fa-sign-in"></i>No money in your current account
+                        <i class="fa fa-btn fa-sign-in"></i>Low Balance
                     @endif
                     </button>
                 </div>
