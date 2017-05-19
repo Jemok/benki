@@ -21,7 +21,9 @@
 
             $period = $periods[array_rand($periods, 1)];
 
-            $amount = ($random_rate/100) * \Auth::user()->current_account()->first()->account_amount * $period
+            $amount = ($random_rate/100) * \Auth::user()->current_account()->first()->account_amount * $period;
+
+            $amount = \Auth::user()->current_account()->first()->account_amount + $amount;
             ?>
             <div>
                 Tips
@@ -32,7 +34,7 @@
 
                     for {{$period}} days
 
-                    to get {{\Auth::user()->current_account()->first()->account_amount + $amount}}
+                    to get {{ number_format($amount, 0) }}
 
                 </p>
             </div>
