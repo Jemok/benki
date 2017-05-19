@@ -17,10 +17,6 @@ class Authenticate
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::user()->current_account()->first()->account_amount >= 5000000) {
-
-            return view('freezed');
-        }
         if (Auth::guard($guard)->guest()) {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
