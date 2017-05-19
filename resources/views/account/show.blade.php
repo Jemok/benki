@@ -13,6 +13,22 @@
 
     {{--<a href="/{{ \Illuminate\Support\Facades\Request::path()}}">Refresh</a>--}}
             @if($class_model->checkIfMember(\Auth::user()->id) == true)
+
+                <?php
+                     $amount = \App\Account_amount::where('account_id', $account_id)
+                                                    ->where('amount', '<=', \Auth::user()->current_account()->first()->account_amount)
+                                                    ->avg('amount')
+                ?>
+
+                <div>
+                    Tips
+
+                    <p>
+                        You can save up to Kshs {{ number_format($amount, 0) }} now.
+                    </p>
+
+                </div>
+
                 <div class="panel">
                     <div class="panel-heading panel-top">
                         <span class="panel-heading panel-top displayAccountBalanceDiv">

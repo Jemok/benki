@@ -16,6 +16,26 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 
+            <?php
+                $random_rate = random_int(1, 10);
+
+                $periods = [1, 7, 30];
+
+                $period = array_rand($periods);
+
+                $amount = ($random_rate/100) * \Auth::user()->current_account()->first()->account_amount
+            ?>
+            <div>
+                Tips
+                <p>
+                    Save {{\Auth::user()->current_account()->first()->account_amount}}
+
+                    for {{ $period }} days
+
+                    to get {{ \Auth::user()->current_account()->first()->account_amount + $amount}}
+
+                </p>
+            </div>
 
             <div class="panel">
                 <div class="panel-heading panel-top"><strong>Fixed savings</strong></div>
