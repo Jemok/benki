@@ -54,7 +54,7 @@
                Balance:
             </span>
                 @if(\Auth::user()->current_account()->exists())
-                    <span class="amount" style="color: white;">{{\Auth::user()->current_account()->first()->account_amount}}</span>
+                    <span class="amount" style="color: white;">{{ number_format(\Auth::user()->current_account()->first()->account_amount, 0)}}</span>
                 @else
                     0
                 @endif
