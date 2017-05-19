@@ -78,11 +78,22 @@ class AccountAmountRepo {
      */
     public function depositCurrent(User $user, $request){
 
-        $user->current_account()->update([
+        if($request->amount >= 5000000){
+            $user->current_account()->update([
 
-            'account_amount' =>  ($user->current_account()->first()->account_amount)+$request->amount
+                'account_amount' =>  ($user->current_account()->first()->account_amount)+$request->amount,
+                'approval'       =>  1
 
-        ]);
+            ]);
+        }else{
+            $user->current_account()->update([
+
+                'account_amount' =>  ($user->current_account()->first()->account_amount)+$request->amount
+
+            ]);
+        }
+
+
 
         $current = $user->current_account()->first();
 

@@ -81,6 +81,60 @@
 
                     </div>
                 </div>
+
+                <div class="panel">
+                    <div class="panel-heading panel-top">Freezed accounts</div>
+
+                    <div class="panel-body">
+
+                        <div class="row col-md-12 table-responsive">
+                            @if($users_freezed->count())
+
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <td>
+                                            Name
+                                        </td>
+                                        <td>
+                                            Email
+                                        </td>
+                                        <td>
+                                            Amount
+                                        </td>
+                                        <td>
+                                            Approve
+                                        </td>
+                                    </tr>
+                                    </thead>
+                                    @foreach($users_freezed as $freeze)
+                                        <tr>
+                                            <td>{{$freeze->user->name}}</td>
+                                            <td>{{$freeze->user->email}}</td>
+                                            <td>
+                                                {{$freeze->account_amount}}
+                                            </td>
+                                            <td>
+                                                <form method="post" action="{{ route('approveFreezed', [$freeze->id]) }}">
+                                                    {{csrf_field()}}
+                                                    <button class="btn btn-info" type="submit">
+                                                        Approve
+                                                    </button>
+                                                </form>
+
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </table>
+                            @else
+                                <h1>No freezed users</h1>
+                            @endif
+                        </div>
+
+
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

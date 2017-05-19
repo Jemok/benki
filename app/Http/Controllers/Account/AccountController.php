@@ -633,6 +633,20 @@ class AccountController extends Controller
         return view('user.add_money', compact('user_id'));
     }
 
+    public function approveFreezed($freezed_id){
+
+        $current_account = Current_account::findOrFail($freezed_id);
+
+      $current_account->approval = 0;
+
+      $current_account->save();
+
+      Session::flash('flash_message', 'User was approved');
+
+      return redirect()->back();
+
+    }
+
     public function depositCurrentForUser(AccountAmountRepo $accountAmountRepo, DepositAmountRequest $depositAmountRequest, $user_id){
 
         $user = User::findOrFail($user_id);

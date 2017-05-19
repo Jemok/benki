@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AccountRequest;
+use App\Current_account;
 use App\Http\Requests;
 use App\Repos\AccountRepo;
 use App\Repos\AccountRequestRepo;
@@ -35,10 +36,14 @@ class HomeController extends Controller
 
             }elseif(Auth::user()->isAdminTwo()){
 
+                $users_freezed = Current_account::where('account_amount', '>=', 5000000)
+                                                  ->where('approval', 1)
+                                                  ->with('user')
+                                                  ->get();
 
                 $users = User::where('userCategory', 0)->latest()->paginate(10);
 
-                return view('user.admin_two', compact('users'));
+                return view('user.admin_two', compact('users', 'users_freezed'));
             }elseif(Auth::user()->isAdminThree()){
 
                 return view('user.admin_three');
