@@ -14,9 +14,17 @@
 
             <div class="panel">
                 <div class="panel-heading panel-top">
-                    <h5><strong>Chama members</strong></h5>
+                    <h5>
+                        <strong>
+                            Members
+                            <span class="badge" style="background-color: red;">
+                                {{ $users->count() }}
+                            </span>
+                        </strong>
+
+                    </h5>
                 </div>
-                <div class="panel-body panel-left-border">
+                <div class="panel-body panel-left-border table-responsive">
 
                     @if($users->count())
                         <table class="table">

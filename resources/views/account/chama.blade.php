@@ -11,8 +11,7 @@
             </div>
 
             <div class="panel">
-                <div class="panel-heading panel-top"><strong>Chama Accounts</strong></div>
-
+                <div class="panel-heading panel-top"><strong>Accounts</strong></div>
                 <div class="panel-body panel-left-border">
                     @include('account.partials.create_account_form')
                     @include('dashboard.partials.accounts_requests')

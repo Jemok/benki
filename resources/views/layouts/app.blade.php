@@ -38,20 +38,20 @@
 @if(Request::path() == 'register' || Request::path() == 'login' || Request::path() == 'password/reset')
 
     <body id="app-layout" style="background-color: #a8614e;">
+    </body>
 
     @else
 
 <body id="app-layout">
-
 @endif
 @if(!\Auth::guest())
     <nav class="navbar navbar-default" style="background-color: #a8614e;">
 
-        <a class="navbar-brand">
+        <p class="navbar-brand">
             <span class="holdsCurrentAccount">
             <span class="navbar-text nav-amount">
             <span style="color: #000000;">
-                Current Balance Kshs:
+                Balance:
             </span>
                 @if(\Auth::user()->current_account()->exists())
                     <span class="amount" style="color: white;">{{\Auth::user()->current_account()->first()->account_amount}}</span>
@@ -60,7 +60,58 @@
                 @endif
             </span>
             </span>
-        </a>
+            <a href="{{ route('getAccountPage') }}" class="navbar-link">
+                <?php
+                if(\App\Account::where('user_id', \Auth::user()->id)->exists()){
+                    $user_account_ids[] = \App\Account::where('user_id', \Auth::user()->id)
+                            ->pluck('id');
+                }else{
+                    $user_account_ids = [];
+                }
+
+                if(\App\AccountRequest::whereIn('account_id', $user_account_ids)
+                        ->where('confirmation_status', 0)->exists()){
+                    $user_account_requests = \App\AccountRequest::whereIn('account_id', $user_account_ids)
+                            ->where('confirmation_status', 0)
+                            ->count();
+                }else{
+                    $user_account_requests = 0;
+                }
+                ?>
+                @if($user_account_requests > 0)
+
+                    <span class="badge" style="background-color: red;">
+               <i class="fa fa-user"></i> {{ $user_account_requests  }}
+            </span>
+                @endif
+            </a>
+            <a href="{{ route('getAccountPage') }}" class="navbar-link">
+                <?php
+                if(\App\Account_user::whereIn('user_id', [\Auth::user()->id])->exists()){
+                    $user_account_ids[] = \App\Account_user::whereIn('user_id', [\Auth::user()->id])
+                            ->pluck('account_id');
+                }else{
+                    $user_account_ids = [];
+                }
+
+                if(\App\Withdrawal_request::whereIn('account_id', $user_account_ids)
+                        ->where('withdraw_status', 0)->exists()){
+                    $user_withdrawal_requests = \App\Withdrawal_request::whereIn('account_id', $user_account_ids)
+                            ->where('withdraw_status', 0)
+                            ->count();
+                }else{
+                    $user_withdrawal_requests = 0;
+                }
+                ?>
+                @if($user_withdrawal_requests > 0)
+
+                    <span class="badge" style="background-color: red;">
+               <i class="fa fa-money"></i> {{ $user_withdrawal_requests  }}
+            </span>
+                @endif
+            </a>
+        </p>
+
 
         <div class="container">
             <div class="navbar-header">
@@ -159,10 +210,14 @@
 
         @if(!Auth::guest())
 
-            <h5 id="copyright" class="text-center">Logged in as  {{ Auth::user()->name }} </>
+            <h5 id="copyright" class="text-center">Logged in as  {{ Auth::user()->name }} </h5>
 
         @endif
+</div>
 
+{{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+</body>
+</html>
 
         <!--</div>-->
 
@@ -285,8 +340,4 @@
             }
         </script>
     @endif
-</div>
 
-{{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
-</body>
-</html>

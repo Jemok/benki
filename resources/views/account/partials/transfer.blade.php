@@ -67,8 +67,8 @@
             <div class="form-group">
                 <div class="col-md-12">
                     @if(\Auth::user()->current_account()->first()->account_amount <= 0)
-                    <button type="submit" class="btn btn-account col-md-offset-2 col-md-4" disabled>
-                        <i class="fa fa-btn fa-sign-in"></i>Current account is low Kshs: {{\Auth::user()->current_account()->first()->account_amount}}
+                    <button type="submit" class="btn btn-account col-md-offset-2 col-md-4 center-block" disabled>
+                        Low balance: {{\Auth::user()->current_account()->first()->account_amount}}
                     </button>
                     @else
                     <button type="submit" class="btn btn-transfer btn-sm center-block">

@@ -88,13 +88,13 @@ class SendAccountRequestController extends Controller
 
             $updated_account_amount = $accountRequestRepo->withdraw($account_id, \Auth::user()->id);
 
-//            Session::flash('flash_message', 'You transaction was successfull');
+            Session::flash('flash_message', 'You transaction was successfull');
 
                 $this->oooPushIt($updated_account_amount);
 //
-//            return redirect()->back();
+            return redirect()->back();
 
-            return response()->json(['updated_account_amount' => $updated_account_amount, 'current_account_amount' => Auth::user()->current_account()->first()->account_amount]);
+//            return response()->json(['updated_account_amount' => $updated_account_amount, 'current_account_amount' => Auth::user()->current_account()->first()->account_amount]);
     }
 
     /**

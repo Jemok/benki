@@ -45,7 +45,6 @@ class PayPalController extends Controller
 
     public function postPayment(PayWithPayPalRequest $payWithPayPalRequest)
     {
-
         $current_dollar_rate = DollarRate::orderBy('id', 'desc')->first()->rate;
 
         $pay_amount = ($payWithPayPalRequest->amount/$current_dollar_rate);

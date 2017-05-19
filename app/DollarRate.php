@@ -16,9 +16,7 @@ class DollarRate extends Model
      * @var array
      */
     protected $fillable = [
-
         'rate'
-
     ];
 
     /**

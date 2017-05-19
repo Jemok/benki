@@ -61,5 +61,13 @@ class Account extends Model
         return $this->hasMany(AccountRequest::class);
     }
 
+    /**
+     * Account AccountRequest relationship
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function account_requests(){
+        return $this->hasMany(AccountRequest::class);
+    }
+
 
 }

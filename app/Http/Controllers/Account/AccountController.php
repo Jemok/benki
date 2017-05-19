@@ -217,7 +217,7 @@ class AccountController extends Controller
 
                     if($users_in_account_count == $request_answers_count && $withdraw_status == 0){
 
-                        $info = "-- ---- --- --Your Withdrawal was approved, you can withdraw-- ---- -- --";
+                        $info = "Withdrawal approved";
 
                     }elseif($users_in_account_count < $request_answers_count && $withdraw_status == 0){
 
