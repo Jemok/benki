@@ -19,7 +19,7 @@
 
             $periods = [1, 7, 30];
 
-            $period = array_rand($periods);
+            $period = $periods[array_rand($periods, 1)];
 
             $amount = ($random_rate/100) * \Auth::user()->current_account()->first()->account_amount * $period
             ?>
