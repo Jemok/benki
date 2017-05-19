@@ -16,10 +16,13 @@ class CheckCurrentAccount
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->current_account()->first()->account_amount >= 5000000) {
+        if(!Auth::user()->isAdmin() && !Auth::user()->isAdminTwo() && !Auth::user()->isAdminThree() ){
+            if (Auth::user()->current_account()->first()->account_amount >= 5000000) {
 
-            return view('freezed');
+                return view('freezed');
+            }
         }
+
         return $next($request);
     }
 }
