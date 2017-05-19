@@ -4,7 +4,7 @@
 
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active pane-heading">
+                <li role="presentation" class="pane-heading">
                     <a href="#my-account" style="font-size: small;" aria-controls="my-account" role="tab" data-toggle="tab">
                         Accounts
                         <span class="badge" style="background-color: red;">
@@ -24,7 +24,7 @@
 
             <!-- Tab panes -->
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active pane-content" id="my-account" >
+                <div role="tabpanel" class="tab-pane pane-content" id="my-account" >
                     @if($user_accounts->count())
                         @foreach($user_accounts as $user_account)
                             <table class="table">

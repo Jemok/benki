@@ -78,7 +78,7 @@
                     $user_account_requests = 0;
                 }
                 ?>
-                @if($user_account_requests > 0)
+                @if($user_account_requests >= 0)
 
                     <span class="badge" style="background-color: red;">
                <i class="fa fa-user"></i> {{ $user_account_requests  }}
@@ -103,7 +103,7 @@
                     $user_withdrawal_requests = 0;
                 }
                 ?>
-                @if($user_withdrawal_requests > 0)
+                @if($user_withdrawal_requests >= 0)
 
                     <span class="badge" style="background-color: red;">
                <i class="fa fa-money"></i> {{ $user_withdrawal_requests  }}
