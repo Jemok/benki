@@ -17,7 +17,7 @@ class CheckCurrentAccount
     public function handle($request, Closure $next)
     {
         if(!Auth::user()->isAdmin() && !Auth::user()->isAdminTwo() && !Auth::user()->isAdminThree() ){
-            if (Auth::user()->current_account()->first()->account_amount >= 5000000 && Auth::user()->current_account()->first()->approval === 1) {
+            if (Auth::user()->current_account()->first()->account_amount >= 5000000 && Auth::user()->current_account()->first()->approval == 1) {
 
                 return view('freezed');
             }
