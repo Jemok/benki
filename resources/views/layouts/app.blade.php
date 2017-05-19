@@ -51,7 +51,7 @@
             <span class="holdsCurrentAccount">
             <span class="navbar-text nav-amount">
             <span style="color: #000000;">
-               Current Balance:
+               Balance:
             </span>
                 @if(\Auth::user()->current_account()->exists())
                     <span class="amount" style="color: white;">{{\Auth::user()->current_account()->first()->account_amount}}</span>
@@ -78,12 +78,12 @@
                     $user_account_requests = 0;
                 }
                 ?>
-                @if($user_account_requests >= 0)
+                {{--@if($user_account_requests > 0)--}}
 
                     <span class="badge" style="background-color: red;">
                <i class="fa fa-user"></i> {{ $user_account_requests  }}
             </span>
-                @endif
+                {{--@endif--}}
             </a>
             <a href="{{ route('getAccountPage') }}" class="navbar-link">
                 <?php
@@ -103,12 +103,12 @@
                     $user_withdrawal_requests = 0;
                 }
                 ?>
-                @if($user_withdrawal_requests >= 0)
+                {{--@if($user_withdrawal_requests > 0)--}}
 
                     <span class="badge" style="background-color: red;">
                <i class="fa fa-money"></i> {{ $user_withdrawal_requests  }}
             </span>
-                @endif
+                {{--@endif--}}
             </a>
         </p>
 
