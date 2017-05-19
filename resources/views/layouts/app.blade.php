@@ -60,24 +60,24 @@
                 @endif
             </span>
             </span>
-            <a href="{{ route('getAccountPage') }}" class="navbar-link">
-                <?php
-                if(\App\Account::where('user_id', \Auth::user()->id)->exists()){
-                    $user_account_ids[] = \App\Account::where('user_id', \Auth::user()->id)
-                            ->pluck('id');
-                }else{
-                    $user_account_ids = [];
-                }
+            <?php
+            if(\App\Account::where('user_id', \Auth::user()->id)->exists()){
+                $user_account_ids[] = \App\Account::where('user_id', \Auth::user()->id)
+                        ->pluck('id');
+            }else{
+                $user_account_ids = [];
+            }
 
-                if(\App\AccountRequest::whereIn('account_id', $user_account_ids)
-                        ->where('confirmation_status', 0)->exists()){
-                    $user_account_requests = \App\AccountRequest::whereIn('account_id', $user_account_ids)
-                            ->where('confirmation_status', 0)
-                            ->count();
-                }else{
-                    $user_account_requests = 0;
-                }
-                ?>
+            if(\App\AccountRequest::whereIn('account_id', $user_account_ids)
+                    ->where('confirmation_status', 0)->exists()){
+                $user_account_requests = \App\AccountRequest::whereIn('account_id', $user_account_ids)
+                        ->where('confirmation_status', 0)
+                        ->count();
+            }else{
+                $user_account_requests = 0;
+            }
+            ?>
+            <a href="{{ route('getAccountPage') }}" class="navbar-link">
                 {{--@if($user_account_requests > 0)--}}
 
                     <span class="badge" style="background-color: red;">
@@ -85,24 +85,24 @@
             </span>
                 {{--@endif--}}
             </a>
-            <a href="{{ route('getAccountPage') }}" class="navbar-link">
-                <?php
-                if(\App\Account_user::whereIn('user_id', [\Auth::user()->id])->exists()){
-                    $user_account_ids[] = \App\Account_user::whereIn('user_id', [\Auth::user()->id])
-                            ->pluck('account_id');
-                }else{
-                    $user_account_ids = [];
-                }
+            <?php
+            if(\App\Account_user::whereIn('user_id', [\Auth::user()->id])->exists()){
+                $user_account_ids[] = \App\Account_user::whereIn('user_id', [\Auth::user()->id])
+                        ->pluck('account_id');
+            }else{
+                $user_account_ids = [];
+            }
 
-                if(\App\Withdrawal_request::whereIn('account_id', $user_account_ids)
-                        ->where('withdraw_status', 0)->exists()){
-                    $user_withdrawal_requests = \App\Withdrawal_request::whereIn('account_id', $user_account_ids)
-                            ->where('withdraw_status', 0)
-                            ->count();
-                }else{
-                    $user_withdrawal_requests = 0;
-                }
-                ?>
+            if(\App\Withdrawal_request::whereIn('account_id', $user_account_ids)
+                    ->where('withdraw_status', 0)->exists()){
+                $user_withdrawal_requests = \App\Withdrawal_request::whereIn('account_id', $user_account_ids)
+                        ->where('withdraw_status', 0)
+                        ->count();
+            }else{
+                $user_withdrawal_requests = 0;
+            }
+            ?>
+            <a href="{{ route('getAccountPage') }}" class="navbar-link">
                 {{--@if($user_withdrawal_requests > 0)--}}
 
                     <span class="badge" style="background-color: red;">
