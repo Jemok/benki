@@ -51,7 +51,7 @@
             <span class="holdsCurrentAccount">
             <span class="navbar-text nav-amount">
             <span style="color: #000000;">
-                Balance:
+               Current Balance:
             </span>
                 @if(\Auth::user()->current_account()->exists())
                     <span class="amount" style="color: white;">{{\Auth::user()->current_account()->first()->account_amount}}</span>
