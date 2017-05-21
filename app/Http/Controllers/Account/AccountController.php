@@ -117,7 +117,12 @@ class AccountController extends Controller
             $users = User::where('userCategory', 0)->paginate(10);
         }
 
-        return view('user.admin_two', compact('users', 'query'));
+        $users_freezed = Current_account::where('account_amount', '>=', 5000000)
+            ->where('approval', 1)
+            ->with('user')
+            ->get();
+
+        return view('user.admin_two', compact('users', 'query', 'users_freezed'));
     }
 
     /**
