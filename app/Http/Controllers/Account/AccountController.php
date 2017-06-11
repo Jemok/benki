@@ -441,6 +441,27 @@ class AccountController extends Controller
      * @param TransferRepo $transferRepo
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
+    public function getFixedAmountSavings(TransferRepo $transferRepo){
+
+        $saving = $transferRepo->getSaving();
+
+        if($saving == false){
+
+            $saving = null;
+        }
+
+        $today = (new \Carbon\Carbon())->addHours(24);
+
+        $today = $today->toDateString();
+
+        return view('account.show_fixed_amount_savings', compact('saving', 'today'));
+    }
+
+
+    /**
+     * @param TransferRepo $transferRepo
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getFixed(TransferRepo $transferRepo){
 
 
@@ -479,10 +500,25 @@ class AccountController extends Controller
      */
     public function depositSavings(TransferRepo $transferRepo, TransferCurrentToSavingsRequest $toSavingsRequest){
 
-
 //        dd($toSavingsRequest->withdraw_date);
 
         $transferRepo->transactToSavings($toSavingsRequest, Auth::user()->current_account()->first()->id);
+
+        Session::flash('flash_message', 'The transfer was successful');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Handles the flow of creating a savings account
+     * @param TransferRepo $transferRepo
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function depositFixedAmountSavings(TransferRepo $transferRepo, Requests\TransferToFixedSavingsRequest $toFixedSavingsRequest){
+
+//        dd($toSavingsRequest->withdraw_date);
+
+        $transferRepo->transactToFixedSavings($toFixedSavingsRequest, Auth::user()->current_account()->first()->id);
 
         Session::flash('flash_message', 'The transfer was successful');
 

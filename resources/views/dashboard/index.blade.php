@@ -8,7 +8,7 @@
 
     @include('dashboard.partials.search_account_form')
 
-    <div style="margin-top: 50px;">
+    <div style="margin-top: 30px;">
         <div class="panel panel-default">
             <div class="panel-body">
                 <a href="{{ route('getFixedAccount') }}" class="btn btn-default center-block" style="background-color: #a8614e; color: white;">
@@ -21,6 +21,14 @@
             <div class="panel-body">
                 <a href="{{ route('getSavingsAccount')}}" class="btn btn-default center-block" style="background-color: #a8614e; color: white;">
                     Savings account
+                </a>
+            </div>
+        </div>
+
+        <div class="panel panel-default" >
+            <div class="panel-body">
+                <a href="{{ route('getFixedAmountSavingsAccount')}}" class="btn btn-default center-block" style="background-color: #a8614e; color: white;">
+                    Fixed amount savings
                 </a>
             </div>
         </div>

@@ -1,4 +1,4 @@
-<form class="form-horizontal" id="searchForm" method="get" action="{{ url('accounts/allAccounts/get') }}" style="padding-top: 15px;">
+<form class="form-horizontal" id="searchForm" method="get" action="{{ url('accounts/allAccounts/get') }}" style="padding-top: 7px;">
 
 <div class="form-group">
     <div class="col-md-4 col-md-offset-3">

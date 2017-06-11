@@ -2,26 +2,25 @@
 
 namespace App\Console\Commands;
 
-use App\Transaction;
-use App\Transaction_records;
 use Illuminate\Console\Command;
+use App\Transaction;
 use App\AccountRate;
 
-class DeductSaving extends Command
+class DeductFixedAmountSavingWeekly extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'deduct:saving';
+    protected $signature = 'deduct:fixedAmountSavingWeekly';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Deducts users savings from the current account to the savings account';
+    protected $description = 'Deducts users savings from the current account to the savings account if they set it weekly';
 
     /**
      * Create a new command instance.
@@ -40,26 +39,22 @@ class DeductSaving extends Command
      */
     public function handle()
     {
-        /**
-         * If transaction_status == 1 then the transaction is still active
-         */
+//        $transactions = Transaction::where('duration', '=', 7)->get();
+        $transactions = Transaction::where('duration', '=', 7)
+                         ->where('transaction_type', '=', 3)
+                         ->where('transaction_status', '=', 1)->get();
 
-
-        $transactions = Transaction::where('duration', '=', 1)
-                                     ->where('transaction_type', '=', 2)
-                                    ->where('transaction_status', '=', 1)->get();
-
-        foreach($transactions as $transaction){
+        foreach ($transactions as $transaction) {
 
             $current_account = $transaction->current_account()->where('id', '=', $transaction->account_id)->first();
 
-            $account_amount =  $current_account->account_amount;
+            $account_amount = $current_account->account_amount;
 
-            if(!($account_amount <= 0)) {
+            if (!($account_amount <= 0)) {
 
-                $amount = ($transaction->percentage / 100) * $current_account->account_amount;
+                $amount = $transaction->deduct_amount;
 
-                $amount_add = ($transaction->percentage / 100) * $current_account->account_amount;
+                $amount_add = $transaction->deduct_amount;
 
                 $transaction_amount = $transaction->transaction_amount;
 
@@ -153,8 +148,8 @@ class DeductSaving extends Command
 
                 if ($withdraw_date < $today) {
 
-
                     if($transaction->transaction_status != 0) {
+
                         $current_account->update([
 
                             'account_amount' => $account_amount + $transaction_amount + $amount
@@ -185,6 +180,88 @@ class DeductSaving extends Command
                     ]);
                 }
             }
+
+
+//        foreach($transactions as $transaction){
+//
+//            $current_account = $transaction->current_account()->where('id', '=', $transaction->account_id)->first();
+//
+//            $account_amount =  $current_account->account_amount;
+//
+//            $amount = ($transaction->percentage/100)*$current_account->account_amount;
+//
+//            $amount_add = ($transaction->percentage/100)*$current_account->account_amount;
+//
+//
+//            if($account_amount > 50000){
+//
+//                $rate = AccountRate::where('id', '=', 1)->first()->category_one;
+//
+//                $rate = ($rate/100);
+//
+//                $amount_add = $amount_add*$rate*0.25;
+//
+//
+//            }elseif($account_amount >= 20000 && $account_amount <= 50000 ){
+//
+//                $rate = AccountRate::where('id', '=', 1)->first()->category_two;
+//
+//                $rate = ($rate/100);
+//
+//                $amount_add = $amount_add*$rate*0.25;
+//
+//
+//            }elseif($account_amount >= 10000 && $account_amount < 20000  ){
+//
+//                $rate = AccountRate::where('id', '=', 1)->first()->category_three;
+//
+//                $rate = ($rate/100);
+//
+//                $amount_add = $amount_add*$rate*0.25;
+//
+//
+//            }elseif($account_amount >0 && $account_amount < 10000){
+//
+//                $rate = AccountRate::where('id', '=', 1)->first()->category_four;
+//
+//                $rate = ($rate/100);
+//
+//                $amount_add = $amount_add*$rate*0.25;
+//
+//            }
+//
+//
+//            $transaction_amount = $transaction->transaction_amount;
+//
+//            $withdraw_date = $transaction->withdraw_date;
+//
+//            $today = (new \Carbon\Carbon())->addHours(3);
+//
+//            if($withdraw_date == $today){
+//
+//                $current_account->update([
+//
+//                    'account_amount' => $account_amount + $transaction_amount
+//                ]);
+//
+//                $transaction->update([
+//
+//                    'transaction_amount' => 0
+//
+//                ]);
+//
+//            }else{
+//
+//                $current_account->update([
+//
+//                    'account_amount' => $account_amount - $amount
+//                ]);
+//
+//                $transaction->update([
+//                    'transaction_amount' => $transaction_amount + $amount_add
+//                ]);
+//            }
+//        }
         }
     }
 }

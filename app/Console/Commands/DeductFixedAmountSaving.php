@@ -7,21 +7,21 @@ use App\Transaction_records;
 use Illuminate\Console\Command;
 use App\AccountRate;
 
-class DeductSaving extends Command
+class DeductFixedAmountSaving extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'deduct:saving';
+    protected $signature = 'deduct:fixedAmountSaving';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Deducts users savings from the current account to the savings account';
+    protected $description = 'Deducts users savings from the current account to the savings account for a fixed amount';
 
     /**
      * Create a new command instance.
@@ -46,8 +46,9 @@ class DeductSaving extends Command
 
 
         $transactions = Transaction::where('duration', '=', 1)
-                                     ->where('transaction_type', '=', 2)
-                                    ->where('transaction_status', '=', 1)->get();
+                                    ->where('transaction_type', '=', 3)
+                                    ->where('transaction_status', '=', 1)
+                                    ->get();
 
         foreach($transactions as $transaction){
 
@@ -57,9 +58,9 @@ class DeductSaving extends Command
 
             if(!($account_amount <= 0)) {
 
-                $amount = ($transaction->percentage / 100) * $current_account->account_amount;
+                $amount = $transaction->deduct_amount;
 
-                $amount_add = ($transaction->percentage / 100) * $current_account->account_amount;
+                $amount_add = $transaction->deduct_amount;
 
                 $transaction_amount = $transaction->transaction_amount;
 

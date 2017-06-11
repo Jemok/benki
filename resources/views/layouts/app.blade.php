@@ -204,7 +204,7 @@
 
 <div class="show-alert col-md-offset-2 hidden" style="margin-top: 60px;">
 </div>
-<div class="container" id="page-content-wrapper" style="padding-top: 50px;">
+<div class="container" id="page-content-wrapper" style="padding-top: 20px;">
     {{--@if(Auth::check())--}}
         {{--@include('dashboard.partials.search_account_form')--}}
     {{--@endif--}}
@@ -353,7 +353,7 @@
         <script>
             $('#dollar').click(function () {
 
-                var amount_span = $('.amount');
+                var amount_span = $('#amount');
 
                 var actual_dollar = $('#actual-dollar');
 
@@ -378,7 +378,7 @@
 
             $('#shilling').click(function () {
 
-                var amount_span = $('.amount');
+                var amount_span = $('#amount');
 
                 var actual_shilling = $('#actual-shilling');
 
@@ -404,11 +404,8 @@
                     }
 
                     actual_shilling.removeClass('new');
-
                 }
-
             });
-
         </script>
     @endif
 

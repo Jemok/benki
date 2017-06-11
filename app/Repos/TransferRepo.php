@@ -51,6 +51,21 @@ class TransferRepo {
         ]);
     }
 
+    public function transactToFixedSavings($request, $account_id){
+
+        Transaction::create([
+
+            'transaction_type' => 3,
+            'deduct_amount' => $request->amount,
+            'account_id' => $account_id,
+//            'percentage' => $request->percentage,
+            'duration' => $request->duration,
+            'rate_pay_count' => 90,
+            'withdraw_date' =>  $request->withdraw_date
+
+        ]);
+    }
+
     /**
      * @return mixed
      */
@@ -73,13 +88,13 @@ class TransferRepo {
     public function getSaving(){
 
         if(Transaction::where('account_id', '=', \Auth::user()->current_account()->first()->id)
-                            ->where('transaction_type', '=', 2)->where('transaction_status', '=', 1)->first() == null){
+                            ->where('transaction_type', '=', 3)->where('transaction_status', '=', 1)->first() == null){
 
             return false;
         }else{
 
             return Transaction::where('account_id', '=', \Auth::user()->current_account()->first()->id)
-                                ->where('transaction_type', '=', 2)->where('transaction_status', '=', 1)->first();
+                                ->where('transaction_type', '=', 3)->where('transaction_status', '=', 1)->first();
 
         }
     }

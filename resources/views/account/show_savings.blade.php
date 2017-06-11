@@ -25,7 +25,7 @@
 
             $amount = \Auth::user()->current_account()->first()->account_amount + $amount;
             ?>
-            <div>
+            <div class="alert alert-info">
                 Tips
                 <p>
                     Save {{\Auth::user()->current_account()->first()->account_amount}}

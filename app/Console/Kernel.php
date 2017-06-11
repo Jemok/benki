@@ -2,6 +2,9 @@
 
 namespace App\Console;
 
+use App\Console\Commands\DeductFixedAmountSaving;
+use App\Console\Commands\DeductFixedAmountSavingMonthly;
+use App\Console\Commands\DeductFixedAmountSavingWeekly;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -18,9 +21,10 @@ class Kernel extends ConsoleKernel
         Commands\DeductSaving::class,
         Commands\DeductSavingWeekly::class,
         Commands\DeductSavingMonthly::class,
+        DeductFixedAmountSaving::class,
+        DeductFixedAmountSavingWeekly::class,
+        DeductFixedAmountSavingMonthly::class,
         Commands\ManageFixed::class
-
-
     ];
 
     /**
@@ -39,6 +43,12 @@ class Kernel extends ConsoleKernel
         $schedule->command('deduct:savingWeekly')->weekly();
 
         $schedule->command('deduct:savingMonthly')->monthly();
+
+        $schedule->command('deduct:fixedAmountSaving')->daily();
+
+        $schedule->command('deduct:fixedAmountSavingWeekly')->weekly();
+
+        $schedule->command('deduct:fixedSavingMonthly')->monthly();
 
         $schedule->command('deduct:ManageFixed')->everyMinute();
     }
