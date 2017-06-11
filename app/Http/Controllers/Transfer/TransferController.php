@@ -54,6 +54,55 @@ class TransferController extends Controller
         return redirect()->back();
     }
 
+    public function storeMany(TransferUsersRepo $transferUsersRepo, Request $transferUserRequest ){
+
+        $user = User::find(Auth::user()->id);
+
+
+        if(!(Hash::check($transferUserRequest->password, $user->password))){
+
+            Session::flash('flash_message_error', 'Wrong Password, Try again');
+
+
+            return redirect()->back();
+        }
+
+
+        $amounts = explode(',', $transferUserRequest->transfer_amount);
+
+        $transfers = explode(',', $transferUserRequest->transfer_to);
+
+
+
+        foreach ($amounts as $transfer_amount){
+            if($transfer_amount > \Auth::user()->current_account()->first()->account_amount){
+
+                Session::flash('flash_message_error', 'You do no have enough cash in your current account to complete the transfer');
+
+                return redirect()->back();
+
+            }
+            foreach ($transfers as $transfer_to){
+                $errors = $transferUsersRepo->storeMany($transfer_amount, $transfer_to, \Auth::user()->id);
+            }
+        }
+
+
+        if(!empty($errors)){
+
+            $errors = implode(',', $errors);
+
+            Session::flash('flash_message_error', 'A transfer error occurred for user ' . $errors . ' Try again later');
+
+            return redirect()->back();
+
+        }
+
+        Session::flash('flash_message', 'The transfer was successful');
+        return redirect()->back();
+    }
+
+
     public function getReceived($user_id, TransferRepo $transferRepo){
 
        $received = $transferRepo->getReceived($user_id);

@@ -93,6 +93,9 @@ Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf']
 
         Route::post('/transfer/user', ['as' => 'transferToUser', 'uses' => 'Transfer\TransferController@store']);
 
+        Route::post('/transfer/user-many', ['as' => 'transferToManyUsers', 'uses' => 'Transfer\TransferController@storeMany']);
+
+
         Route::get('/users/{user_id}',  ['as' => 'userAccounts', 'uses' => 'Account\AccountController@getAccounts']);
 
         Route::get('/users/savings/{user_id}', ['as' => 'userSavings', 'uses' => 'Account\AccountController@getUserSavings']);

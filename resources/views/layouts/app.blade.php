@@ -181,6 +181,12 @@
                         </li>
 
                         <li>
+                            <a href="{{ route('getFixedAmountSavingsAccount')}}" style="color: black; font-weight: bold;" class="text-center">
+                               Fixed amount savings
+                            </a>
+                        </li>
+
+                        <li>
                             <a href="{{ route('getAccountPage') }}" style="color: black; font-weight: bold;" class="text-center">
                                 Chama accounts
                             </a>
@@ -244,8 +250,6 @@
     <script src="{{ asset('js/jquery.growl.js') }}" type="text/javascript"></script>
         <script src="{{asset('js/selectize.min.js')}}"></script>
 
-
-
         <script>
         $.ajaxSetup({
             headers: {
@@ -268,7 +272,30 @@
                 }
             });
 
-//        $('.tag_list').select2({
+            $('#transfer_multiple').selectize({
+                delimiter: ',',
+                persist: false,
+                create: function(input) {
+                    return {
+                        value: input,
+                        text: input
+                    }
+                }
+            });
+
+            $('#multiple_amount').selectize({
+                delimiter: ',',
+                persist: false,
+                create: function(input) {
+                    return {
+                        value: input,
+                        text: input
+                    }
+                }
+            });
+
+
+            //        $('.tag_list').select2({
 //            tags: true,
 //            placeholder: 'Select users',
 //            maximumSelectionLength: 10

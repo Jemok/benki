@@ -88,13 +88,27 @@ class TransferRepo {
     public function getSaving(){
 
         if(Transaction::where('account_id', '=', \Auth::user()->current_account()->first()->id)
-                            ->where('transaction_type', '=', 3)->where('transaction_status', '=', 1)->first() == null){
+                            ->where('transaction_type', '=', 2)->where('transaction_status', '=', 1)->first() == null){
 
             return false;
         }else{
 
             return Transaction::where('account_id', '=', \Auth::user()->current_account()->first()->id)
-                                ->where('transaction_type', '=', 3)->where('transaction_status', '=', 1)->first();
+                                ->where('transaction_type', '=', 2)->where('transaction_status', '=', 1)->first();
+
+        }
+    }
+
+    public function getFixedAmountSavings(){
+
+        if(Transaction::where('account_id', '=', \Auth::user()->current_account()->first()->id)
+                ->where('transaction_type', '=', 3)->where('transaction_status', '=', 1)->first() == null){
+
+            return false;
+        }else{
+
+            return Transaction::where('account_id', '=', \Auth::user()->current_account()->first()->id)
+                ->where('transaction_type', '=', 3)->where('transaction_status', '=', 1)->first();
 
         }
     }

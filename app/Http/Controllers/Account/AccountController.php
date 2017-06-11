@@ -443,7 +443,7 @@ class AccountController extends Controller
      */
     public function getFixedAmountSavings(TransferRepo $transferRepo){
 
-        $saving = $transferRepo->getSaving();
+        $saving = $transferRepo->getFixedAmountSavings();
 
         if($saving == false){
 
