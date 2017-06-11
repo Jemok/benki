@@ -54,7 +54,7 @@ class TransferController extends Controller
         return redirect()->back();
     }
 
-    public function storeMany(TransferUsersRepo $transferUsersRepo, Request $transferUserRequest ){
+    public function storeMany(TransferUsersRepo $transferUsersRepo, TransferUserRequest $transferUserRequest ){
 
         $user = User::find(Auth::user()->id);
 
