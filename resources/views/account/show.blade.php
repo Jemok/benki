@@ -209,7 +209,7 @@
                                                                     </tr>
                                                                 </thead>-->
                                                 <tr>
-                                                    <td>{{$user->name}} - {{ $user->email }}</td>
+                                                    <td>{{$user->name}} - {{ $user->phone_number }}</td>
                                                     <td>
                                                         <form method="post" action="{{ route('deleteUser', [$account_id, $user->id ]) }}">
 

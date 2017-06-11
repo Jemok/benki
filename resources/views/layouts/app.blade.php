@@ -50,11 +50,21 @@
         <p class="navbar-brand">
             <span class="holdsCurrentAccount">
             <span class="navbar-text nav-amount">
-            <span style="color: #000000;">
-               Balance:
+            {{--<span style="color: #000000;">--}}
+               {{--Balance:--}}
+            {{--</span>--}}
+            <span style="color: white;" id="dollar">
+                <span id="actual-dollar">
+                    $
+                </span>
+            </span>
+            <span style="color: white;" id="shilling">
+                <span id="actual-shilling" class="alert alert-info active new">
+                    Kshs
+                </span>
             </span>
                 @if(\Auth::user()->current_account()->exists())
-                    <span class="amount" style="color: white;">{{ number_format(\Auth::user()->current_account()->first()->account_amount, 0)}}</span>
+                    <span id="amount" class="amount" style="color: white;">{{ \Auth::user()->current_account()->first()->account_amount }}</span>
                 @else
                     0
                 @endif
@@ -338,6 +348,67 @@
                 $('.displayAccountBalanceDiv').append(data.html)
 
             }
+        </script>
+
+        <script>
+            $('#dollar').click(function () {
+
+                var amount_span = $('.amount');
+
+                var actual_dollar = $('#actual-dollar');
+
+                var actual_shilling = $('#actual-shilling');
+
+                if(!actual_dollar.hasClass('active') && actual_shilling.hasClass('active') ){
+                    var amount = amount_span.html();
+
+                    var new_amount =  parseInt(amount)/100;
+
+                    amount_span.empty();
+
+                    amount_span.append(new_amount);
+
+                    actual_dollar.addClass('alert alert-info active');
+
+                    actual_shilling.removeClass('alert alert-info active');
+
+                    actual_dollar.addClass('active');
+                }
+            });
+
+            $('#shilling').click(function () {
+
+                var amount_span = $('.amount');
+
+                var actual_shilling = $('#actual-shilling');
+
+                var actual_dollar = $('#actual-dollar');
+
+                if((!actual_shilling.hasClass('active') || actual_shilling.hasClass('new')) && actual_dollar.hasClass('active') ){
+
+                    var amount = amount_span.html();
+
+                    var new_amount =  parseInt(amount) * 100;
+
+                    amount_span.empty();
+
+                    amount_span.append(new_amount);
+
+                    actual_shilling.addClass('alert alert-info active');
+
+                    actual_dollar.removeClass('alert alert-info active');
+
+
+                    if(!actual_shilling.addClass('new')){
+                        actual_shilling.addClass('active');
+                    }
+
+                    actual_shilling.removeClass('new');
+
+                }
+
+            });
+
         </script>
     @endif
 
