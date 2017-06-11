@@ -74,7 +74,7 @@
         <div class="form-group">
                 <div class="col-md-6">
                     <button type="submit" class="btn btn-amount btn-sm center-block" disabled>
-                        <i class="fa fa-lock" aria-hidden="true"></i>Kshs {{$saving->transaction_amount }} saved
+                        <i class="fa fa-lock" aria-hidden="true"></i>Locked - {{$saving->transaction_amount }}
                     </button>
                 </div>
         </div>

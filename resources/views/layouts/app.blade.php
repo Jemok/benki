@@ -53,16 +53,16 @@
             {{--<span style="color: #000000;">--}}
                {{--Balance:--}}
             {{--</span>--}}
-            <span style="color: white;" id="dollar">
-                <span id="actual-dollar">
-                    $
-                </span>
-            </span>
-            <span style="color: white;" id="shilling">
-                <span id="actual-shilling" class="alert alert-info active new">
-                    Kshs
-                </span>
-            </span>
+            {{--<span style="color: white;" id="dollar">--}}
+                {{--<span id="actual-dollar">--}}
+                    {{--$--}}
+                {{--</span>--}}
+            {{--</span>--}}
+            {{--<span style="color: white;" id="shilling">--}}
+                {{--<span id="actual-shilling" class="alert alert-info active new">--}}
+                    {{--Kshs--}}
+                {{--</span>--}}
+            {{--</span>--}}
                 @if(\Auth::user()->current_account()->exists())
                     <span id="amount" class="amount" style="color: white;">{{ \Auth::user()->current_account()->first()->account_amount }}</span>
                 @else

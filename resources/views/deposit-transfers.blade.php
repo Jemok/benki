@@ -33,16 +33,16 @@
     </div>
 
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel">
-                <div class="panel-heading panel-top"><strong>Transfer to multiple members </strong></div>
+    {{--<div class="row">--}}
+        {{--<div class="col-md-12">--}}
+            {{--<div class="panel">--}}
+                {{--<div class="panel-heading panel-top"><strong>Transfer to multiple members </strong></div>--}}
 
-                <div class="panel-body panel-left-border">
-                    @include('account.partials.transfer_multiple')
-                </div>
-            </div>
-        </div>
-    </div>
+                {{--<div class="panel-body panel-left-border">--}}
+                    {{--@include('account.partials.transfer_multiple')--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
 @endsection
