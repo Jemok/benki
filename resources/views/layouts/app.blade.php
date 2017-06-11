@@ -50,9 +50,9 @@
         <p class="navbar-brand">
             <span class="holdsCurrentAccount">
             <span class="navbar-text nav-amount">
-            {{--<span style="color: #000000;">--}}
-               {{--Balance:--}}
-            {{--</span>--}}
+            <span style="color: #000000;">
+               Balance:
+            </span>
             {{--<span style="color: white;" id="dollar">--}}
                 {{--<span id="actual-dollar">--}}
                     {{--$--}}
