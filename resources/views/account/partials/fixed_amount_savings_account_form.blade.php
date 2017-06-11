@@ -77,9 +77,9 @@
         <div class="col-md-3 col-sm-offset-1 ">
             <button type="submit" class="btn btn-savings btn-sm center-block" @if(\Auth::user()->current_account->account_amount == 0) disabled @endif>
                 @if(\Auth::user()->current_account->account_amount != 0)
-                    <i class="fa fa-btn fa-sign-in"></i>Save
+                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>Save
                 @else
-                    <i class="fa fa-btn fa-sign-in"></i>Low Balance
+                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>Low Balance
                 @endif
             </button>
         </div>

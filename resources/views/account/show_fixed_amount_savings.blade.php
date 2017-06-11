@@ -41,6 +41,7 @@
 
                     @if($saving != null)
 
+                        <div class="alert alert-info">
                         <h5>
 
                             <strong>Your savings rate :</strong><span class="amount">{{$saving->deduct_amount}}</span> <br>
@@ -70,7 +71,7 @@
                         <h5>
                             <strong>Savings Account has Kshs: <span class="amount">{{$saving->transaction_amount}}</span></strong>
                         </h5>
-
+                        </div>
                         @include('account.partials.fixed_amount_savings_account_update_form')
 
                     @endif
