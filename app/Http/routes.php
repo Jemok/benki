@@ -100,6 +100,9 @@ Route::group(['middleware' => 'web', 'prefix' => 'accounts', 'before' => 'csrf']
 
         Route::get('/users/savings/{user_id}', ['as' => 'userSavings', 'uses' => 'Account\AccountController@getUserSavings']);
 
+        Route::get('/users/fixed-amount-savings/{user_id}', ['as' => 'userFixedAmountSavings', 'uses' => 'Account\AccountController@getUserFixedAmountSavings']);
+
+
         Route::get('/savings/records/{saving_id}', ['as' => 'savingRecords', 'uses' => 'Account\AccountController@savingRecords']);
 
         Route::get('/fixed/records/{user_id}', ['as' => 'fixedRecords', 'uses' => 'Account\AccountController@fixedRecords']);

@@ -638,6 +638,20 @@ class AccountController extends Controller
         return view('savings.user_savings', compact('user_savings', 'savings_count'));
     }
 
+    public function getUserFixedAmountSavings($user_id, AccountRepo $accountRepo){
+
+        $user_fixed_savings = $accountRepo->getUserFixedAmountSavings($user_id);
+
+        if($user_fixed_savings == null){
+
+            $savings_fixed_count = 0;
+        }else{
+            $savings_fixed_count = 1;
+        }
+
+        return view('savings.user_fixed_savings', compact('user_fixed_savings', 'savings_fixed_count'));
+    }
+
     public function savingRecords($saving_id, AccountRepo $accountRepo){
 
         $saving_records = $accountRepo->getSavingsRecords($saving_id);

@@ -25,7 +25,7 @@
 
             $amount = \Auth::user()->current_account()->first()->account_amount + $amount;
             ?>
-            <div class="alert alert-info">
+            <div class="alert alert-success">
                 Tips
                 <p>
                     Save {{\Auth::user()->current_account()->first()->account_amount}}
@@ -45,7 +45,7 @@
 
                     @if($saving != null)
 
-                        <div class="alert alert-info">
+                        <div class="alert alert-success">
                         <h5>
 
                             <strong>Your savings rate :</strong><span class="amount">{{$saving->percentage}} %</span> <br>

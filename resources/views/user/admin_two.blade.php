@@ -34,6 +34,9 @@
                                                 Savings
                                             </td>
                                             <td>
+                                                Fixed Amount Savings
+                                            </td>
+                                            <td>
                                                 Fixed
                                             </td>
                                             <td>
@@ -63,6 +66,7 @@
                                                 <td>{{$user->phone_number}}</td>
                                                 <td><a href="{{ route('userAccounts', [$user->id]) }}">Accounts</a></td>
                                                 <td><a href="{{ route('userSavings', [$user->id]) }}">Savings</a></td>
+                                                <td><a href="{{ route('userFixedAmountSavings', [$user->id]) }}">Fixed Amount Savings</a></td>
                                                 <td><a href="{{ route('fixedRecords', [$user->id]) }}">Fixed</a></td>
                                                 <td><a href="{{ route('receivedTransfers', [$user->id]) }}">Received</a></td>
                                                 <td><a href="{{ route('sentTransfers', [$user->id]) }}">Sent</a></td>

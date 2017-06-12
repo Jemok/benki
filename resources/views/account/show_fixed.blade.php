@@ -27,7 +27,7 @@
 
             $amount = \Auth::user()->current_account()->first()->account_amount + $amount;
             ?>
-            <div class="alert alert-info">
+            <div class="alert alert-success">
                 Tips
                 <p>
                     Save {{\Auth::user()->current_account()->first()->account_amount}}
@@ -43,7 +43,7 @@
                 <div class="panel-heading panel-top"><strong>Fixed savings</strong></div>
                 <div class="panel-body panel-left-border">
                     @if($fixed != null)
-                        <div class="alert alert-info">
+                        <div class="alert alert-success">
                             <span class="text">You have Kshs:</span>
                             <span class="amount">{{$fixed->transaction_amount}} </span>
                             <span class="text">in your fixed account.</span><br>

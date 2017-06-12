@@ -159,6 +159,22 @@ class AccountRepo {
         }
     }
 
+    public function getUserFixedAmountSavings($user_id){
+
+        $user = User::findOrFail($user_id);
+
+        if($user->current_account()->exists()) {
+            $account_id = $user->current_account()->first()->id;
+        }else{
+            $account_id = 0;
+        }
+        if(Transaction::where('account_id', $account_id)->exists()){
+            return Transaction::where('account_id', $account_id)->where('transaction_type', 3)->paginate(10);
+        }else{
+            return null;
+        }
+    }
+
     public function getSavingsRecords($savings_id){
 
         if(Transaction_records::where('account_transaction_id', '=', $savings_id)->exists()){

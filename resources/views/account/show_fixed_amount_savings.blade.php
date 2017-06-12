@@ -23,7 +23,7 @@
 
             $amount = \Auth::user()->current_account()->first()->account_amount + $random_rate;
             ?>
-            <div class="alert alert-info">
+            <div class="alert alert-success">
                 Tips
                 <p>
                     Save {{$random_rate}}
@@ -41,7 +41,7 @@
 
                     @if($saving != null)
 
-                        <div class="alert alert-info">
+                        <div class="alert alert-success">
                         <h5>
 
                             <strong>Your savings rate :</strong><span class="amount">{{$saving->deduct_amount}}</span> <br>
