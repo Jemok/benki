@@ -6,9 +6,9 @@
 
 
     {{--<div class="row">--}}
-        {{--<div class="col-md-3">--}}
-            {{--<a href="{{ url('/home') }}" class="navigation"> <i class="fa fa-btn fa-angle-double-left"></i>Back</a>--}}
-        {{--</div>--}}
+    {{--<div class="col-md-3">--}}
+    {{--<a href="{{ url('/home') }}" class="navigation"> <i class="fa fa-btn fa-angle-double-left"></i>Back</a>--}}
+    {{--</div>--}}
     {{--</div>--}}
     {{--@include('partials.back')--}}
 
@@ -17,15 +17,15 @@
         <div class="col-md-8 col-md-offset-2">
 
             <?php
-                $random_rate = random_int(1, 10);
+            $random_rate = random_int(1, 10);
 
-                $periods = [1, 7, 30];
+            $periods = [1, 7, 30];
 
-                $period = $periods[array_rand($periods, 1)];
+            $period = $periods[array_rand($periods, 1)];
 
-                $amount = ($random_rate/100) * \Auth::user()->current_account()->first()->account_amount;
+            $amount = ($random_rate/100) * \Auth::user()->current_account()->first()->account_amount;
 
-                $amount = \Auth::user()->current_account()->first()->account_amount + $amount;
+            $amount = \Auth::user()->current_account()->first()->account_amount + $amount;
             ?>
             <div class="alert alert-info">
                 Tips
