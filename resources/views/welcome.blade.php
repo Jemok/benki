@@ -4,8 +4,8 @@
     {{--Welcome to--}}
     {{--<br> HBnk--}}
     {{--</h1>--}}
-    <div style="margin-left: 15%;">
-        <img src="{{ asset('images/logo.jpg') }}" height="230" width="230" alt="">
+    <div style="margin-left: 4%;">
+        <img src="{{ asset('images/logo.jpg') }}" height="300" width="300" alt="">
     </div>
     <div style="margin-left: 35%;">
         <p class="paragraph-content">
