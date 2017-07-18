@@ -7,8 +7,8 @@
     <div style="margin-left: 4%;">
         <img src="{{ asset('images/logo.jpg') }}" height="300" width="300" alt="">
     </div>
-    <div style="margin-left: 35%;">
-        <p class="paragraph-content">
+    <div style="margin-left: 25%;">
+        <p class="paragraph-content" style="font-weight: bold; font-size: large;">
             Virtual Bank
         </p>
     </div>
