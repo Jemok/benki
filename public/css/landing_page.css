@@ -1,6 +1,7 @@
 .landing-page
 {
-    background-color: #a8614e;
+    /*background-color: #a8614e;*/
+    background-color: white;
 }
 .header-content
 {
@@ -13,10 +14,10 @@
 }
 .paragraph-content
 {
-    font-size: 15px;
+    font-size: 10px;
     font-family: Arial;
     text-align: left;
-    padding-left: 29px;
+    padding-left: 9%;
     color: #000000;
     font-weight: bolder;
 }
@@ -27,7 +28,8 @@
 }
 .sign-up
 {
-    background-color: #FFFFFF;
+    /*background-color: #FFFFFF;*/
+    background-color: #a8614e;;
     border: solid #FFFFFF;
     border-radius: 8px;
     color: #000000;
@@ -35,7 +37,8 @@
 }
 .login
 {
-    background-color: #FFFFFF;
+    /*background-color: #FFFFFF;*/
+    background-color: #a8614e;
     color: #000000;
     font-weight: bold;
     border: solid #FFFFFF;
