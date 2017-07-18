@@ -9,9 +9,9 @@
         </div>
     </div>
 
-    <div class="row" style="background-color: #a8614e;">
-        <div class="col-md-8 col-md-offset-2" style="background-color: #a8614e;">
-            <div class="panel " style="background-color: #a8614e;">
+    <div class="row" style="background-color: #FFFFFF;">
+        <div class="col-md-8 col-md-offset-2" style="background-color: #FFFFFF;">
+            <div class="panel " style="background-color: #FFFFFF;">
                 {{--<div class="panel-heading panel-top">Register</div>--}}
                 <div class="panel-body panel-left-border" style="margin-top: 40px;">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">

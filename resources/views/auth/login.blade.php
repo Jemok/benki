@@ -8,9 +8,9 @@
             <a href="{{ url('/') }}" class="navigation"> <i class="fa fa-btn fa-angle-double-left"></i>Back</a>
         </div>
     </div>
-    <div class="row" style="background-color: #a8614e; margin-top: 100px;">
-        <div class="col-md-8 col-md-offset-2" style="background-color: #a8614e;">
-            <div class="panel" style="background-color: #a8614e;">
+    <div class="row" style="background-color: #FFFFFF; margin-top: 100px;">
+        <div class="col-md-8 col-md-offset-2" style="background-color: #FFFFFF;">
+            <div class="panel" style="background-color: #FFFFFF;">
                 {{--<div class="panel-heading panel-top">Login</div>--}}
                 <div class="panel-body panel-left-border">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
