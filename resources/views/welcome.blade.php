@@ -4,10 +4,10 @@
     {{--Welcome to--}}
     {{--<br> HBnk--}}
     {{--</h1>--}}
-    <div style="margin-left: 8%;">
+    <div style="margin-left: 9%;">
         <img src="{{ asset('images/logo.jpg') }}" height="200" width="200" alt="">
     </div>
-    <div style="margin-left: 10%;">
+    <div style="margin-left: 12%;">
         <p class="paragraph-content">
             Revolutionary Mobile Banking
         </p>
