@@ -30,7 +30,7 @@
     {{--</style>--}}
 </head>
 
-<body class="landing-page" style="margin-top: 14%;">
+<body class="landing-page" style="margin-top: 10%;">
 
 @yield('content')
 
